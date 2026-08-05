@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>白马联创 · 抖音电商千川短视频带货核心合伙人圈层</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#050508;--bg-card:#0c0c12;--bg-card-alt:#10101a;--bg-hover:#14141e;
+  --accent:#c9a84c;--accent-light:#e8d48b;
+  --accent-soft:rgba(201,168,76,0.08);--accent-border:rgba(201,168,76,0.2);--accent-glow:rgba(201,168,76,0.15);
+  --text:#eae6dc;--text-2:#9e9a90;--text-3:#5f5b53;
+  --border:rgba(255,255,255,0.05);--green:#5cb87a;
+  --serif:'Noto Serif SC',serif;--sans:'Noto Sans SC',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.85;font-weight:300;font-size:15px;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 20% 10%,rgba(201,168,76,0.04) 0%,transparent 50%),radial-gradient(ellipse at 80% 90%,rgba(201,168,76,0.03) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,rgba(201,168,76,0.015) 0%,transparent 70%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,5,8,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1),background 0.3s;}
+nav.hidden{transform:translateY(-100%);}
+nav.scrolled{background:rgba(5,5,8,0.95);border-bottom-color:var(--accent-border);}
+nav .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:60px;}
+nav .logo{font-family:var(--serif);font-weight:900;font-size:16px;letter-spacing:6px;color:var(--accent);cursor:pointer;position:relative;}
+nav .logo::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:1px;background:var(--accent);opacity:0.3;}
+nav .nav-links{display:flex;gap:32px;}
+nav .nav-links a{font-size:12px;color:var(--text-2);text-decoration:none;letter-spacing:2px;transition:color 0.3s;position:relative;}
+nav .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--accent);transition:width 0.3s;}
+nav .nav-links a:hover{color:var(--accent);}
+nav .nav-links a:hover::after{width:100%;}
+nav .nav-cta{font-size:11px;letter-spacing:3px;padding:8px 24px;border:1px solid var(--accent-border);color:var(--accent);text-decoration:none;transition:all 0.3s;position:relative;overflow:hidden;cursor:pointer;background:transparent;font-family:var(--sans);}
+nav .nav-cta::before{content:'';position:absolute;inset:0;background:var(--accent);transform:translateX(-100%);transition:transform 0.3s;}
+nav .nav-cta:hover{color:var(--bg);}
+nav .nav-cta:hover::before{transform:translateX(0);}
+nav .nav-cta span{position:relative;z-index:1;}
+.nav-mobile-btn{display:none;background:none;border:1px solid var(--accent-border);color:var(--accent);width:40px;height:40px;cursor:pointer;font-size:18px;font-family:var(--sans);}
+.nav-mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(5,5,8,0.98);border-bottom:1px solid var(--border);padding:20px 32px;z-index:99;}
+.nav-mobile-menu.open{display:block;}
+.nav-mobile-menu a{display:block;padding:12px 0;font-size:14px;color:var(--text-2);text-decoration:none;letter-spacing:2px;border-bottom:1px solid var(--border);transition:color 0.3s;}
+.nav-mobile-menu a:last-child{border-bottom:none;}
+.nav-mobile-menu a:hover{color:var(--accent);}
+@media(max-width:768px){nav .nav-links{display:none;}nav .nav-mobile-btn{display:flex;align-items:center;justify-content:center;}}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px;position:relative;z-index:1;}
+section{padding:120px 0;position:relative;}
+.sec-head{margin-bottom:60px;}
+.sec-tag{display:inline-flex;align-items:center;gap:12px;font-size:11px;letter-spacing:5px;color:var(--accent);text-transform:uppercase;margin-bottom:20px;font-weight:400;}
+.sec-tag::before{content:'';width:24px;height:1px;background:var(--accent);}
+.sec-title{font-family:var(--serif);font-weight:700;font-size:clamp(1.6rem,3.5vw,2.2rem);letter-spacing:3px;margin-bottom:16px;}
+.sec-desc{color:var(--text-2);font-size:14px;max-width:640px;line-height:2;}
+@media(max-width:768px){section{padding:80px 0;}.sec-head{margin-bottom:40px;}}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 32px 80px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);animation:pulse 4s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:0.5;transform:translate(-50%,-50%) scale(1);}50%{opacity:1;transform:translate(-50%,-50%) scale(1.1);}}
+.hero-content{position:relative;z-index:1;max-width:700px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 24px;border:1px solid var(--accent-border);font-size:10px;letter-spacing:6px;color:var(--accent);margin-bottom:48px;opacity:0;animation:fadeD .8s cubic-bezier(0.16,1,0.3,1) .3s forwards;}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;animation:blink 2s ease infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.5rem,7vw,4.2rem);letter-spacing:12px;margin-bottom:20px;background:linear-gradient(135deg,var(--text) 0%,var(--accent) 50%,var(--text) 100%);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:0;animation:fadeU .9s cubic-bezier(0.16,1,0.3,1) .5s forwards,shimmer 3s ease-in-out infinite 1.5s;}
+@keyframes shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
+.hero p{font-size:15px;color:var(--text-2);max-width:500px;margin:0 auto 56px;letter-spacing:1px;opacity:0;animation:fadeU .9s cubic-bezier(0.16,1,0.3,1) .7s forwards;}
+.hero-cta-group{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;opacity:0;animation:fadeU .9s cubic-bezier(0.16,1,0.3,1) .9s forwards;}
+.hero-btn{padding:14px 36px;font-size:12px;letter-spacing:3px;border:1px solid var(--accent);color:var(--accent);text-decoration:none;transition:all 0.3s;cursor:pointer;font-family:var(--sans);background:transparent;position:relative;overflow:hidden;}
+.hero-btn::before{content:'';position:absolute;inset:0;background:var(--accent);transform:translateY(100%);transition:transform 0.3s;}
+.hero-btn:hover{color:var(--bg);}
+.hero-btn:hover::before{transform:translateY(0);}
+.hero-btn span{position:relative;z-index:1;}
+.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeU .9s cubic-bezier(0.16,1,0.3,1) 1.2s forwards;}
+.hero-scroll span{font-size:10px;letter-spacing:4px;color:var(--text-3);}
+.scroll-line{width:1px;height:40px;background:linear-gradient(var(--accent),transparent);position:relative;overflow:hidden;}
+.scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--accent);animation:scrollDown 2s ease infinite;}
+@keyframes scrollDown{0%{top:-100%;}100%{top:100%;}}
+@keyframes fadeU{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeD{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:768px){.hero{padding:100px 24px 60px;min-height:auto;}.hero h1{letter-spacing:6px;}}
+
+/* ── DATA MARQUEE ── */
+.marquee-section{padding:0;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-card-alt);}
+.marquee-track{display:flex;animation:marquee 30s linear infinite;width:max-content;}
+.marquee-track:hover{animation-play-state:paused;}
+.marquee-item{display:flex;align-items:center;gap:16px;padding:20px 48px;white-space:nowrap;}
+.marquee-item .mi-num{font-family:var(--serif);font-weight:900;font-size:20px;color:var(--accent);}
+.marquee-item .mi-label{font-size:12px;color:var(--text-2);letter-spacing:2px;}
+.marquee-item .mi-dot{width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:56px;}
+.about-cell{background:var(--bg-card);padding:48px 36px;transition:background 0.3s;}
+.about-cell:hover{background:var(--bg-card-alt);}
+.about-cell h3{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--accent);margin-bottom:16px;letter-spacing:2px;}
+.about-cell p{font-size:13px;color:var(--text-2);line-height:2.1;}
+.about-strengths{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.strength{background:var(--bg-card);padding:40px 28px;transition:all 0.4s;position:relative;overflow:hidden;}
+.strength::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+.strength:hover{background:var(--bg-hover);}
+.strength:hover::before{transform:scaleX(1);}
+.strength .num{font-family:var(--serif);font-weight:900;font-size:32px;color:rgba(201,168,76,0.12);margin-bottom:16px;line-height:1;}
+.strength h4{font-weight:500;font-size:14px;margin-bottom:10px;letter-spacing:1px;}
+.strength p{font-size:12px;color:var(--text-2);line-height:1.9;}
+.about-tagline{text-align:center;margin-top:56px;font-family:var(--serif);font-size:17px;color:var(--text-2);letter-spacing:3px;}
+.about-tagline strong{color:var(--accent);font-weight:700;}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;}.about-strengths{grid-template-columns:1fr 1fr;}.about-cell{padding:32px 24px;}}
+@media(max-width:480px){.about-strengths{grid-template-columns:1fr;}}
+
+/* ── TEAM ── */
+.team-leads{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px;}
+.team-lead{background:var(--bg-card);border:1px solid var(--border);padding:48px 40px;position:relative;overflow:hidden;transition:all 0.4s;}
+.team-lead::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(201,168,76,0.05) 0%,transparent 50%);opacity:0;transition:opacity 0.4s;}
+.team-lead:hover{border-color:var(--accent-border);transform:translateY(-4px);}
+.team-lead:hover::before{opacity:1;}
+.team-lead-header{display:flex;align-items:center;gap:24px;margin-bottom:28px;position:relative;z-index:1;}
+.avatar-wrap{position:relative;width:96px;height:96px;flex-shrink:0;}
+.avatar-ring{position:absolute;inset:-3px;border-radius:50%;border:2px solid transparent;background:conic-gradient(from 0deg,var(--accent),transparent,var(--accent)) border-box;-webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:rotate 4s linear infinite;}
+@keyframes rotate{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.avatar-img{width:96px;height:96px;border-radius:50%;object-fit:cover;display:block;position:relative;z-index:1;}
+.avatar-placeholder{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--accent-soft),rgba(201,168,76,0.2));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:32px;color:var(--accent);position:relative;z-index:1;}
+.team-lead-info{flex:1;}
+.team-lead-info .role{font-size:11px;letter-spacing:4px;color:var(--accent);margin-bottom:8px;font-weight:400;}
+.team-lead-info .name{font-family:var(--serif);font-weight:700;font-size:24px;margin-bottom:4px;letter-spacing:2px;}
+.team-lead-info .wx{font-size:13px;color:var(--text-3);letter-spacing:1px;cursor:pointer;transition:color 0.3s;display:inline-flex;align-items:center;gap:6px;}
+.team-lead-info .wx:hover{color:var(--accent);}
+.team-lead-info .wx .copy-icon{font-size:11px;opacity:0.5;}
+.team-lead-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;position:relative;z-index:1;}
+.team-lead-tags span{font-size:11px;padding:5px 14px;border:1px solid var(--accent-border);color:var(--text-2);letter-spacing:1px;transition:all 0.3s;}
+.team-lead-tags span:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);}
+.team-lead-motto{font-size:13px;color:var(--text-2);font-style:italic;border-left:2px solid var(--accent);padding-left:20px;line-height:2;position:relative;z-index:1;}
+.team-note{text-align:center;font-size:13px;color:var(--text-3);letter-spacing:2px;}
+.team-note strong{color:var(--accent);font-weight:500;}
+@media(max-width:768px){.team-leads{grid-template-columns:1fr;}.team-lead{padding:32px 24px;}}
+
+/* ── TERMS ── */
+.terms-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.term-item{background:var(--bg-card);padding:28px;transition:background 0.3s;}
+.term-item:hover{background:var(--bg-card-alt);}
+.term-item h4{font-weight:500;font-size:14px;margin-bottom:8px;letter-spacing:1px;}
+.term-item p{font-size:12px;color:var(--text-2);line-height:1.9;}
+@media(max-width:768px){.terms-grid{grid-template-columns:1fr;}}
+
+/* ── TIERS ── */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px;}
+.tier{background:var(--bg-card);border:1px solid var(--border);padding:48px 32px 40px;position:relative;display:flex;flex-direction:column;transition:all 0.4s;overflow:hidden;}
+.tier::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity 0.4s;}
+.tier:hover{border-color:var(--accent-border);transform:translateY(-6px);}
+.tier:hover::before{opacity:1;}
+.tier.hot{border-color:var(--accent);background:linear-gradient(180deg,rgba(201,168,76,0.06) 0%,var(--bg-card) 60%);}
+.tier.hot::after{content:'推荐';position:absolute;top:16px;right:16px;font-size:10px;letter-spacing:3px;padding:4px 12px;background:var(--accent);color:var(--bg);font-weight:500;}
+.tier-label{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:3px;margin-bottom:6px;}
+.tier-sub{font-size:12px;color:var(--text-3);margin-bottom:28px;letter-spacing:1px;}
+.tier-price{font-family:var(--serif);font-weight:900;font-size:28px;color:var(--accent);margin-bottom:4px;}
+.tier-price small{font-size:14px;font-weight:400;}
+.tier-price-note{font-size:11px;color:var(--text-3);margin-bottom:32px;line-height:1.6;}
+.tier-hr{width:100%;height:1px;background:var(--border);margin-bottom:28px;}
+.tier-list{list-style:none;flex:1;margin-bottom:32px;}
+.tier-list li{font-size:13px;color:var(--text-2);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.03);display:flex;gap:12px;align-items:baseline;}
+.tier-list li::before{content:'—';color:var(--accent);flex-shrink:0;font-weight:700;}
+.tier-foot{font-size:12px;color:var(--text-3);padding:16px 20px;background:rgba(255,255,255,0.02);border:1px solid var(--border);line-height:1.8;}
+.tier-foot strong{color:var(--text-2);font-weight:500;}
+.tier-btn{margin-top:20px;padding:12px 0;text-align:center;border:1px solid var(--accent-border);color:var(--accent);font-size:12px;letter-spacing:3px;cursor:pointer;background:transparent;font-family:var(--sans);transition:all 0.3s;position:relative;overflow:hidden;}
+.tier-btn::before{content:'';position:absolute;inset:0;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.tier-btn:hover{color:var(--bg);}
+.tier-btn:hover::before{transform:scaleX(1);}
+.tier-btn span{position:relative;z-index:1;}
+@media(max-width:900px){.tiers{grid-template-columns:1fr;}}
+
+.upgrade-note{text-align:center;padding:32px;border:1px solid var(--border);background:var(--bg-card);}
+.upgrade-note p{font-size:13px;color:var(--text-2);}
+.upgrade-note strong{color:var(--accent);font-weight:500;}
+
+/* ── REVENUE ── */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:44px;}
+.rev-card{background:var(--bg-card);border:1px solid var(--border);padding:40px 32px;text-align:center;transition:all 0.4s;}
+.rev-card:hover{border-color:var(--accent-border);transform:translateY(-4px);}
+.rev-card .stage{font-size:11px;letter-spacing:4px;color:var(--accent);margin-bottom:20px;}
+.rev-card .metric{font-family:var(--serif);font-weight:700;font-size:24px;margin-bottom:6px;}
+.rev-card .metric-sub{font-size:12px;color:var(--text-3);margin-bottom:24px;}
+.rev-card .detail{font-size:13px;color:var(--text-2);line-height:1.9;}
+.rev-disclaimer{text-align:center;font-size:12px;color:var(--text-3);padding:20px 28px;border:1px dashed var(--border);max-width:620px;margin:0 auto;line-height:2;}
+@media(max-width:768px){.rev-grid{grid-template-columns:1fr;}}
+
+/* ── STRATEGIES ── */
+.strat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px;}
+.strat{background:var(--bg-card);border:1px solid var(--border);padding:40px 32px;transition:all 0.4s;position:relative;}
+.strat::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+.strat:hover{border-color:var(--accent-border);transform:translateY(-4px);}
+.strat:hover::before{transform:scaleX(1);}
+.strat .strat-icon{font-size:24px;margin-bottom:20px;display:block;}
+.strat h4{font-family:var(--serif);font-weight:700;font-size:17px;margin-bottom:14px;letter-spacing:2px;}
+.strat p{font-size:13px;color:var(--text-2);line-height:2;}
+.strat-note{text-align:center;padding:32px;border:1px solid var(--border);background:var(--bg-card);}
+.strat-note p{font-size:13px;color:var(--text-2);}
+.strat-note strong{color:var(--accent);font-weight:500;}
+@media(max-width:768px){.strat-grid{grid-template-columns:1fr;}}
+
+/* ── FAQ ── */
+.faq-list{display:flex;flex-direction:column;gap:12px;}
+.faq{background:var(--bg-card);border:1px solid var(--border);overflow:hidden;transition:all 0.3s;}
+.faq:hover{border-color:var(--accent-border);}
+.faq-q{padding:24px 32px;font-size:14px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;letter-spacing:0.5px;user-select:none;}
+.faq-q::after{content:'+';font-size:20px;color:var(--accent);flex-shrink:0;transition:transform 0.3s;}
+.faq.open .faq-q::after{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1),padding 0.3s;padding:0 32px;font-size:13px;color:var(--text-2);line-height:2.1;}
+.faq.open .faq-a{max-height:300px;padding:0 32px 24px;}
+
+/* ── PROCESS ── */
+.proc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.proc{background:var(--bg-card);padding:40px 32px;transition:background 0.3s;}
+.proc:hover{background:var(--bg-hover);}
+.proc .num{font-family:var(--serif);font-weight:900;font-size:36px;color:rgba(201,168,76,0.1);margin-bottom:16px;line-height:1;}
+.proc h4{font-weight:500;font-size:15px;margin-bottom:12px;letter-spacing:1px;}
+.proc p{font-size:12px;color:var(--text-2);line-height:1.9;}
+@media(max-width:768px){.proc-grid{grid-template-columns:1fr;}}
+
+/* ── CTA ── */
+.cta-section{text-align:center;padding:120px 0 140px;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,0.06) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);}
+.cta-section .sec-head{display:flex;flex-direction:column;align-items:center;}
+.cta-section .sec-desc{text-align:center;margin:0 auto 56px;}
+.cta-contacts{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;}
+.cta-card{display:flex;align-items:center;gap:24px;padding:24px 36px;border:1px solid var(--accent-border);background:var(--bg-card);transition:all 0.4s;position:relative;overflow:hidden;cursor:pointer;}
+.cta-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.05),transparent);opacity:0;transition:opacity 0.3s;}
+.cta-card:hover{border-color:var(--accent);transform:translateY(-2px);}
+.cta-card:hover::before{opacity:1;}
+.cta-card .label{font-size:11px;color:var(--text-3);letter-spacing:3px;margin-bottom:4px;}
+.cta-card .id{font-size:18px;color:var(--accent);font-weight:500;letter-spacing:2px;}
+@media(max-width:768px){.cta-contacts{flex-direction:column;align-items:center;}.cta-card{width:100%;max-width:320px;justify-content:center;}}
+
+footer{border-top:1px solid var(--border);padding:40px 0;text-align:center;}
+footer p{font-size:11px;color:var(--text-3);letter-spacing:3px;}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);}
+.reveal.v{opacity:1;transform:translateY(0);}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);}
+.reveal-left.v{opacity:1;transform:translateX(0);}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);}
+.reveal-right.v{opacity:1;transform:translateX(0);}
+.stagger>*:nth-child(1){transition-delay:0s;}
+.stagger>*:nth-child(2){transition-delay:0.1s;}
+.stagger>*:nth-child(3){transition-delay:0.2s;}
+.stagger>*:nth-child(4){transition-delay:0.3s;}
+.stagger>*:nth-child(5){transition-delay:0.4s;}
+.stagger>*:nth-child(6){transition-delay:0.5s;}
+.stagger>*:nth-child(7){transition-delay:0.6s;}
+.stagger>*:nth-child(8){transition-delay:0.7s;}
+
+/* ── MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,0.8);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s;}
+.modal-overlay.active{display:flex;opacity:1;}
+.modal{background:var(--bg-card);border:1px solid var(--accent-border);padding:48px 40px;max-width:480px;width:90%;position:relative;transform:scale(0.9);transition:transform 0.3s;}
+.modal-overlay.active .modal{transform:scale(1);}
+.modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border:1px solid var(--border);background:transparent;color:var(--text-3);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all 0.3s;}
+.modal-close:hover{border-color:var(--accent);color:var(--accent);}
+.modal h3{font-family:var(--serif);font-weight:700;font-size:20px;letter-spacing:2px;margin-bottom:8px;color:var(--accent);}
+.modal .modal-sub{font-size:13px;color:var(--text-3);margin-bottom:32px;letter-spacing:1px;}
+.modal-contact-item{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border:1px solid var(--border);margin-bottom:12px;transition:all 0.3s;}
+.modal-contact-item:hover{border-color:var(--accent-border);background:var(--accent-soft);}
+.modal-contact-item .mc-label{font-size:12px;color:var(--text-3);letter-spacing:1px;}
+.modal-contact-item .mc-value{font-size:15px;color:var(--accent);font-weight:500;letter-spacing:1px;}
+.modal-contact-item .mc-copy{padding:6px 14px;border:1px solid var(--accent-border);background:transparent;color:var(--accent);font-size:11px;letter-spacing:2px;cursor:pointer;font-family:var(--sans);transition:all 0.3s;}
+.modal-contact-item .mc-copy:hover{background:var(--accent);color:var(--bg);}
+.modal-contact-item .mc-copy.copied{background:var(--green);border-color:var(--green);color:var(--bg);}
+
+.toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(100px);padding:14px 28px;background:var(--bg-card);border:1px solid var(--accent);color:var(--accent);font-size:13px;letter-spacing:1px;z-index:400;opacity:0;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+.float-contact{position:fixed;bottom:32px;right:32px;z-index:150;width:56px;height:56px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(201,168,76,0.3);transition:all 0.3s;animation:floatPulse 2s ease-in-out infinite;}
+.float-contact:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(201,168,76,0.4);}
+.float-contact svg{width:24px;height:24px;fill:var(--bg);}
+@keyframes floatPulse{0%,100%{box-shadow:0 4px 20px rgba(201,168,76,0.3);}50%{box-shadow:0 4px 30px rgba(201,168,76,0.5);}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="logo" onclick="scrollToTop()">白马联创</div>
+    <div class="nav-links">
+      <a href="#about">项目介绍</a><a href="#team">核心团队</a><a href="#plans">合作方案</a><a href="#faq">常见问题</a>
+    </div>
+    <button class="nav-mobile-btn" onclick="toggleMobile()">☰</button>
+    <div class="nav-cta" onclick="openContactModal()"><span>立即咨询</span></div>
+  </div>
+</nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">项目介绍</a>
+  <a href="#team" onclick="closeMobile()">核心团队</a>
+  <a href="#plans" onclick="closeMobile()">合作方案</a>
+  <a href="#faq" onclick="closeMobile()">常见问题</a>
+  <a href="#contact" onclick="closeMobile()">联系我们</a>
+</div>
+
+<!-- HERO -->
+<div class="hero" id="top">
+  <div class="hero-content">
+    <div class="hero-badge"><span>Douyin E-Commerce · Qianchuan</span></div>
+    <h1>白 马 联 创</h1>
+    <p>抖音电商 · 千川短视频带货 · 核心合伙人圈层<br>以技术驱动 · 以店群矩阵为核心 · 以合伙人成长为使命</p>
+    <div class="hero-cta-group">
+      <div class="hero-btn" onclick="document.getElementById('plans').scrollIntoView({behavior:'smooth'})"><span>查看方案</span></div>
+      <div class="hero-btn" onclick="openContactModal()"><span>立即咨询</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>SCROLL</span><div class="scroll-line"></div></div>
+</div>
+
+<!-- DATA MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item"><span class="mi-num">69</span><span class="mi-label">活跃账户</span><span class="mi-dot"></span></div>
+    <div class="marquee-item"><span class="mi-num">14,135</span><span class="mi-label">成交订单</span><span class="mi-dot"></span></div>
+    <div class="marquee-item"><span class="mi-num">740,876</span><span class="mi-label">成交金额(元)</span><span class="mi-dot"></span></div>
+    <div class="marquee-item"><span class="mi-num">1.66</span><span class="mi-label">支付ROI</span><span class="mi-dot"></span></div>
+    <div class="marquee-item"><span class="mi-num">1.49</span><span class="mi-label">净成交ROI</span><span class="mi-dot"></span></div>
+    <div class="marquee-item"><span class="mi-num">666,145</span><span class="mi-label">净成交金额(元)</span><span class="mi-dot"></span></div>
+    <div class="marquee-item"><span class="mi-num">89.91%</span><span class="mi-label">结算率</span><span class="mi-dot"></span></div>
+    <div class="marquee-item"><span class="mi-num">31.56</span><span class="mi-label">订单成本(元)</span><span class="mi-dot"></span></div>
+    <div class="marquee-item"><span class="mi-num">69</span><span class="mi-label">活跃账户</span><span class="mi-dot"></span></div>
+    <div class="marquee-item"><span class="mi-num">14,135</span><span class="mi-label">成交订单</span><span class="mi-dot"></span></div>
+    <div class="marquee-item"><span class="mi-num">740,876</span><span class="mi-label">成交金额(元)</span><span class="mi-dot"></span></div>
+    <div class="marquee-item"><span class="mi-num">1.66</span><span class="mi-label">支付ROI</span><span class="mi-dot"></span></div>
+    <div class="marquee-item"><span class="mi-num">1.49</span><span class="mi-label">净成交ROI</span><span class="mi-dot"></span></div>
+    <div class="marquee-item"><span class="mi-num">666,145</span><span class="mi-label">净成交金额(元)</span><span class="mi-dot"></span></div>
+    <div class="marquee-item"><span class="mi-num">89.91%</span><span class="mi-label">结算率</span><span class="mi-dot"></span></div>
+    <div class="marquee-item"><span class="mi-num">31.56</span><span class="mi-label">订单成本(元)</span><span class="mi-dot"></span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="sec-tag">About Us</div><h2 class="sec-title">项目介绍</h2><p class="sec-desc">我们不是培训机构，不是代运营公司——我们是把经过验证的千川打法体系，完整交付给合伙人的商业赋能平台。</p></div>
+    <div class="about-grid reveal">
+      <div class="about-cell"><h3>为什么是抖音电商？</h3><p>抖音日活超8亿，电商GMV持续高速增长——这是目前中国互联网流量最集中、变现路径最短、规模化速度最快的赛道之一。千川短视频带货门槛相对清晰、模型最易复制、店群效应最明显。一条爆款视频可以带飞一个店铺，一个店铺跑通后可以快速复制出十个、几十个店铺。</p></div>
+      <div class="about-cell"><h3>我们的商业模式</h3><p><strong style="color:var(--accent)">做标准</strong> — 打磨可复制、可规模化的千川店群运营SOP，从选品到素材、从投流到放量，全部流程化<br><br><strong style="color:var(--accent)">做技术</strong> — 持续迭代千川投流策略、短视频素材方法论、测品模型，确保跑在平台规则前沿<br><br><strong style="color:var(--accent)">做生态</strong> — 以合伙人为核心，构建资源共享、经验互通的抖音电商操盘手圈层</p></div>
+    </div>
+    <div class="about-strengths reveal stagger">
+      <div class="strength"><div class="num">01</div><h4>千万级投流实战</h4><p>团队累计操盘消耗过亿，沉淀出经过市场验证的千川打法体系</p></div>
+      <div class="strength"><div class="num">02</div><h4>全链路交付能力</h4><p>素材采集→制作→投放，选品→测品→上架SOP，闭环式交付</p></div>
+      <div class="strength"><div class="num">03</div><h4>真实数据支撑</h4><p>基于大量稳定运营店铺的实际数据反馈，店群模式下收益持续放大</p></div>
+      <div class="strength"><div class="num">04</div><h4>终身制商业权益</h4><p>一次付费长期享受，技术同步迭代，运营全程陪跑</p></div>
+    </div>
+    <p class="about-tagline reveal">白马联创不是教你做抖音——而是让你成为抖音电商千川赛道的<strong>操盘手</strong></p>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="sec-tag">Core Team</div><h2 class="sec-title">核心团队</h2><p class="sec-desc">千万级流量操盘手带队，全流程实战经验，全程陪跑落地</p></div>
+    <div class="team-leads">
+      <div class="team-lead reveal-left">
+        <div class="team-lead-header">
+          <div class="avatar-wrap"><div class="avatar-ring"></div><div class="avatar-placeholder">白</div></div>
+          <div class="team-lead-info">
+            <div class="role">项目总负责人</div><div class="name">白马</div>
+            <div class="wx" onclick="copyText('BMLC888999')">微信：BMLC888999 <span class="copy-icon">复制</span></div>
+          </div>
+        </div>
+        <div class="team-lead-tags"><span>招商转化</span><span>方案匹配</span><span>合伙人孵化</span><span>权益落地</span></div>
+        <div class="team-motto">"从实战中来，到实战中去。所有方法论均经过团队反复验证，可复制、可落地。"</div>
+      </div>
+      <div class="team-lead reveal-right">
+        <div class="team-lead-header">
+          <div class="avatar-wrap"><div class="avatar-ring"></div><div class="avatar-placeholder">冠</div></div>
+          <div class="team-lead-info">
+            <div class="role">项目合伙人</div><div class="name">冠宇</div>
+            <div class="wx" onclick="copyText('y18889978468')">微信：y18889978468 <span class="copy-icon">复制</span></div>
+          </div>
+        </div>
+        <div class="team-lead-tags"><span>战略规划</span><span>投流技术</span><span>团队搭建</span><span>整体交付</span></div>
+        <div class="team-motto">"精准匹配、透明沟通、长期陪跑，让每位合伙人找到最适合自己的入局方式。"</div>
+      </div>
+    </div>
+    <p class="team-note reveal">你不需要很厉害才能加入，但加入后<strong>你会变得很厉害</strong></p>
+  </div>
+</section>
+
+<!-- TERMS -->
+<section id="terms">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="sec-tag">Cooperation Terms</div><h2 class="sec-title">统一合作说明</h2></div>
+    <div class="terms-grid reveal stagger">
+      <div class="term-item"><h4>💳 技术服务费</h4><p>独立合伙人、平台合伙人收取5%；生态合伙人永久免除</p></div>
+      <div class="term-item"><h4>👥 运营管理支持</h4><p>如需团队协助，收取3%～5%服务费；生态合伙人永久免除</p></div>
+      <div class="term-item"><h4>🔒 费用透明</h4><p>签约前确认所有明细，合作中无隐藏追加</p></div>
+      <div class="term-item"><h4>⏳ 权益终身制</h4><p>一次性付费，长期享受，无需年费或续约</p></div>
+      <div class="term-item"><h4>🔄 技术实时更新</h4><p>千川投流玩法、选品策略、短视频运营SOP随平台规则同步迭代</p></div>
+      <div class="term-item"><h4>🤝 专属运营对接</h4><p>每套方案配备专属运营顾问，全程陪跑</p></div>
+      <div class="term-item"><h4>📄 合同保障</h4><p>签署正式商业合作协议，明确双方权责，所有权利义务以合同约定为准</p></div>
+      <div class="term-item"><h4>🚫 方案说明</h4><p>各方案独立运营，不支持补差价升级。如需更高级别权益，可直接签约对应方案</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section id="plans">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="sec-tag">Partnership Plans</div><h2 class="sec-title">合作方案</h2><p class="sec-desc">三套独立方案，对应不同资源禀赋与商业野心——选择你的起点，定义你的天花板</p></div>
+    <div class="tiers reveal stagger">
+      <div class="tier">
+        <div class="tier-label">独立合伙人</div><div class="tier-sub">轻资产起步 · 执行力换资源</div>
+        <div class="tier-price">500 <small>元/店</small></div><div class="tier-price-note">首次开通收取，利润分配 65% 归你 / 35% 归平台</div>
+        <div class="tier-hr"></div>
+        <ul class="tier-list"><li>全流程开店指导</li><li>选品数据系统支持</li><li>店铺运营SOP手册</li><li>1对1专属运营顾问</li></ul>
+        <div class="tier-foot"><strong>适合：</strong>具备基础运营能力、希望以轻资产方式入局抖音电商的个人创业者</div>
+        <div class="tier-btn" onclick="openConsultModal('独立合伙人')"><span>立即咨询</span></div>
+      </div>
+      <div class="tier hot">
+        <div class="tier-label">平台合伙人</div><div class="tier-sub">规模化复制 · 店群矩阵红利</div>
+        <div class="tier-price">12,980 <small>元</small></div><div class="tier-price-note">一次性投资 · 终身权益 · 含10店矩阵</div>
+        <div class="tier-hr"></div>
+        <ul class="tier-list"><li>10店矩阵，利润分成 80%</li><li>超出10店仅 600元/店 扩容</li><li>批量运营标准化SOP</li><li>平台千川投流技术支持</li><li>10店额外15%分成加成</li></ul>
+        <div class="tier-foot"><strong>适合：</strong>已跑通单店模型、希望借助平台资源实现规模化复制的团队操盘手</div>
+        <div class="tier-btn" onclick="openConsultModal('平台合伙人')"><span>立即咨询</span></div>
+      </div>
+      <div class="tier">
+        <div class="tier-label">生态合伙人</div><div class="tier-sub">自建生态 · 全链自主运营</div>
+        <div class="tier-price">36,980 <small>元起</small></div><div class="tier-price-note">平台版 36,980 / 招商版 69,880（永久免除服务费）</div>
+        <div class="tier-hr"></div>
+        <ul class="tier-list"><li>店铺数量不设上限</li><li>自主招生收益100%归你</li><li>核心千川投流技术持续交付</li><li>团队搭建与管理培训</li><li>招商版含：千川全链路 · 选品SOP · 招商系统 · 线下模式 · 独立千川主账户</li></ul>
+        <div class="tier-foot"><strong>适合：</strong>拥有团队与资源、希望建立独立商业生态的行业领军者</div>
+        <div class="tier-btn" onclick="openConsultModal('生态合伙人')"><span>立即咨询</span></div>
+      </div>
+    </div>
+    <div class="upgrade-note reveal"><p>三套方案<strong>独立运营</strong>，不支持补差价升级。如需更高级别权益，可直接签约对应方案——白马联创给你不同起点，也给你随时弯道超车的机会。</p></div>
+  </div>
+</section>
+
+<!-- REVENUE -->
+<section id="revenue">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="sec-tag">Revenue Model</div><h2 class="sec-title">项目盈利预期</h2><p class="sec-desc">单店是起点，店群是核心。用1个店跑通模型，用N个店放大收益</p></div>
+    <div class="rev-grid reveal stagger">
+      <div class="rev-card"><div class="stage">新手期 · 单店试水</div><div class="metric">千元级别</div><div class="metric-sub">单店月盈利（稳定运营后）</div><div class="detail">专注跑通单店模型，熟悉完整运营流程，建议启动资金 6,000 元起步</div></div>
+      <div class="rev-card"><div class="stage">成长期 · 多店矩阵</div><div class="metric">利润同步攀升</div><div class="metric-sub">多店联动运营</div><div class="detail">熟悉操作后启动多店联动，矩阵效应显现，收益随店铺数量倍增</div></div>
+      <div class="rev-card"><div class="stage">成熟期 · 店群规模化</div><div class="metric">规模上不封顶</div><div class="metric-sub">10店、20店甚至更多同跑</div><div class="detail">叠加额外分成，运营能力越强、资金越充裕，盈利空间越大</div></div>
+    </div>
+    <div class="rev-disclaimer reveal">以上数据基于团队实际运营经验，具体收益因个人运营能力、投入精力及市场情况而异，不构成收益承诺</div>
+  </div>
+</section>
+
+<!-- STRATEGIES -->
+<section id="strategies">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="sec-tag">Business Strategy</div><h2 class="sec-title">三种商业策略，任你选择</h2></div>
+    <div class="strat-grid reveal stagger">
+      <div class="strat"><span class="strat-icon">📈</span><h4>阶梯进化策略</h4><p>从独立合伙人起步，轻资产入局验证跑通后，进阶平台合伙人锁定店群红利，最终进化至生态合伙人建立自有商业生态——步步为营，稳扎稳打。</p></div>
+      <div class="strat"><span class="strat-icon">🚀</span><h4>跨越式一步到位</h4><p>直接签约生态合伙人，省去中间积累环节，直接享受不限量店铺、自主招商收益或全链路技术交付，以顶层站位赢在起跑线。</p></div>
+      <div class="strat"><span class="strat-icon">🔗</span><h4>叠加式并行策略</h4><p>独立或平台合伙人做到一定规模后，直接签约生态合伙人——原方案权益不受影响，叠加更高层级权益，双线并行，收益翻倍。</p></div>
+    </div>
+    <div class="strat-note reveal"><p>三套方案独立运营，不支持补差价升级，但你可以随时直接签约更高级别。<strong>商业节奏由你掌控。</strong></p></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="sec-tag">FAQ</div><h2 class="sec-title">常见问题</h2></div>
+    <div class="faq-list reveal">
+      <div class="faq"><div class="faq-q" onclick="toggle(this)">我没有抖音电商经验，能加入吗？</div><div class="faq-a">可以。独立合伙人方案就是为个人创业者设计的。我们有完整的SOP手册和1对1运营顾问，只要你有执行力，就能跑通。</div></div>
+      <div class="faq"><div class="faq-q" onclick="toggle(this)">单店6,000元启动资金够用吗？</div><div class="faq-a">6,000元是基础运营的起步建议。在这个赛道里，资金越充裕，运营空间越大——无论是货品周转还是投流测试，更充足的预算意味着更高的容错率和更大的盈利潜力。我们会根据你的实际资金情况给出针对性建议。</div></div>
+      <div class="faq"><div class="faq-q" onclick="toggle(this)">利润多久结算一次？</div><div class="faq-a">按月结算，透明可查，合同明确约定结算周期。</div></div>
+      <div class="faq"><div class="faq-q" onclick="toggle(this)">生态合伙人招商版和平台版有什么区别？</div><div class="faq-a">平台版侧重店铺运营端的能力释放——不限店铺数量、自主招生收益归你；招商版在此基础上额外交付完整招商体系（话术、系统、方法论）和核心操盘技术（千川短视频全链路、商品运营全流程、独立千川主账户等）。简单说：平台版让你做大店群，招商版让你拥有独立操盘商业系统。</div></div>
+      <div class="faq"><div class="faq-q" onclick="toggle(this)">合作终止后怎么处理？</div><div class="faq-a">所有权利义务以双方签署的正式《商业合伙人合作协议》约定为准，合作终止后权益同步终止，具体安排按合同条款执行。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="sec-tag">How to Join</div><h2 class="sec-title">招商合作流程</h2></div>
+    <div class="proc-grid reveal stagger">
+      <div class="proc"><div class="num">01</div><h4>商业咨询</h4><p>提交合作意向，顾问1对1了解资金实力、团队规模及发展诉求，精准推荐匹配方案</p></div>
+      <div class="proc"><div class="num">02</div><h4>方案定制</h4><p>定制化解读权益细则、费用结构及收益模型，确保双方商业预期一致</p></div>
+      <div class="proc"><div class="num">03</div><h4>签约付款</h4><p>签署正式合作协议，明确权责、分成比例、结算周期及合同终止条款</p></div>
+      <div class="proc"><div class="num">04</div><h4>权益开通</h4><p>1~3个工作日内完成店铺绑定、SOP交付、顾问对接、千川技术资源同步</p></div>
+      <div class="proc"><div class="num">05</div><h4>系统培训</h4><p>开店指导、选品数据、千川投流技术、店群管理——系统培训全程陪跑</p></div>
+      <div class="proc"><div class="num">06</div><h4>持续赋能</h4><p>千川玩法持续更新、平台规则同步迭代——长期陪跑，与你做大做强</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="sec-tag">Contact</div><h2 class="sec-title">成为掌局者</h2><p class="sec-desc">白马联创不承诺一夜暴富，但我们承诺：给你一套经过验证的赚钱系统，给你一个可以持续放大的商业模型，给你一支陪你打到底的团队。</p></div>
+    <div class="cta-contacts reveal">
+      <div class="cta-card" onclick="copyText('BMLC888999')"><div><div class="label">项目总负责人 · 白马</div><div class="id">BMLC888999</div></div></div>
+      <div class="cta-card" onclick="copyText('y18889978468')"><div><div class="label">项目合伙人 · 冠宇</div><div class="id">y18889978468</div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer><p>白马联创 · 抖音电商千川短视频带货核心合伙人圈层</p></footer>
+
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('contactModal')">✕</button>
+    <h3>联系我们</h3>
+    <p class="modal-sub">选择适合你的方式，立即开启合作</p>
+    <div class="modal-contact-item"><div><div class="mc-label">项目总负责人 · 白马</div><div class="mc-value">BMLC888999</div></div><button class="mc-copy" onclick="copyInModal('BMLC888999',this)">复制</button></div>
+    <div class="modal-contact-item"><div><div class="mc-label">项目合伙人 · 冠宇</div><div class="mc-value">y18889978468</div></div><button class="mc-copy" onclick="copyInModal('y18889978468',this)">复制</button></div>
+  </div>
+</div>
+
+<!-- CONSULT MODAL -->
+<div class="modal-overlay" id="consultModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('consultModal')">✕</button>
+    <h3>方案咨询</h3>
+    <p class="modal-sub" id="consultPlanName">您选择的方案：--</p>
+    <div class="modal-contact-item"><div><div class="mc-label">添加微信咨询</div><div class="mc-value">BMLC888999</div></div><button class="mc-copy" onclick="copyInModal('BMLC888999',this)">复制</button></div>
+    <div class="modal-contact-item"><div><div class="mc-label">备用联系</div><div class="mc-value">y18889978468</div></div><button class="mc-copy" onclick="copyInModal('y18889978468',this)">复制</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<button class="float-contact" onclick="openContactModal()" title="联系我们">
+  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+</button>
+
+<script>
+let last=0;const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{const y=window.scrollY;nav.classList.toggle('hidden',y>last&&y>100);nav.classList.toggle('scrolled',y>50);last=y;});
+
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>obs.observe(el));
+
+function toggle(el){const faq=el.parentElement;const wasOpen=faq.classList.contains('open');document.querySelectorAll('.faq').forEach(f=>f.classList.remove('open'));if(!wasOpen)faq.classList.add('open');}
+
+function copyText(text){navigator.clipboard.writeText(text).then(()=>{showToast('已复制：'+text);}).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('已复制：'+text);});}
+
+function copyInModal(text,btn){navigator.clipboard.writeText(text).then(()=>{btn.textContent='已复制';btn.classList.add('copied');showToast('微信号已复制到剪贴板');setTimeout(()=>{btn.textContent='复制';btn.classList.remove('copied');},2000);}).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);btn.textContent='已复制';btn.classList.add('copied');showToast('微信号已复制到剪贴板');setTimeout(()=>{btn.textContent='复制';btn.classList.remove('copied');},2000);});}
+
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
+
+function openContactModal(){document.getElementById('contactModal').classList.add('active');document.body.style.overflow='hidden';}
+function openConsultModal(planName){document.getElementById('consultPlanName').textContent='您选择的方案：'+planName;document.getElementById('consultModal').classList.add('active');document.body.style.overflow='hidden';}
+function closeModal(id){document.getElementById(id).classList.remove('active');document.body.style.overflow='';}
+
+document.querySelectorAll('.modal-overlay').forEach(el=>{el.addEventListener('click',e=>{if(e.target===el){el.classList.remove('active');document.body.style.overflow='';}});});
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal('contactModal');closeModal('consultModal');}});
+
+function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
+
+function toggleMobile(){document.getElementById('mobileMenu').classList.toggle('open');}
+function closeMobile(){document.getElementById('mobileMenu').classList.remove('open');}
+</script>
+</body>
+</html>
