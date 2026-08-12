@@ -1,0 +1,3077 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>白马联创 · 招商计划 | 互联网私域商业核心合伙人</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+    <style>
+        /* ============================================================
+                   THEME VARIABLES (6 themes)
+                   ============================================================ */
+        :root {
+            /* 默认：雅 */
+            --theme-primary: #c49a6c;
+            --theme-primary-dark: #a87d54;
+            --theme-primary-light: #e8d5b8;
+            --theme-primary-bg: rgba(196, 154, 108, 0.08);
+            --theme-primary-bg-hover: rgba(196, 154, 108, 0.16);
+            --theme-primary-gradient: linear-gradient(135deg, #c49a6c, #e8d5b8);
+            --theme-accent: #d4a574;
+            --theme-bg-alt: #f8f4ef;
+            --theme-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.04);
+            --theme-shadow-hover: 0 2px 8px rgba(0, 0, 0, 0.06), 0 12px 32px rgba(0, 0, 0, 0.08);
+            --theme-border: rgba(0, 0, 0, 0.06);
+            --theme-text: #1a1a2e;
+            --theme-text-sub: #5a5a72;
+            --theme-text-muted: #8e8ea0;
+            --theme-bg: #ffffff;
+            --theme-nav-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        /* 主题 1: 雅 (默认) */
+        [data-theme="ya"] {
+            --theme-primary: #c49a6c;
+            --theme-primary-dark: #a87d54;
+            --theme-primary-light: #e8d5b8;
+            --theme-primary-bg: rgba(196, 154, 108, 0.08);
+            --theme-primary-bg-hover: rgba(196, 154, 108, 0.16);
+            --theme-primary-gradient: linear-gradient(135deg, #c49a6c, #e8d5b8);
+            --theme-accent: #d4a574;
+            --theme-bg-alt: #f8f4ef;
+        }
+
+        /* 主题 2: 锋 */
+        [data-theme="feng"] {
+            --theme-primary: #2d3436;
+            --theme-primary-dark: #1a1a2e;
+            --theme-primary-light: #636e72;
+            --theme-primary-bg: rgba(45, 52, 54, 0.08);
+            --theme-primary-bg-hover: rgba(45, 52, 54, 0.16);
+            --theme-primary-gradient: linear-gradient(135deg, #2d3436, #636e72);
+            --theme-accent: #0984e3;
+            --theme-bg-alt: #f0f2f5;
+        }
+
+        /* 主题 3: 暖 */
+        [data-theme="nuan"] {
+            --theme-primary: #e17055;
+            --theme-primary-dark: #d63031;
+            --theme-primary-light: #fab1a0;
+            --theme-primary-bg: rgba(225, 112, 85, 0.08);
+            --theme-primary-bg-hover: rgba(225, 112, 85, 0.16);
+            --theme-primary-gradient: linear-gradient(135deg, #e17055, #fab1a0);
+            --theme-accent: #e17055;
+            --theme-bg-alt: #fdf6f0;
+        }
+
+        /* 主题 4: 然 */
+        [data-theme="ran"] {
+            --theme-primary: #00b894;
+            --theme-primary-dark: #00695c;
+            --theme-primary-light: #81ecec;
+            --theme-primary-bg: rgba(0, 184, 148, 0.08);
+            --theme-primary-bg-hover: rgba(0, 184, 148, 0.16);
+            --theme-primary-gradient: linear-gradient(135deg, #00b894, #81ecec);
+            --theme-accent: #00b894;
+            --theme-bg-alt: #f0faf8;
+        }
+
+        /* 主题 5: 蓝 */
+        [data-theme="lan"] {
+            --theme-primary: #0066cc;
+            --theme-primary-dark: #004d99;
+            --theme-primary-light: #66b3ff;
+            --theme-primary-bg: rgba(0, 102, 204, 0.08);
+            --theme-primary-bg-hover: rgba(0, 102, 204, 0.16);
+            --theme-primary-gradient: linear-gradient(135deg, #0066cc, #66b3ff);
+            --theme-accent: #0066cc;
+            --theme-bg-alt: #f0f6fe;
+        }
+
+        /* 主题 6: 紫 */
+        [data-theme="zi"] {
+            --theme-primary: #6c5ce7;
+            --theme-primary-dark: #4834d4;
+            --theme-primary-light: #a29bfe;
+            --theme-primary-bg: rgba(108, 92, 231, 0.08);
+            --theme-primary-bg-hover: rgba(108, 92, 231, 0.16);
+            --theme-primary-gradient: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            --theme-accent: #6c5ce7;
+            --theme-bg-alt: #f6f3ff;
+        }
+
+        /* ============================================================
+                   BASE
+                   ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-weight: 400;
+            line-height: 1.7;
+            background: var(--theme-bg);
+            color: var(--theme-text);
+            overflow-x: hidden;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+        ::selection {
+            background: var(--theme-primary);
+            color: #fff;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        strong {
+            font-weight: 700;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--theme-bg-alt);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c7c7cc;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--theme-primary);
+        }
+
+        /* ============================================================
+                   LOADER
+                   ============================================================ */
+        .loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--theme-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .loader.done {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .loader .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeUp 0.5s ease 0.1s forwards;
+        }
+        .loader .logo span {
+            color: var(--theme-primary);
+        }
+        .loader .bar {
+            width: 120px;
+            height: 3px;
+            background: var(--theme-border);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .loader .bar i {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: var(--theme-primary);
+            border-radius: 3px;
+            animation: loadBar 1s ease 0.2s forwards;
+        }
+        @keyframes loadBar {
+            to {
+                width: 100%;
+            }
+        }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================================
+                   SCROLL PROGRESS
+                   ============================================================ */
+        .scroll-prog {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--theme-primary);
+            z-index: 1001;
+            width: 0;
+            transition: width 0.1s linear, background 0.4s ease;
+        }
+
+        /* ============================================================
+                   THEME TOGGLE
+                   ============================================================ */
+        .theme-toggle-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .theme-toggle-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px 5px 10px;
+            border-radius: 100px;
+            background: var(--theme-bg-alt);
+            border: 1px solid var(--theme-border);
+            cursor: pointer;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--theme-text-sub);
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        .theme-toggle-btn:hover {
+            border-color: var(--theme-primary);
+            color: var(--theme-primary);
+        }
+        .theme-toggle-btn .dot-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--theme-primary);
+            transition: background 0.4s ease;
+            flex-shrink: 0;
+        }
+        .theme-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: var(--theme-bg);
+            border: 1px solid var(--theme-border);
+            border-radius: 12px;
+            box-shadow: var(--theme-shadow-hover);
+            padding: 10px;
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            min-width: 180px;
+            z-index: 1002;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.92);
+        }
+        .theme-dropdown.open {
+            display: grid;
+        }
+        .theme-opt {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--theme-text-sub);
+            transition: all 0.25s ease;
+            border: 1px solid transparent;
+        }
+        .theme-opt:hover {
+            background: var(--theme-primary-bg);
+            color: var(--theme-text);
+        }
+        .theme-opt.active {
+            border-color: var(--theme-primary);
+            background: var(--theme-primary-bg);
+            color: var(--theme-primary);
+        }
+        .theme-opt .swatch {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .theme-opt .swatch.ya {
+            background: #c49a6c;
+        }
+        .theme-opt .swatch.feng {
+            background: #2d3436;
+        }
+        .theme-opt .swatch.nuan {
+            background: #e17055;
+        }
+        .theme-opt .swatch.ran {
+            background: #00b894;
+        }
+        .theme-opt .swatch.lan {
+            background: #0066cc;
+        }
+        .theme-opt .swatch.zi {
+            background: #6c5ce7;
+        }
+
+        /* ============================================================
+                   NAV
+                   ============================================================ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 var(--side-pad, 24px);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+        .nav.scrolled {
+            background: var(--theme-nav-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--theme-border);
+            height: 56px;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+        }
+        .nav-logo {
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            color: var(--theme-text);
+        }
+        .nav-logo .dot {
+            width: 7px;
+            height: 7px;
+            background: var(--theme-primary);
+            border-radius: 50%;
+            display: inline-block;
+            transition: background 0.4s ease;
+        }
+        .nav-logo span {
+            color: var(--theme-primary);
+            transition: color 0.4s ease;
+        }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--theme-text-sub);
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            white-space: nowrap;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--theme-primary);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--theme-text);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links .lang-divider {
+            color: var(--theme-border);
+            font-weight: 300;
+            font-size: 0.8rem;
+        }
+        .nav-cta {
+            padding: 7px 22px;
+            background: var(--theme-primary);
+            color: #fff;
+            font-size: 0.76rem;
+            font-weight: 600;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            border: none;
+            font-family: inherit;
+            letter-spacing: 0.02em;
+        }
+        .nav-cta:hover {
+            background: var(--theme-primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1002;
+        }
+        .mobile-toggle span {
+            width: 22px;
+            height: 2px;
+            background: var(--theme-text);
+            border-radius: 2px;
+            transition: all 0.35s ease;
+            transform-origin: center;
+        }
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ============================================================
+                   MOBILE MENU
+                   ============================================================ */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            z-index: 1001;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            padding: 40px 20px;
+        }
+        .mobile-menu.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .mobile-menu a {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--theme-text-sub);
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(12px);
+        }
+        .mobile-menu.open a {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: calc(var(--i, 0) * 0.05s);
+        }
+        .mobile-menu a:hover {
+            color: var(--theme-primary);
+        }
+        .mobile-menu .mob-divider {
+            width: 30px;
+            height: 1px;
+            background: var(--theme-border);
+            margin: 4px 0;
+        }
+        .mobile-menu .mob-cta {
+            margin-top: 6px;
+            padding: 12px 40px;
+            border-radius: 100px;
+            background: var(--theme-primary);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.88rem;
+        }
+        .mobile-menu .mob-theme-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .mobile-menu .mob-theme-row .mob-theme-opt {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        .mobile-menu .mob-theme-row .mob-theme-opt.active {
+            border-color: var(--theme-text);
+            transform: scale(1.15);
+        }
+        .mobile-menu .mob-theme-row .mob-theme-opt:hover {
+            transform: scale(1.1);
+        }
+
+        /* ============================================================
+                   REVEAL
+                   ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-32px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(32px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.94);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .reveal-d1 {
+            transition-delay: 0.08s;
+        }
+        .reveal-d2 {
+            transition-delay: 0.16s;
+        }
+        .reveal-d3 {
+            transition-delay: 0.24s;
+        }
+        .reveal-d4 {
+            transition-delay: 0.32s;
+        }
+        .reveal-d5 {
+            transition-delay: 0.40s;
+        }
+
+        /* ============================================================
+                   SECTION COMMON
+                   ============================================================ */
+        :root {
+            --section-pad: clamp(56px, 10vw, 96px);
+            --side-pad: clamp(18px, 5vw, 64px);
+            --grid-gap: 20px;
+            --card-pad: 26px;
+            --radius: 16px;
+            --radius-sm: 12px;
+            --radius-xs: 8px;
+        }
+        section {
+            position: relative;
+            padding: var(--section-pad) var(--side-pad);
+        }
+        .sec-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--theme-primary);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.4s ease;
+        }
+        .sec-label::before {
+            content: '';
+            width: 20px;
+            height: 2px;
+            background: var(--theme-primary);
+            border-radius: 2px;
+            transition: background 0.4s ease;
+        }
+        .sec-title {
+            font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+        }
+        .sec-desc {
+            color: var(--theme-text-sub);
+            font-size: clamp(0.84rem, 1.1vw, 0.98rem);
+            font-weight: 400;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+        .sec-center {
+            text-align: center;
+        }
+        .sec-center .sec-label {
+            justify-content: center;
+        }
+        .sec-center .sec-desc {
+            margin: 0 auto;
+        }
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--theme-border), transparent);
+            transition: background 0.4s ease;
+        }
+
+        /* ============================================================
+                   BUTTONS
+                   ============================================================ */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 30px;
+            background: var(--theme-primary);
+            color: #fff;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.86rem;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            letter-spacing: 0.02em;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.1);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            border-radius: inherit;
+        }
+        .btn-primary:hover {
+            background: var(--theme-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+        }
+        .btn-primary:hover::after {
+            transform: scaleX(1);
+        }
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 30px;
+            background: transparent;
+            color: var(--theme-text);
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.86rem;
+            border: 1.5px solid var(--theme-border);
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            letter-spacing: 0.02em;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-secondary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--theme-primary-bg);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            border-radius: inherit;
+        }
+        .btn-secondary:hover {
+            border-color: var(--theme-primary);
+            color: var(--theme-primary);
+        }
+        .btn-secondary:hover::after {
+            transform: scaleX(1);
+        }
+        .btn-secondary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================================
+                   HERO
+                   ============================================================ */
+        .hero {
+            padding: clamp(90px, 14vh, 150px) var(--side-pad) clamp(40px, 6vw, 64px);
+            background: linear-gradient(180deg, var(--theme-bg-alt) 0%, var(--theme-bg) 60%);
+            position: relative;
+            overflow: hidden;
+            transition: background 0.4s ease;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--theme-primary-bg) 0%, transparent 70%);
+            pointer-events: none;
+            transition: background 0.4s ease;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--theme-primary-bg) 0%, transparent 70%);
+            pointer-events: none;
+            transition: background 0.4s ease;
+        }
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 860px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 16px;
+            border: 1px solid var(--theme-border);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--theme-primary);
+            letter-spacing: 0.08em;
+            background: var(--theme-primary-bg);
+            margin-bottom: 18px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 0.1s forwards;
+            transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+        }
+        .hero-badge .dot {
+            width: 5px;
+            height: 5px;
+            background: var(--theme-primary);
+            border-radius: 50%;
+            animation: pulse 2s ease infinite;
+            transition: background 0.4s ease;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+            font-weight: 900;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 0.2s forwards;
+        }
+        .hero h1 .hl {
+            color: var(--theme-primary);
+            position: relative;
+            transition: color 0.4s ease;
+        }
+        .hero h1 .hl::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--theme-primary);
+            border-radius: 4px;
+            opacity: 0.25;
+            transition: background 0.4s ease;
+        }
+        .hero-sub {
+            font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+            font-weight: 400;
+            color: var(--theme-text-sub);
+            margin-bottom: 12px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 0.3s forwards;
+        }
+        .hero-desc {
+            font-size: clamp(0.84rem, 1.1vw, 0.96rem);
+            font-weight: 400;
+            color: var(--theme-text-muted);
+            line-height: 1.9;
+            max-width: 620px;
+            margin-bottom: 22px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 0.4s forwards;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 0.5s forwards;
+        }
+        .hero-stats {
+            display: flex;
+            gap: clamp(24px, 4vw, 52px);
+            margin-top: 40px;
+            padding-top: 28px;
+            border-top: 1px solid var(--theme-border);
+            opacity: 0;
+            animation: fadeUp 0.6s ease 0.6s forwards;
+            transition: border-color 0.4s ease;
+        }
+        .hero-stat {
+            text-align: left;
+        }
+        .hero-stat .num {
+            font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--theme-text);
+            line-height: 1;
+        }
+        .hero-stat .num .accent {
+            color: var(--theme-primary);
+            transition: color 0.4s ease;
+        }
+        .hero-stat .label {
+            font-size: 0.76rem;
+            font-weight: 400;
+            color: var(--theme-text-muted);
+            margin-top: 4px;
+        }
+
+        /* ============================================================
+                   MARQUEE
+                   ============================================================ */
+        .marquee-section {
+            padding: clamp(28px, 4vw, 48px) 0;
+            overflow: hidden;
+            position: relative;
+            background: var(--theme-bg-alt);
+            transition: background 0.4s ease;
+        }
+        .marquee-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, var(--theme-bg) 0%, var(--theme-bg-alt) 30%, var(--theme-bg-alt) 70%, var(--theme-bg) 100%);
+            z-index: 0;
+            transition: background 0.4s ease;
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            gap: 14px;
+            position: relative;
+            z-index: 1;
+            will-change: transform;
+            animation: marqueeScroll 28s linear infinite;
+        }
+        .marquee-track:nth-child(2) {
+            animation-direction: reverse;
+            animation-duration: 32s;
+            margin-top: 10px;
+        }
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 18px 8px 12px;
+            border-radius: 100px;
+            background: var(--theme-bg);
+            border: 1px solid var(--theme-border);
+            box-shadow: var(--theme-card-shadow);
+            white-space: nowrap;
+            flex-shrink: 0;
+            cursor: default;
+            transition: all 0.4s ease;
+        }
+        .marquee-item:hover {
+            box-shadow: var(--theme-shadow-hover);
+            border-color: var(--theme-primary);
+            transform: scale(1.04) translateY(-2px);
+        }
+        .marquee-item .icon {
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .marquee-item .label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--theme-text);
+        }
+
+        /* ============================================================
+                   STATS CARDS
+                   ============================================================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--grid-gap);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .stat-card {
+            padding: 24px 20px;
+            border-radius: var(--radius);
+            background: var(--theme-bg);
+            border: 1px solid var(--theme-border);
+            box-shadow: var(--theme-card-shadow);
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+        .stat-card:hover {
+            box-shadow: var(--theme-shadow-hover);
+            transform: translateY(-4px);
+            border-color: var(--theme-primary);
+        }
+        .stat-card .icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .stat-card .number {
+            font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+            font-weight: 800;
+            color: var(--theme-text);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+        .stat-card .number .accent {
+            color: var(--theme-primary);
+            transition: color 0.4s ease;
+        }
+        .stat-card .label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--theme-text-sub);
+            margin-top: 4px;
+        }
+        .stat-card .desc {
+            font-size: 0.74rem;
+            font-weight: 400;
+            color: var(--theme-text-muted);
+            margin-top: 8px;
+            line-height: 1.6;
+            border-top: 1px solid var(--theme-border);
+            padding-top: 10px;
+            transition: border-color 0.4s ease;
+        }
+
+        /* ============================================================
+                   ABOUT
+                   ============================================================ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: var(--grid-gap);
+            max-width: 960px;
+            margin: 24px auto 0;
+        }
+        .about-pillar {
+            text-align: center;
+            padding: 20px 12px;
+            border-radius: var(--radius);
+            background: var(--theme-bg);
+            border: 1px solid var(--theme-border);
+            box-shadow: var(--theme-card-shadow);
+            transition: all 0.4s ease;
+        }
+        .about-pillar:hover {
+            box-shadow: var(--theme-shadow-hover);
+            transform: translateY(-4px);
+            border-color: var(--theme-primary);
+        }
+        .about-pillar .icon {
+            font-size: 1.6rem;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .about-pillar .label {
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+        .about-pillar .desc {
+            font-size: 0.74rem;
+            font-weight: 400;
+            color: var(--theme-text-muted);
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+
+        /* ============================================================
+                   INDUSTRY + PLATFORM (cards)
+                   ============================================================ */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--grid-gap);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .grid-3col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--grid-gap);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .info-card {
+            padding: var(--card-pad);
+            border-radius: var(--radius);
+            background: var(--theme-bg);
+            box-shadow: var(--theme-card-shadow);
+            border: 1px solid var(--theme-border);
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+        .info-card:hover {
+            box-shadow: var(--theme-shadow-hover);
+            transform: translateY(-4px);
+            border-color: var(--theme-primary);
+        }
+        .info-card .card-icon {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .info-card h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .info-card p {
+            font-size: 0.82rem;
+            font-weight: 400;
+            color: var(--theme-text-sub);
+            line-height: 1.7;
+        }
+        .info-card .tag {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 3px 12px;
+            border-radius: 100px;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--theme-primary);
+            background: var(--theme-primary-bg);
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+        .info-card .metric {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 4px;
+            margin-top: 10px;
+            padding: 6px 16px;
+            background: var(--theme-primary-bg);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--theme-primary);
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+        .info-card .metric .val {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        /* ============================================================
+                   QIANCHUAN PLAYBOOK
+                   ============================================================ */
+        .qc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--grid-gap);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .qc-card {
+            padding: var(--card-pad);
+            border-radius: var(--radius);
+            background: var(--theme-bg);
+            box-shadow: var(--theme-card-shadow);
+            border: 1px solid var(--theme-border);
+            border-left: 3px solid var(--theme-primary);
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+        .qc-card:hover {
+            box-shadow: var(--theme-shadow-hover);
+            transform: translateY(-4px);
+        }
+        .qc-card .phase {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: var(--theme-primary);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+        .qc-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 4px 0 6px;
+        }
+        .qc-card p {
+            font-size: 0.82rem;
+            font-weight: 400;
+            color: var(--theme-text-sub);
+            line-height: 1.7;
+        }
+        .qc-card .highlight {
+            padding: 10px 14px;
+            border-radius: var(--radius-xs);
+            background: var(--theme-primary-bg);
+            border-left: 2px solid var(--theme-primary);
+            margin-top: 10px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--theme-text);
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+
+        /* ============================================================
+                   PROFIT / STRATEGIES / PLANS
+                   ============================================================ */
+        .profit-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--grid-gap);
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .profit-step {
+            padding: var(--card-pad);
+            border-radius: var(--radius);
+            background: var(--theme-bg);
+            box-shadow: var(--theme-card-shadow);
+            border: 1px solid var(--theme-border);
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: default;
+            position: relative;
+        }
+        .profit-step:hover {
+            box-shadow: var(--theme-shadow-hover);
+            transform: translateY(-4px);
+            border-color: var(--theme-primary);
+        }
+        .profit-step .phase {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: var(--theme-primary);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+        .profit-step h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin: 4px 0 2px;
+        }
+        .profit-step .sub {
+            font-size: 0.78rem;
+            color: var(--theme-text-muted);
+            margin-bottom: 8px;
+        }
+        .profit-step .amount {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--theme-primary);
+            transition: color 0.4s ease;
+        }
+        .profit-step .amount .cur {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--theme-text-muted);
+        }
+        .profit-step .bar-wrap {
+            margin: 10px auto 0;
+            width: 80%;
+            height: 4px;
+            background: var(--theme-border);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: background 0.4s ease;
+        }
+        .profit-step .bar-wrap .fill {
+            height: 100%;
+            background: var(--theme-primary);
+            border-radius: 4px;
+            transition: width 1.2s ease, background 0.4s ease;
+        }
+
+        /* ============================================================
+                   PLANS (3 columns)
+                   ============================================================ */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--grid-gap);
+            margin-top: 32px;
+            max-width: 1160px;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: stretch;
+        }
+        .plan-card {
+            padding: var(--card-pad) clamp(18px, 2vw, 26px);
+            border-radius: var(--radius);
+            background: var(--theme-bg);
+            box-shadow: var(--theme-card-shadow);
+            border: 1px solid var(--theme-border);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+        .plan-card:hover {
+            box-shadow: var(--theme-shadow-hover);
+            transform: translateY(-6px);
+        }
+        .plan-card.featured {
+            border-color: var(--theme-primary);
+            background: linear-gradient(180deg, var(--theme-primary-bg), var(--theme-bg));
+        }
+        .plan-card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--theme-primary-gradient);
+            border-radius: 3px 3px 0 0;
+        }
+        .plan-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 100px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            background: var(--theme-bg-alt);
+            color: var(--theme-text-muted);
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+        .plan-badge.growth {
+            background: var(--theme-primary-bg);
+            color: var(--theme-primary);
+        }
+        .plan-badge.elite {
+            background: var(--theme-primary-bg);
+            color: var(--theme-primary);
+        }
+        .plan-name {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 2px;
+        }
+        .plan-tagline {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--theme-text-sub);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        .plan-price {
+            margin-bottom: 12px;
+        }
+        .plan-price .amt {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--theme-text);
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+        .plan-price .amt .cur {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--theme-text-muted);
+        }
+        .plan-price .note {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: var(--theme-text-muted);
+            margin-top: 2px;
+        }
+        .plan-profit {
+            padding: 8px 14px;
+            border-radius: var(--radius-xs);
+            background: var(--theme-primary-bg);
+            margin-bottom: 12px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--theme-text);
+            border-left: 2px solid var(--theme-primary);
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+        .plan-profit strong {
+            color: var(--theme-primary);
+            transition: color 0.4s ease;
+        }
+        .plan-feat {
+            list-style: none;
+            margin-bottom: 14px;
+            flex: 1;
+        }
+        .plan-feat li {
+            padding: 5px 0;
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--theme-text-sub);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+            line-height: 1.5;
+        }
+        .plan-feat li:last-child {
+            border-bottom: none;
+        }
+        .plan-feat li::before {
+            content: '✓';
+            color: var(--theme-primary);
+            font-weight: 700;
+            flex-shrink: 0;
+            font-size: 0.75rem;
+            margin-top: 1px;
+            transition: color 0.4s ease;
+        }
+        .plan-feat li.hl {
+            color: var(--theme-text);
+            font-weight: 600;
+        }
+        .plan-btn {
+            display: block;
+            width: 100%;
+            padding: 11px;
+            border-radius: 100px;
+            border: none;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.84rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.35s ease;
+            letter-spacing: 0.02em;
+            margin-top: auto;
+        }
+        .plan-btn.primary {
+            background: var(--theme-primary);
+            color: #fff;
+        }
+        .plan-btn.primary:hover {
+            background: var(--theme-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        .plan-btn.outline {
+            background: transparent;
+            border: 1.5px solid var(--theme-border);
+            color: var(--theme-text);
+        }
+        .plan-btn.outline:hover {
+            border-color: var(--theme-primary);
+            color: var(--theme-primary);
+            background: var(--theme-primary-bg);
+        }
+        .plan-note {
+            font-size: 0.68rem;
+            font-weight: 400;
+            color: var(--theme-text-muted);
+            padding: 6px 10px;
+            border-radius: var(--radius-xs);
+            border: 1px dashed var(--theme-border);
+            line-height: 1.5;
+            margin-top: 10px;
+            text-align: center;
+            transition: border-color 0.4s ease;
+        }
+        .plan-expand {
+            padding: 8px 14px;
+            border-radius: var(--radius-xs);
+            background: var(--theme-bg-alt);
+            margin-bottom: 12px;
+            font-size: 0.76rem;
+            font-weight: 400;
+            color: var(--theme-text-sub);
+            line-height: 1.6;
+            border-left: 2px solid var(--theme-primary);
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+        .plan-expand strong {
+            color: var(--theme-text);
+        }
+
+        /* ============================================================
+                   TEAM
+                   ============================================================ */
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--grid-gap);
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .team-card {
+            padding: var(--card-pad);
+            border-radius: var(--radius);
+            background: var(--theme-bg);
+            box-shadow: var(--theme-card-shadow);
+            border: 1px solid var(--theme-border);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            cursor: default;
+        }
+        .team-card:hover {
+            box-shadow: var(--theme-shadow-hover);
+            transform: translateY(-4px);
+            border-color: var(--theme-primary);
+        }
+        .team-card-hd {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+        .team-av {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--theme-primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 800;
+            color: #fff;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+        }
+        .team-card:hover .team-av {
+            transform: scale(1.08) rotate(-4deg);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+        .team-nm {
+            font-size: 0.98rem;
+            font-weight: 700;
+        }
+        .team-role {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--theme-primary);
+            letter-spacing: 0.04em;
+            margin-top: 1px;
+            transition: color 0.4s ease;
+        }
+        .team-wx {
+            font-size: 0.74rem;
+            font-weight: 400;
+            color: var(--theme-text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 2px;
+        }
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px 10px;
+            border-radius: 6px;
+            background: var(--theme-primary-bg);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.58rem;
+            color: var(--theme-primary);
+            border: none;
+            font-family: inherit;
+            font-weight: 600;
+            height: 20px;
+        }
+        .copy-btn:hover {
+            background: var(--theme-primary);
+            color: #fff;
+            transform: scale(1.05);
+        }
+        .copy-btn.copied {
+            background: #22c55e;
+            color: #fff;
+        }
+        .team-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 12px;
+        }
+        .team-skill {
+            padding: 2px 10px;
+            border-radius: 100px;
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: var(--theme-text-sub);
+            background: var(--theme-bg-alt);
+            border: 1px solid var(--theme-border);
+            transition: all 0.3s ease;
+        }
+        .team-card:hover .team-skill {
+            border-color: var(--theme-primary);
+        }
+        .team-phil {
+            font-size: 0.82rem;
+            font-weight: 400;
+            color: var(--theme-text-sub);
+            line-height: 1.7;
+            padding: 10px 14px;
+            background: var(--theme-bg-alt);
+            border-radius: var(--radius-xs);
+            border-left: 2px solid var(--theme-primary);
+            font-style: italic;
+            margin-top: auto;
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+        .team-banner {
+            margin-top: 24px;
+            padding: clamp(16px, 2.5vw, 26px);
+            border-radius: var(--radius);
+            background: var(--theme-primary-bg);
+            border: 1px solid var(--theme-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: all 0.4s ease;
+        }
+        .team-banner:hover {
+            border-color: var(--theme-primary);
+            box-shadow: var(--theme-shadow-hover);
+        }
+        .team-banner p {
+            font-size: 0.88rem;
+            font-weight: 400;
+            color: var(--theme-text-sub);
+            max-width: 500px;
+            line-height: 1.8;
+        }
+        .team-banner p strong {
+            color: var(--theme-text);
+        }
+
+        /* ============================================================
+                   TERMS
+                   ============================================================ */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--grid-gap);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .term-item {
+            padding: 16px 18px;
+            border-radius: var(--radius-sm);
+            background: var(--theme-bg);
+            box-shadow: var(--theme-card-shadow);
+            border: 1px solid var(--theme-border);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+        .term-item:hover {
+            box-shadow: var(--theme-shadow-hover);
+            transform: translateY(-3px);
+            border-color: var(--theme-primary);
+        }
+        .term-item .t-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .term-item .t-text h4 {
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 1px;
+        }
+        .term-item .t-text p {
+            font-size: 0.74rem;
+            font-weight: 400;
+            color: var(--theme-text-muted);
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+                   PROCESS
+                   ============================================================ */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--grid-gap);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .process-step {
+            padding: var(--card-pad);
+            border-radius: var(--radius);
+            background: var(--theme-bg);
+            box-shadow: var(--theme-card-shadow);
+            border: 1px solid var(--theme-border);
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: default;
+            position: relative;
+        }
+        .process-step:hover {
+            box-shadow: var(--theme-shadow-hover);
+            transform: translateY(-4px);
+            border-color: var(--theme-primary);
+        }
+        .process-step .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--theme-primary-bg);
+            color: var(--theme-primary);
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            transition: all 0.4s ease;
+        }
+        .process-step:hover .step-num {
+            background: var(--theme-primary);
+            color: #fff;
+            transform: scale(1.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+        .process-step h4 {
+            font-size: 0.92rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .process-step p {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--theme-text-muted);
+            line-height: 1.7;
+        }
+
+        /* ============================================================
+                   CTA
+                   ============================================================ */
+        .cta-section {
+            background: var(--theme-bg-alt);
+            text-align: center;
+            padding: clamp(52px, 10vw, 88px) var(--side-pad);
+            position: relative;
+            overflow: hidden;
+            transition: background 0.4s ease;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--theme-primary-bg) 0%, transparent 70%);
+            pointer-events: none;
+            transition: background 0.4s ease;
+        }
+        .cta-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .cta-inner h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+        .cta-inner h2 .hl {
+            color: var(--theme-primary);
+            transition: color 0.4s ease;
+        }
+        .cta-inner>p {
+            color: var(--theme-text-sub);
+            font-size: clamp(0.84rem, 1.1vw, 0.98rem);
+            font-weight: 400;
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+        .cta-btns {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-contacts {
+            margin-top: 24px;
+            display: flex;
+            justify-content: center;
+            gap: clamp(12px, 2.5vw, 24px);
+            flex-wrap: wrap;
+        }
+        .cta-ci {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 18px;
+            border-radius: var(--radius-sm);
+            background: var(--theme-bg);
+            box-shadow: var(--theme-card-shadow);
+            border: 1px solid var(--theme-border);
+            transition: all 0.35s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+        .cta-ci:hover {
+            box-shadow: var(--theme-shadow-hover);
+            transform: translateY(-3px);
+            border-color: var(--theme-primary);
+        }
+        .cta-ci .ico {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--theme-primary-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            transition: all 0.35s ease;
+        }
+        .cta-ci:hover .ico {
+            background: var(--theme-primary);
+            color: #fff;
+            transform: scale(1.05);
+        }
+        .cta-ci .inf .nm {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .cta-ci .inf .wx {
+            font-size: 0.74rem;
+            font-weight: 400;
+            color: var(--theme-text-muted);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .cta-ci .inf .wx .cp {
+            font-size: 0.58rem;
+            color: var(--theme-primary);
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+        .cta-ci:hover .inf .wx .cp {
+            opacity: 1;
+        }
+        .cta-ci .badge {
+            padding: 2px 10px;
+            border-radius: 6px;
+            background: var(--theme-primary);
+            color: #fff;
+            font-size: 0.58rem;
+            font-weight: 600;
+            opacity: 0;
+            transform: scale(0.7);
+            transition: all 0.35s ease;
+            pointer-events: none;
+        }
+        .cta-ci .badge.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ============================================================
+                   TOAST
+                   ============================================================ */
+        .toast {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            padding: 10px 28px;
+            border-radius: 100px;
+            background: var(--theme-text);
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 500;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            z-index: 9998;
+            opacity: 0;
+            transition: all 0.4s ease;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: inherit;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        .toast .icon {
+            color: var(--theme-primary);
+            font-size: 0.95rem;
+            transition: color 0.4s ease;
+        }
+
+        /* ============================================================
+                   BACK TO TOP
+                   ============================================================ */
+        .back-top {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--theme-bg);
+            box-shadow: var(--theme-card-shadow);
+            border: 1px solid var(--theme-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+            z-index: 100;
+            color: var(--theme-text-muted);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+        .back-top.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .back-top:hover {
+            color: var(--theme-primary);
+            box-shadow: var(--theme-shadow-hover);
+            transform: translateY(-4px) scale(1.06);
+            border-color: var(--theme-primary);
+        }
+
+        /* ============================================================
+                   FOOTER
+                   ============================================================ */
+        .footer {
+            padding: 20px var(--side-pad);
+            border-top: 1px solid var(--theme-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            background: var(--theme-bg);
+            transition: border-color 0.4s ease, background 0.4s ease;
+        }
+        .footer-l {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--theme-text-muted);
+            letter-spacing: 0.04em;
+        }
+        .footer-l .dot {
+            color: var(--theme-primary);
+            transition: color 0.4s ease;
+        }
+        .footer-r {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: var(--theme-text-muted);
+        }
+
+        /* ============================================================
+                   RESPONSIVE
+                   ============================================================ */
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                max-width: 600px;
+            }
+            .stats-grid .stat-card:last-child {
+                grid-column: span 2;
+            }
+            .plans-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+                max-width: 600px;
+            }
+            .team-grid {
+                max-width: 500px;
+                grid-template-columns: 1fr;
+            }
+            .grid-3col {
+                grid-template-columns: 1fr 1fr;
+                max-width: 600px;
+            }
+            .grid-3col .info-card:last-child {
+                grid-column: span 2;
+            }
+            .qc-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            .profit-steps {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+            .terms-grid {
+                grid-template-columns: 1fr 1fr;
+                max-width: 600px;
+            }
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                max-width: 500px;
+            }
+        }
+        @media (max-width: 768px) {
+            :root {
+                --section-pad: 44px;
+                --side-pad: 16px;
+                --grid-gap: 12px;
+                --card-pad: 16px;
+            }
+            .nav {
+                height: 52px;
+                padding: 0 16px;
+            }
+            .nav.scrolled {
+                height: 48px;
+            }
+            .nav-links {
+                display: none !important;
+            }
+            .nav-cta {
+                display: none;
+            }
+            .mobile-toggle {
+                display: flex;
+            }
+            .mobile-menu {
+                display: flex;
+            }
+            .hero {
+                padding: 72px 16px 28px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 14px;
+                padding-top: 18px;
+                margin-top: 24px;
+            }
+            .hero-stat {
+                flex: 1;
+                min-width: 70px;
+            }
+            .hero-stat .num {
+                font-size: 1.2rem;
+            }
+            .hero-actions .btn-primary,
+            .hero-actions .btn-secondary {
+                padding: 10px 22px;
+                font-size: 0.78rem;
+                width: 100%;
+                justify-content: center;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+            }
+            .stats-grid .stat-card:last-child {
+                grid-column: span 1;
+            }
+            .plans-grid {
+                max-width: 100%;
+            }
+            .process-grid {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+            }
+            .grid-3col {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+            }
+            .grid-3col .info-card:last-child {
+                grid-column: span 1;
+            }
+            .grid-2col {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+            }
+            .qc-grid {
+                max-width: 100%;
+            }
+            .profit-steps {
+                max-width: 100%;
+            }
+            .terms-grid {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+            }
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                max-width: 100%;
+            }
+            .team-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .team-banner p {
+                max-width: 100%;
+            }
+            .team-banner .btn-primary {
+                width: 100%;
+                justify-content: center;
+            }
+            .cta-btns .btn-primary,
+            .cta-btns .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+            .cta-contacts {
+                flex-direction: column;
+                align-items: center;
+            }
+            .cta-ci {
+                width: 100%;
+                max-width: 320px;
+                justify-content: center;
+            }
+            .footer {
+                flex-direction: column;
+                text-align: center;
+                padding: 14px 16px;
+            }
+            .plan-card {
+                padding: 16px;
+            }
+            .plan-name {
+                font-size: 1rem;
+            }
+            .plan-price .amt {
+                font-size: 1.2rem;
+            }
+            .team-card {
+                padding: 16px;
+            }
+            .team-av {
+                width: 42px;
+                height: 42px;
+                font-size: 0.8rem;
+            }
+            .team-nm {
+                font-size: 0.88rem;
+            }
+            .process-step {
+                padding: 16px;
+            }
+            .process-step h4 {
+                font-size: 0.84rem;
+            }
+            .process-step p {
+                font-size: 0.76rem;
+            }
+            .sec-title {
+                font-size: 1.3rem;
+            }
+            .theme-toggle-wrap .theme-toggle-btn span.label {
+                display: none;
+            }
+            .theme-toggle-btn {
+                padding: 5px 10px;
+            }
+            .theme-dropdown {
+                right: -10px;
+                min-width: 160px;
+            }
+            .back-top {
+                bottom: 18px;
+                right: 18px;
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+        }
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .sec-title {
+                font-size: 1.15rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero-stat .num {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== LOADER ===== -->
+    <div class="loader" id="loader">
+        <div class="logo">白马<span>联创</span></div>
+        <div class="bar"><i></i></div>
+    </div>
+
+    <!-- ===== SCROLL PROGRESS ===== -->
+    <div class="scroll-prog" id="scrollProg"></div>
+
+    <!-- ===== TOAST ===== -->
+    <div class="toast" id="toast"><span class="icon">✓</span><span id="toastText">已复制</span></div>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <div class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+    <!-- ============================================================
+    NAV
+    ============================================================ -->
+    <nav class="nav" id="nav">
+        <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+            <span class="dot"></span> 白马<span>联创</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">关于</a></li>
+            <li><a href="#industry">行业</a></li>
+            <li><a href="#qianchuan">千川</a></li>
+            <li><a href="#profit">收益</a></li>
+            <li><a href="#plans">方案</a></li>
+            <li><a href="#process">流程</a></li>
+            <li><span class="lang-divider">|</span></li>
+            <li><a href="#hero" style="font-weight:600;color:var(--theme-text)">首页</a></li>
+            <li>
+                <div class="theme-toggle-wrap">
+                    <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="切换主题">
+                        <span class="dot-indicator" id="themeDotIndicator"></span>
+                        <span class="label">主题</span>
+                        <span style="font-size:0.6rem;opacity:0.5;">▾</span>
+                    </button>
+                    <div class="theme-dropdown" id="themeDropdown">
+                        <div class="theme-opt active" data-theme="ya"><span class="swatch ya"></span>雅</div>
+                        <div class="theme-opt" data-theme="feng"><span class="swatch feng"></span>锋</div>
+                        <div class="theme-opt" data-theme="nuan"><span class="swatch nuan"></span>暖</div>
+                        <div class="theme-opt" data-theme="ran"><span class="swatch ran"></span>然</div>
+                        <div class="theme-opt" data-theme="lan"><span class="swatch lan"></span>蓝</div>
+                        <div class="theme-opt" data-theme="zi"><span class="swatch zi"></span>紫</div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#contact" class="nav-cta">立即咨询</a></li>
+        </ul>
+        <div class="mobile-toggle" id="mobileToggle">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+    MOBILE MENU
+    ============================================================ -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" style="--i:0" onclick="closeMenu()">关于白马联创</a>
+        <a href="#industry" style="--i:1" onclick="closeMenu()">行业趋势</a>
+        <a href="#qianchuan" style="--i:2" onclick="closeMenu()">千川玩法</a>
+        <a href="#profit" style="--i:3" onclick="closeMenu()">盈利预期</a>
+        <a href="#plans" style="--i:4" onclick="closeMenu()">合作方案</a>
+        <a href="#process" style="--i:5" onclick="closeMenu()">合作流程</a>
+        <div class="mob-divider"></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:4px 0;">
+            <span style="font-size:0.68rem;font-weight:500;color:var(--theme-text-muted);letter-spacing:0.06em;">主题</span>
+            <div class="mob-theme-row">
+                <div class="mob-theme-opt active" data-theme="ya" style="background:#c49a6c;" onclick="setTheme('ya')"></div>
+                <div class="mob-theme-opt" data-theme="feng" style="background:#2d3436;" onclick="setTheme('feng')"></div>
+                <div class="mob-theme-opt" data-theme="nuan" style="background:#e17055;" onclick="setTheme('nuan')"></div>
+                <div class="mob-theme-opt" data-theme="ran" style="background:#00b894;" onclick="setTheme('ran')"></div>
+                <div class="mob-theme-opt" data-theme="lan" style="background:#0066cc;" onclick="setTheme('lan')"></div>
+                <div class="mob-theme-opt" data-theme="zi" style="background:#6c5ce7;" onclick="setTheme('zi')"></div>
+            </div>
+        </div>
+        <div class="mob-divider"></div>
+        <a href="#contact" class="mob-cta" style="--i:6" onclick="closeMenu()">立即咨询</a>
+    </div>
+
+    <!-- ============================================================
+    HERO
+    ============================================================ -->
+    <section class="hero" id="hero">
+        <div class="hero-inner">
+            <div class="hero-badge"><span class="dot"></span> 限量招募 · 仅剩 17 席</div>
+            <h1>白马<span class="hl">联创</span></h1>
+            <p class="hero-sub">互联网私域商业 核心合伙人圈层</p>
+            <p class="hero-desc">
+                以「稀缺、突破、共赢」为核心理念，汇聚行业顶尖投流技术团队与千万级流量操盘手，
+                致力于培养具备独立商业操盘能力的私域领军人物，持续输出可复制的私域变现解决方案。
+            </p>
+            <div class="hero-actions">
+                <a href="#plans" class="btn-primary"><span>查看合作方案</span></a>
+                <a href="#contact" class="btn-secondary"><span>联系我们</span></a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><div class="num"><span class="accent">20</span>%</div><div class="label">GMV 增速</div></div>
+                <div class="hero-stat"><div class="num"><span class="accent">88</span>%+</div><div class="label">千川投放占比</div></div>
+                <div class="hero-stat"><div class="num"><span class="accent">320</span>亿+</div><div class="label">平台年度节省</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    MARQUEE
+    ============================================================ -->
+    <div class="marquee-section">
+        <div style="position:relative;z-index:1;overflow:hidden;">
+            <div class="marquee-track">
+                <div class="marquee-item"><span class="icon">🔥</span><span class="label">投流技术</span></div>
+                <div class="marquee-item"><span class="icon">📊</span><span class="label">数据选品</span></div>
+                <div class="marquee-item"><span class="icon">🏪</span><span class="label">店群矩阵</span></div>
+                <div class="marquee-item"><span class="icon">💎</span><span class="label">私域变现</span></div>
+                <div class="marquee-item"><span class="icon">🎯</span><span class="label">精准运营</span></div>
+                <div class="marquee-item"><span class="icon">📢</span><span class="label">千川投放</span></div>
+                <div class="marquee-item"><span class="icon">🤝</span><span class="label">合伙人孵化</span></div>
+                <div class="marquee-item"><span class="icon">🚀</span><span class="label">规模扩张</span></div>
+                <div class="marquee-item"><span class="icon">📄</span><span class="label">合同保障</span></div>
+                <div class="marquee-item"><span class="icon">📋</span><span class="label">运营SOP</span></div>
+                <div class="marquee-item"><span class="icon">🎓</span><span class="label">系统培训</span></div>
+                <div class="marquee-item"><span class="icon">♟️</span><span class="label">商业策略</span></div>
+                <div class="marquee-item"><span class="icon">🔄</span><span class="label">持续迭代</span></div>
+                <div class="marquee-item"><span class="icon">🎁</span><span class="label">全链交付</span></div>
+                <div class="marquee-item"><span class="icon">⚡</span><span class="label">快速启动</span></div>
+                <div class="marquee-item"><span class="icon">♾️</span><span class="label">终身权益</span></div>
+                <!-- duplicate for seamless loop -->
+                <div class="marquee-item"><span class="icon">🔥</span><span class="label">投流技术</span></div>
+                <div class="marquee-item"><span class="icon">📊</span><span class="label">数据选品</span></div>
+                <div class="marquee-item"><span class="icon">🏪</span><span class="label">店群矩阵</span></div>
+                <div class="marquee-item"><span class="icon">💎</span><span class="label">私域变现</span></div>
+                <div class="marquee-item"><span class="icon">🎯</span><span class="label">精准运营</span></div>
+                <div class="marquee-item"><span class="icon">📢</span><span class="label">千川投放</span></div>
+                <div class="marquee-item"><span class="icon">🤝</span><span class="label">合伙人孵化</span></div>
+                <div class="marquee-item"><span class="icon">🚀</span><span class="label">规模扩张</span></div>
+                <div class="marquee-item"><span class="icon">📄</span><span class="label">合同保障</span></div>
+                <div class="marquee-item"><span class="icon">📋</span><span class="label">运营SOP</span></div>
+                <div class="marquee-item"><span class="icon">🎓</span><span class="label">系统培训</span></div>
+                <div class="marquee-item"><span class="icon">♟️</span><span class="label">商业策略</span></div>
+                <div class="marquee-item"><span class="icon">🔄</span><span class="label">持续迭代</span></div>
+                <div class="marquee-item"><span class="icon">🎁</span><span class="label">全链交付</span></div>
+                <div class="marquee-item"><span class="icon">⚡</span><span class="label">快速启动</span></div>
+                <div class="marquee-item"><span class="icon">♾️</span><span class="label">终身权益</span></div>
+            </div>
+            <div class="marquee-track" style="margin-top:8px;">
+                <div class="marquee-item"><span class="icon">📈</span><span class="label">GMV 增速 20%</span></div>
+                <div class="marquee-item"><span class="icon">📊</span><span class="label">千川占比 88%+</span></div>
+                <div class="marquee-item"><span class="icon">💰</span><span class="label">节省 320亿+</span></div>
+                <div class="marquee-item"><span class="icon">🏆</span><span class="label">中小达人贡献 80%+</span></div>
+                <div class="marquee-item"><span class="icon">🎬</span><span class="label">短视频曝光 1.44亿+</span></div>
+                <div class="marquee-item"><span class="icon">📦</span><span class="label">0元入驻 1345 子类目</span></div>
+                <div class="marquee-item"><span class="icon">📈</span><span class="label">GMV 增速 20%</span></div>
+                <div class="marquee-item"><span class="icon">📊</span><span class="label">千川占比 88%+</span></div>
+                <div class="marquee-item"><span class="icon">💰</span><span class="label">节省 320亿+</span></div>
+                <div class="marquee-item"><span class="icon">🏆</span><span class="label">中小达人贡献 80%+</span></div>
+                <div class="marquee-item"><span class="icon">🎬</span><span class="label">短视频曝光 1.44亿+</span></div>
+                <div class="marquee-item"><span class="icon">📦</span><span class="label">0元入驻 1345 子类目</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    ABOUT
+    ============================================================ -->
+    <section id="about">
+        <div class="sec-center reveal">
+            <div class="sec-label">ABOUT BMLC</div>
+            <div class="sec-title">关于白马联创</div>
+            <p class="sec-desc" style="max-width:700px;">白马联创致力于培养具备独立商业操盘能力的私域领军人物，持续输出可复制的私域变现解决方案。</p>
+        </div>
+        <div class="about-grid" style="margin-top:20px;">
+            <div class="about-pillar reveal reveal-d1"><span class="icon">💎</span><div class="label">稀缺</div><div class="desc">精准筛选，只服务有潜力的操盘手</div></div>
+            <div class="about-pillar reveal reveal-d2"><span class="icon">🚀</span><div class="label">突破</div><div class="desc">打破认知边界，实现商业跃迁</div></div>
+            <div class="about-pillar reveal reveal-d3"><span class="icon">🤝</span><div class="label">共赢</div><div class="desc">平台与合伙人利益深度绑定</div></div>
+            <div class="about-pillar reveal reveal-d4"><span class="icon">📋</span><div class="label">可复制</div><div class="desc">SOP化运营，让成功可以复制</div></div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    INDUSTRY
+    ============================================================ -->
+    <section id="industry" style="background:var(--theme-bg-alt);">
+        <div class="sec-center reveal">
+            <div class="sec-label">INDUSTRY TREND</div>
+            <div class="sec-title">抖音电商持续增长，赛道红利明确</div>
+            <p class="sec-desc">2026年上半年抖音电商GMV增速接近20%，中小玩家正迎来前所未有的增长窗口</p>
+        </div>
+        <div class="stats-grid" style="margin-top:28px;">
+            <div class="stat-card reveal reveal-d1">
+                <span class="icon">📈</span>
+                <div class="number"><span class="accent">20</span>%</div>
+                <div class="label">GMV 增速（2026H1）</div>
+                <div class="desc">持续优于行业大盘，抖音电商已成为增长最快的电商平台之一</div>
+            </div>
+            <div class="stat-card reveal reveal-d2">
+                <span class="icon">🎯</span>
+                <div class="number"><span class="accent">88</span>%+</div>
+                <div class="label">千川投放占比</div>
+                <div class="desc">巨量千川占据绝对主导地位，是抖音电商商家不可回避的核心投放工具</div>
+            </div>
+            <div class="stat-card reveal reveal-d3">
+                <span class="icon">🏆</span>
+                <div class="number"><span class="accent">80</span>%+</div>
+                <div class="label">中小达人贡献成交额</div>
+                <div class="desc">粉丝量100万以下的中小达人贡献了超过80%的达人带货成交额</div>
+            </div>
+        </div>
+        <div class="grid-2col" style="margin-top:24px;">
+            <div class="info-card reveal reveal-left reveal-d1">
+                <span class="card-icon">📊</span>
+                <h4>618 期间爆发增长</h4>
+                <p>2026年618期间，抖音电商GMV同比增长约19%，超过12万商家直播成交额同比翻倍，超57万带货达人成交额翻倍增长。</p>
+                <span class="tag">12万+ 商家翻倍</span>
+                <span class="tag" style="margin-left:6px;">57万 达人翻倍</span>
+            </div>
+            <div class="info-card reveal reveal-right reveal-d2">
+                <span class="card-icon">🎬</span>
+                <h4>短视频带货核心引擎</h4>
+                <p>「挂车短视频+千川投放」是中小商家抢曝光、促转化的核心路径。近90天相关广告视频数超1.1万条，预估总曝光超1.44亿。</p>
+                <span class="tag">视频数增长 96%</span>
+                <span class="tag" style="margin-left:6px;">曝光增长 52%</span>
+            </div>
+        </div>
+        <div style="max-width:1000px;margin:20px auto 0;padding:18px 22px;border-radius:var(--radius);background:var(--theme-bg);border:1px solid var(--theme-border);box-shadow:var(--theme-card-shadow);transition:all 0.4s ease;" class="reveal">
+            <p style="font-size:0.86rem;font-weight:400;color:var(--theme-text-sub);line-height:1.8;display:flex;align-items:flex-start;gap:10px;">
+                <span style="font-size:1.2rem;">💡</span>
+                <span><strong style="color:var(--theme-text);">经营逻辑已转变：</strong>从「拼流量、拼技巧」转向「拼产品、拼内容、拼服务」——短视频种草激发兴趣，直播带货高效转化，货架电商保证复购，投放扩大规模。</span>
+            </p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    PLATFORM SUPPORT (nested in industry or standalone)
+    ============================================================ -->
+    <section id="platform" style="background:var(--theme-bg);">
+        <div class="sec-center reveal">
+            <div class="sec-label">PLATFORM SUPPORT</div>
+            <div class="sec-title">平台持续降本，商家经营门槛降低</div>
+            <p class="sec-desc">2026年抖音电商全面升级「九大商家扶持政策」，过去一年累计为商家节省成本超过320亿元</p>
+        </div>
+        <div class="grid-2col" style="margin-top:28px;">
+            <div class="info-card reveal reveal-left reveal-d1">
+                <span class="card-icon">🎯</span>
+                <h4>免佣政策全面升级</h4>
+                <p>技术服务费减免至0.6%，免佣范围扩展至全类目，适用场景由货架场商品卡进一步覆盖至内容场。</p>
+                <span class="metric"><span class="val">0.6%</span> 技术服务费</span>
+            </div>
+            <div class="info-card reveal reveal-right reveal-d2">
+                <span class="card-icon">💰</span>
+                <h4>保证金大幅降低</h4>
+                <p>34个类目保证金下调，超半数类目降幅高于50%，最高达85%，粮油米面、零食等类目保证金降至仅500元。</p>
+                <span class="metric">降幅 <span class="val">50%</span>+</span>
+            </div>
+            <div class="info-card reveal reveal-left reveal-d3">
+                <span class="card-icon">🔓</span>
+                <h4>大批量开放「0元入驻」</h4>
+                <p>首次开放1345个子类目「0元入驻」，进一步降低创业门槛，让更多中小商家零成本进入抖音电商赛道。</p>
+                <span class="metric"><span class="val">1,345</span> 子类目</span>
+            </div>
+            <div class="info-card reveal reveal-right reveal-d4">
+                <span class="card-icon">📈</span>
+                <h4>推广费返还政策升级</h4>
+                <p>通过「净成交出价」产品，降低秒退订单等无效投放带来的成本损耗，促进结算GMV增长。</p>
+                <span class="metric"><span class="val">320</span>亿+ 年度节省</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    QIANCHUAN PLAYBOOK
+    ============================================================ -->
+    <section id="qianchuan" style="background:var(--theme-bg-alt);">
+        <div class="sec-center reveal">
+            <div class="sec-label">QIANCHUAN PLAYBOOK</div>
+            <div class="sec-title">千川投流核心玩法</div>
+            <p class="sec-desc">从素材制作到数据优化，跑通千川投放的完整闭环，让每一分钱都花在刀刃上</p>
+        </div>
+        <div class="qc-grid" style="margin-top:28px;">
+            <div class="qc-card reveal reveal-left reveal-d1">
+                <div class="phase">底层逻辑</div>
+                <h4>付费撬动自然流量</h4>
+                <p>千川投放的本质是「付费流量放大器」——用精准的付费投放撬动自然推荐流量，形成<strong>「付费测品 → 自然爆发 → 付费放大」</strong>的正循环。</p>
+                <div class="highlight">核心心法：用确定性的付费买精准的成交</div>
+            </div>
+            <div class="qc-card reveal reveal-right reveal-d2">
+                <div class="phase">素材制作</div>
+                <h4>爆款素材黄金公式</h4>
+                <p><strong>3秒抓眼球</strong>（黄金开头）+ <strong>场景化表达</strong>（用户共情）+ <strong>强转化钩子</strong>（促单行动）。「场景触发型」素材仅占15%数量，ROI可达1.8-3.0+。</p>
+                <div class="highlight">案例：某品牌将产品「倒进东方树叶」拍成5秒视频，单月GMV破千万</div>
+            </div>
+            <div class="qc-card reveal reveal-left reveal-d3">
+                <div class="phase">选品策略</div>
+                <h4>数据驱动 · 蓝海选品</h4>
+                <p>聚焦高转化、高毛利、低竞争的蓝海品类。通过抖音电商罗盘数据筛选潜力爆品，小成本测品验证，跑通后快速复制放量。</p>
+                <div class="highlight">测品成本 ¥500~2,000 /品</div>
+            </div>
+            <div class="qc-card reveal reveal-right reveal-d4">
+                <div class="phase">数据优化闭环</div>
+                <h4>监控 → 迭代 → 放大</h4>
+                <p>紧盯 <strong>ROI、素材点击率、转化率、完播率</strong> 四大核心指标。跑不动及时关停替换，跑量好增加预算放大，形成持续优化的数据闭环。</p>
+                <div class="highlight">每天发布1-2条带货视频，保持素材新鲜度</div>
+            </div>
+        </div>
+        <div style="max-width:1000px;margin:20px auto 0;padding:18px 24px;border-radius:var(--radius);background:var(--theme-bg);border:1px solid var(--theme-border);box-shadow:var(--theme-card-shadow);text-align:center;transition:all 0.4s ease;" class="reveal">
+            <p style="font-size:0.88rem;font-weight:500;color:var(--theme-text);line-height:1.8;">
+                💡 千川投放核心心法：<strong style="color:var(--theme-primary);">素材是灵魂，数据是眼睛，迭代是生命。</strong>
+            </p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    PROFIT
+    ============================================================ -->
+    <section id="profit">
+        <div class="sec-center reveal">
+            <div class="sec-label">PROFIT MODEL</div>
+            <div class="sec-title">项目盈利预期</div>
+            <p class="sec-desc">真实数据 · 可复制的盈利模型。核心模式：<strong>店群矩阵是该项目最核心的盈利引擎</strong></p>
+        </div>
+        <div class="stats-grid" style="margin-top:24px;max-width:800px;">
+            <div class="stat-card reveal reveal-d1"><span class="icon">📊</span><div class="number"><span class="accent">¥1,000</span><span style="font-size:1rem;color:var(--theme-text-muted);font-weight:400;">+</span></div><div class="label">单店月盈利</div></div>
+            <div class="stat-card reveal reveal-d2"><span class="icon">💰</span><div class="number"><span class="accent">¥6,000</span><span style="font-size:1rem;color:var(--theme-text-muted);font-weight:400;">+</span></div><div class="label">单店基础投入</div></div>
+            <div class="stat-card reveal reveal-d3"><span class="icon">♾️</span><div class="number" style="font-size:1.8rem;"><span class="accent">∞</span></div><div class="label">规模上不封顶</div></div>
+        </div>
+
+        <div class="sec-center" style="margin-top:36px;">
+            <div class="sec-label" style="justify-content:center;">PROGRESSION</div>
+            <div class="sec-title" style="font-size:1.2rem;">盈利进阶路径</div>
+        </div>
+        <div class="profit-steps" style="margin-top:16px;">
+            <div class="profit-step reveal reveal-d1">
+                <div class="phase">PHASE 01</div>
+                <h4>新手期 · 单店试水</h4>
+                <div class="sub">熟悉完整运营流程，跑通单店模型</div>
+                <div class="amount"><span class="cur">¥</span>1,000<span style="font-size:0.8rem;font-weight:400;color:var(--theme-text-muted);">+ /月</span></div>
+                <div class="bar-wrap"><div class="fill" style="width:0%;" data-width="25%"></div></div>
+            </div>
+            <div class="profit-step reveal reveal-d2">
+                <div class="phase">PHASE 02</div>
+                <h4>成长期 · 3 店矩阵</h4>
+                <div class="sub">熟悉操作后，多店联动收益倍增</div>
+                <div class="amount"><span class="cur">~</span>¥8,000<span style="font-size:0.8rem;font-weight:400;color:var(--theme-text-muted);"> /月</span></div>
+                <div class="bar-wrap"><div class="fill" style="width:0%;" data-width="60%"></div></div>
+            </div>
+            <div class="profit-step reveal reveal-d3" style="border-color:var(--theme-primary);background:var(--theme-primary-bg);">
+                <div class="phase" style="color:var(--theme-primary);">PHASE 03</div>
+                <h4>成熟期 · 10 店矩阵</h4>
+                <div class="sub">10 店同跑，规模上不封顶</div>
+                <div class="amount" style="color:var(--theme-primary);"><span class="cur" style="color:var(--theme-text-muted);">¥</span>持续攀升 → 无上限</div>
+                <div class="bar-wrap"><div class="fill" style="width:0%;" data-width="100%"></div></div>
+            </div>
+        </div>
+        <div style="max-width:800px;margin:24px auto 0;padding:16px 22px;border-radius:var(--radius);background:var(--theme-primary-bg);border:1px solid var(--theme-border);text-align:center;transition:all 0.4s ease;" class="reveal">
+            <p style="font-size:0.9rem;font-weight:500;color:var(--theme-text);line-height:1.7;">
+                💡 <strong>一句话总结：</strong>单店是起点，店群是核心。前期用 1 个店跑通模型，后期用 <strong style="color:var(--theme-primary);">N 个店</strong> 放大收益——这套项目的核心不是开一个店，而是用店群抢占赛道红利。
+            </p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    STRATEGIES
+    ============================================================ -->
+    <section id="strategies" style="background:var(--theme-bg-alt);">
+        <div class="sec-center reveal">
+            <div class="sec-label">STRATEGIES</div>
+            <div class="sec-title">三种商业策略</div>
+            <p class="sec-desc">给你不同起点，也给你随时弯道超车的机会——商业节奏由你掌控。</p>
+        </div>
+        <div class="grid-3col" style="margin-top:28px;">
+            <div class="info-card reveal reveal-left reveal-d1">
+                <span class="card-icon">📈</span>
+                <h4>阶梯进化策略</h4>
+                <p>从独立合伙人起步，轻资产入局验证跑通后，进阶平台合伙人锁定店群红利，最终进化至生态合伙人建立自有商业生态。</p>
+            </div>
+            <div class="info-card reveal reveal-scale reveal-d2">
+                <span class="card-icon">🚀</span>
+                <h4>跨越式一步到位</h4>
+                <p>直接签约生态合伙人，省去中间积累环节，直接享受不限量店铺、自主招商收益或全链路技术交付。</p>
+            </div>
+            <div class="info-card reveal reveal-right reveal-d3">
+                <span class="card-icon">🔄</span>
+                <h4>叠加式并行策略</h4>
+                <p>独立或平台合伙人做到一定规模后，直接签约生态合伙人——原方案权益不受影响，双线并行，收益翻倍。</p>
+            </div>
+        </div>
+        <div style="max-width:1000px;margin:18px auto 0;padding:14px 20px;border-radius:var(--radius);background:var(--theme-bg);border:1px solid var(--theme-border);box-shadow:var(--theme-card-shadow);text-align:center;transition:all 0.4s ease;" class="reveal">
+            <p style="font-size:0.8rem;font-weight:400;color:var(--theme-text-muted);line-height:1.7;">
+                💡 三套方案独立运营、不支持补差价升级，但你可以随时直接签约更高级别。<strong style="color:var(--theme-text);">商业节奏由你掌控。</strong>
+            </p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    PLANS
+    ============================================================ -->
+    <section id="plans">
+        <div class="sec-center reveal">
+            <div class="sec-label">PARTNERSHIP PLANS</div>
+            <div class="sec-title">三种合作方案，任你选择</div>
+            <p class="sec-desc">从轻资产入局到建立自有商业生态，白马联创给你不同起点，也给你随时弯道超车的机会。</p>
+        </div>
+        <div class="plans-grid">
+            <!-- 方案一 -->
+            <div class="plan-card reveal reveal-left reveal-d1">
+                <span class="plan-badge">方案一 · STARTER</span>
+                <div class="plan-name">独立合伙人</div>
+                <div class="plan-tagline">以独立姿态入局，轻资产起步 — 个体创业者的最佳起点</div>
+                <div class="plan-price"><div class="amt"><span class="cur">¥</span>500 <span class="cur">/店</span></div><div class="note">技术服务费，每个店铺首次开通时收取</div></div>
+                <div class="plan-profit">利润分配：<strong>65%</strong> 归你 / 35% 归平台</div>
+                <ul class="plan-feat">
+                    <li>📖 全流程开店指导</li>
+                    <li>⚙️ 千川计划开通运营</li>
+                    <li>📚 店铺起店运营教学</li>
+                    <li>👨‍🏫 1对1专属运营顾问</li>
+                </ul>
+                <div style="padding:8px 14px;border-radius:var(--radius-xs);background:var(--theme-bg-alt);margin-bottom:12px;border-left:2px solid var(--theme-primary);font-size:0.76rem;color:var(--theme-text-sub);line-height:1.6;">单店月盈利 <strong style="color:var(--theme-text);">1,000+ 元</strong></div>
+                <div style="padding:10px 14px;border-radius:var(--radius-xs);background:var(--theme-primary-bg);margin-bottom:12px;font-size:0.76rem;color:var(--theme-text-sub);line-height:1.6;">💎 以独立姿态入局，用执行力换资源。每个店铺仅首次开通时收取500元技术服务费，后续不再重复收取。</div>
+                <a href="#contact" class="plan-btn outline">了解详情</a>
+                <div class="plan-note">⚠ 本方案为独立专属合作，不支持补差价升级</div>
+            </div>
+
+            <!-- 方案二 -->
+            <div class="plan-card reveal reveal-scale reveal-d2">
+                <span class="plan-badge growth">方案二 · GROWTH</span>
+                <div class="plan-name">平台合伙人</div>
+                <div class="plan-tagline">背靠平台资源，规模化扩张 — 团队化、批量化、规模化的商业操盘手</div>
+                <div class="plan-price"><div class="amt"><span class="cur">¥</span>12,980</div><div class="note">一次性投资，终身商业权益</div></div>
+                <div class="plan-profit">利润分配：<strong>80%</strong> 归你 / 20% 归平台</div>
+                <ul class="plan-feat">
+                    <li>📖 全流程开店指导</li>
+                    <li>⚙️ 千川计划开通运营</li>
+                    <li>📚 店铺起店运营教学</li>
+                    <li>👨‍🏫 1对1专属运营顾问</li>
+                    <li class="hl">🏪 30店矩阵开通，团队化操盘</li>
+                </ul>
+                <div class="plan-expand">🔄 扩容机制：超出30店部分，每新增1店仅收取 <strong>500元</strong> 开通费，灵活扩容</div>
+                <div style="padding:8px 14px;border-radius:var(--radius-xs);background:var(--theme-bg-alt);margin-bottom:12px;border-left:2px solid var(--theme-primary);font-size:0.76rem;color:var(--theme-text-sub);line-height:1.6;">单店月盈利 <strong style="color:var(--theme-text);">1,000+ 元</strong></div>
+                <div style="padding:10px 14px;border-radius:var(--radius-xs);background:var(--theme-primary-bg);margin-bottom:12px;font-size:0.76rem;color:var(--theme-text-sub);line-height:1.6;">💎 单店是加法，店群是乘法。30店矩阵批量起盘：30 × 2,000 × 80% = <strong style="color:var(--theme-text);">48,000元/月</strong></div>
+                <a href="#contact" class="plan-btn outline">了解详情</a>
+                <div class="plan-note">⚠ 本方案为独立专属合作，不支持补差价升级</div>
+            </div>
+
+            <!-- 方案三 -->
+            <div class="plan-card featured reveal reveal-right reveal-d3">
+                <span class="plan-badge elite">方案三 · ELITE</span>
+                <div class="plan-name">生态合伙人</div>
+                <div class="plan-tagline">自建商业生态，全链自主运营 — 平台级操盘手，建立自有商业生态系统</div>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;">
+                    <div class="plan-price" style="margin-bottom:0;flex:1;min-width:110px;"><div class="amt" style="font-size:1.2rem;"><span class="cur">¥</span>36,980</div><div class="note">平台版 · 终身</div></div>
+                    <div class="plan-price" style="margin-bottom:0;flex:1;min-width:110px;"><div class="amt" style="font-size:1.2rem;"><span class="cur">¥</span>69,880</div><div class="note">招商版 · 全链交付</div></div>
+                </div>
+                <div class="plan-profit">利润分配：<strong>100%</strong> 归你 / 0% 归平台</div>
+                <ul class="plan-feat">
+                    <li>📖 全流程开店指导</li>
+                    <li>⚙️ 千川计划开通运营</li>
+                    <li>📚 店铺起店运营教学</li>
+                    <li>👨‍🏫 1对1专属运营顾问</li>
+                    <li>🏢 团队搭建与管理培训</li>
+                    <li class="hl">📈 店铺开通数量不设上限</li>
+                    <li class="hl">💰 享受店铺 100% 收益分成</li>
+                    <li>🏷️ 自主招商权限开通，收益全归自己</li>
+                    <li class="hl">🆓 永久免除技术服务费与运营管理费</li>
+                </ul>
+                <!-- ===== 更新后的招商版全链交付 ===== -->
+                <div style="padding:14px 16px;border-radius:var(--radius-xs);background:var(--theme-primary-bg);border:1px solid var(--theme-border);margin-bottom:14px;font-size:0.78rem;color:var(--theme-text-sub);line-height:1.7;">
+                    <div style="font-weight:700;color:var(--theme-text);margin-bottom:6px;">📦 招商版额外叠加 · 全链交付</div>
+                    <ul style="list-style:none;padding:0;margin:0;">
+                        <li style="padding:3px 0;display:flex;align-items:flex-start;gap:8px;border-bottom:1px solid rgba(0,0,0,0.04);">
+                            <span style="font-size:0.85rem;flex-shrink:0;">🎯</span>
+                            <span><strong>项目核心技术方法论</strong>（完整商业闭环认知与可复制体系）</span>
+                        </li>
+                        <li style="padding:3px 0;display:flex;align-items:flex-start;gap:8px;border-bottom:1px solid rgba(0,0,0,0.04);">
+                            <span style="font-size:0.85rem;flex-shrink:0;">🎬</span>
+                            <span><strong>千川短视频全链路</strong>（素材采集→制作→上传）</span>
+                        </li>
+                        <li style="padding:3px 0;display:flex;align-items:flex-start;gap:8px;border-bottom:1px solid rgba(0,0,0,0.04);">
+                            <span style="font-size:0.85rem;flex-shrink:0;">🛒</span>
+                            <span><strong>商品运营全流程SOP</strong>（选品→测品→上架）</span>
+                        </li>
+                        <li style="padding:3px 0;display:flex;align-items:flex-start;gap:8px;border-bottom:1px solid rgba(0,0,0,0.04);">
+                            <span style="font-size:0.85rem;flex-shrink:0;">📣</span>
+                            <span><strong>招商系统方案与成交话术</strong></span>
+                        </li>
+                        <li style="padding:3px 0;display:flex;align-items:flex-start;gap:8px;border-bottom:1px solid rgba(0,0,0,0.04);">
+                            <span style="font-size:0.85rem;flex-shrink:0;">🏪</span>
+                            <span><strong>线上线下工作室发展模式</strong></span>
+                        </li>
+                        <li style="padding:3px 0;display:flex;align-items:flex-start;gap:8px;border-bottom:1px solid rgba(0,0,0,0.04);">
+                            <span style="font-size:0.85rem;flex-shrink:0;">🔐</span>
+                            <span><strong>独立千川管理主账户</strong>（自主审核绑定店铺素材账户）</span>
+                        </li>
+                        <li style="padding:3px 0;display:flex;align-items:flex-start;gap:8px;border-bottom:1px solid rgba(0,0,0,0.04);">
+                            <span style="font-size:0.85rem;flex-shrink:0;">📡</span>
+                            <span><strong>千川代理商端口对接群</strong></span>
+                        </li>
+                        <li style="padding:3px 0;display:flex;align-items:flex-start;gap:8px;">
+                            <span style="font-size:0.85rem;flex-shrink:0;">📋</span>
+                            <span><strong>配套商业权益持续更新</strong>（含平台规则同步、投流玩法迭代、选品库动态更新）</span>
+                        </li>
+                    </ul>
+                </div>
+                <div style="padding:8px 14px;border-radius:var(--radius-xs);background:var(--theme-bg-alt);margin-bottom:12px;border-left:2px solid var(--theme-primary);font-size:0.76rem;color:var(--theme-text-sub);line-height:1.6;">单店月盈利 <strong style="color:var(--theme-text);">1,000+ 元</strong></div>
+                <div style="padding:10px 14px;border-radius:var(--radius-xs);background:var(--theme-primary-bg);margin-bottom:12px;font-size:0.76rem;color:var(--theme-text-sub);line-height:1.6;">💎 你不是在找项目，你是在建生态。店铺数量不设上限，<strong style="color:var(--theme-text);">100%收益归自己</strong>，自己定义商业天花板。</div>
+                <a href="#contact" class="plan-btn primary"><span>立即签约</span></a>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    TEAM
+    ============================================================ -->
+    <section id="team" style="background:var(--theme-bg-alt);">
+        <div class="sec-center reveal">
+            <div class="sec-label">CORE TEAM</div>
+            <div class="sec-title">核心团队</div>
+            <p class="sec-desc">千万级流量操盘手带队，你不需要很厉害才能加入，但加入后你会变得很厉害。</p>
+        </div>
+        <div class="team-grid" style="margin-top:28px;">
+            <div class="team-card reveal reveal-left reveal-d1">
+                <div class="team-card-hd">
+                    <div class="team-av">白</div>
+                    <div>
+                        <div class="team-nm">白马</div>
+                        <div class="team-role">项目总负责人</div>
+                        <div class="team-wx">微信：BMLC888999 <button class="copy-btn" onclick="copyWx('BMLC888999',this)">复制</button></div>
+                    </div>
+                </div>
+                <div class="team-skills">
+                    <span class="team-skill">招商转化</span>
+                    <span class="team-skill">方案匹配</span>
+                    <span class="team-skill">合伙人孵化</span>
+                    <span class="team-skill">权益落地</span>
+                </div>
+                <div class="team-phil">「从实战中来，到实战中去。所有方法论均经过团队反复验证，可复制、可落地。」</div>
+            </div>
+            <div class="team-card reveal reveal-right reveal-d2">
+                <div class="team-card-hd">
+                    <div class="team-av">冠</div>
+                    <div>
+                        <div class="team-nm">冠宇</div>
+                        <div class="team-role">项目合伙人</div>
+                        <div class="team-wx">微信：y18889978468 <button class="copy-btn" onclick="copyWx('y18889978468',this)">复制</button></div>
+                    </div>
+                </div>
+                <div class="team-skills">
+                    <span class="team-skill">战略规划</span>
+                    <span class="team-skill">投流技术</span>
+                    <span class="team-skill">团队搭建</span>
+                    <span class="team-skill">项目交付</span>
+                </div>
+                <div class="team-phil">「精准匹配、透明沟通、长期陪跑，让每一位合伙人找到最适合自己的入局方式。」</div>
+            </div>
+        </div>
+        <div class="team-banner reveal">
+            <p><strong>开放招募中</strong> —— 白马联创核心团队，以实战验证的方法论，带你跑通私域商业模型。</p>
+            <a href="#contact" class="btn-primary" style="flex-shrink:0;"><span>加入团队</span></a>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    TERMS
+    ============================================================ -->
+    <section id="terms">
+        <div class="sec-center reveal">
+            <div class="sec-label">COOPERATION TERMS</div>
+            <div class="sec-title">统一合作说明</div>
+            <p class="sec-desc">透明、规范、有保障的合作机制</p>
+        </div>
+        <div class="terms-grid" style="margin-top:28px;">
+            <div class="term-item reveal reveal-d1"><span class="t-icon">💳</span><div class="t-text"><h4>技术服务费</h4><p>独立/平台合伙人收取 5%；生态合伙人永久免除</p></div></div>
+            <div class="term-item reveal reveal-d2"><span class="t-icon">👥</span><div class="t-text"><h4>运营管理支持</h4><p>如需团队协助收取 3%～5% 服务费；生态合伙人永久免除</p></div></div>
+            <div class="term-item reveal reveal-d3"><span class="t-icon">🔒</span><div class="t-text"><h4>费用透明</h4><p>签约前确认所有明细，合作中无隐藏追加</p></div></div>
+            <div class="term-item reveal reveal-d1"><span class="t-icon">⏳</span><div class="t-text"><h4>权益终身制</h4><p>一次性付费，长期享受，无需年费或续约</p></div></div>
+            <div class="term-item reveal reveal-d2"><span class="t-icon">🔄</span><div class="t-text"><h4>技术实时更新</h4><p>投流玩法、选品策略、运营 SOP 随平台规则同步迭代</p></div></div>
+            <div class="term-item reveal reveal-d3"><span class="t-icon">🤝</span><div class="t-text"><h4>专属运营对接</h4><p>每套方案配备专属运营顾问，全程陪跑</p></div></div>
+            <div class="term-item reveal reveal-d1"><span class="t-icon">🚫</span><div class="t-text"><h4>方案升级说明</h4><p>均为独立专属方案，不支持补差价升级，可直接签约更高级别</p></div></div>
+            <div class="term-item reveal reveal-d2"><span class="t-icon">💰</span><div class="t-text"><h4>退出保障</h4><p>合作终止时押金类费用按约定退还，无隐性扣款</p></div></div>
+            <div class="term-item reveal reveal-d3"><span class="t-icon">📄</span><div class="t-text"><h4>合同保障</h4><p>签署正式商业合作协议，明确双方权责</p></div></div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    PROCESS
+    ============================================================ -->
+    <section id="process" style="background:var(--theme-bg-alt);">
+        <div class="sec-center reveal">
+            <div class="sec-label">PROCESS</div>
+            <div class="sec-title">招商合作流程</div>
+            <p class="sec-desc">六步走，从咨询到持续赋能，全程陪跑。</p>
+        </div>
+        <div class="process-grid" style="margin-top:28px;">
+            <div class="process-step reveal reveal-d1"><div class="step-num">01</div><h4>商业咨询</h4><p>意向合伙人通过官方渠道提交合作意向，招商顾问 1对1 了解诉求，精准推荐匹配方案。</p></div>
+            <div class="process-step reveal reveal-d2"><div class="step-num">02</div><h4>方案定制</h4><p>根据合伙人实际情况，定制化解读方案权益细则、费用结构及收益测算模型。</p></div>
+            <div class="process-step reveal reveal-d3"><div class="step-num">03</div><h4>签约付款</h4><p>签署正式《商业合伙人合作协议》，明确权责、分成比例、结算周期及退出条款。</p></div>
+            <div class="process-step reveal reveal-d1"><div class="step-num">04</div><h4>权益开通</h4><p>1-3 个工作日内开通全部商业权益：店铺绑定、SOP 交付、运营顾问对接。</p></div>
+            <div class="process-step reveal reveal-d2"><div class="step-num">05</div><h4>系统培训</h4><p>系统性商业培训（开店指导、选品数据、投流技术、店群管理），全程陪跑。</p></div>
+            <div class="process-step reveal reveal-d3"><div class="step-num">06</div><h4>持续赋能</h4><p>技术玩法持续更新、平台规则同步迭代、新权益动态交付——长期陪跑。</p></div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    CTA
+    ============================================================ -->
+    <section class="cta-section" id="contact">
+        <div class="cta-inner reveal">
+            <div class="sec-label" style="justify-content:center;">CONTACT US</div>
+            <h2>加入 <span class="hl">白马联创</span><br />核心圈层</h2>
+            <p>成为真正的掌局者。给你平台、给你技术、给你自主权——<br />赚多赚少，取决于你的商业野心。</p>
+            <div class="cta-btns">
+                <a class="btn-primary" onclick="copyWx('BMLC888999')"><span>微信咨询</span></a>
+                <a href="#plans" class="btn-secondary"><span>查看合作方案</span></a>
+            </div>
+            <div class="cta-contacts">
+                <div class="cta-ci" onclick="copyWx('BMLC888999')">
+                    <div class="ico">👤</div>
+                    <div class="inf"><div class="nm">白马 · 项目总负责人</div><div class="wx">BMLC888999 <span class="cp">[复制]</span></div></div>
+                    <span class="badge" id="cb1">已复制</span>
+                </div>
+                <div class="cta-ci" onclick="copyWx('y18889978468')">
+                    <div class="ico">👤</div>
+                    <div class="inf"><div class="nm">冠宇 · 项目合伙人</div><div class="wx">y18889978468 <span class="cp">[复制]</span></div></div>
+                    <span class="badge" id="cb2">已复制</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="footer-l"><span class="dot">●</span> 白马联创 · BMLC</div>
+        <div class="footer-r">&copy; 2026 白马联创. All rights reserved.</div>
+    </footer>
+
+    <!-- ============================================================
+    SCRIPT
+    ============================================================ -->
+    <script>
+        // ===== LOADER =====
+        window.addEventListener('load', () => {
+            setTimeout(() => document.getElementById('loader').classList.add('done'), 1000);
+        });
+
+        // ===== SCROLL PROGRESS =====
+        const sp = document.getElementById('scrollProg');
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement.scrollHeight - window.innerHeight;
+            sp.style.width = (window.scrollY / h * 100) + '%';
+        }, { passive: true });
+
+        // ===== NAV SCROLL =====
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+
+        // ===== BACK TO TOP =====
+        const bt = document.getElementById('backTop');
+        window.addEventListener('scroll', () => {
+            bt.classList.toggle('show', window.scrollY > 400);
+        }, { passive: true });
+
+        // ===== MOBILE MENU =====
+        const mt = document.getElementById('mobileToggle');
+        const mm = document.getElementById('mobileMenu');
+
+        mt.addEventListener('click', () => {
+            mm.classList.contains('open') ? closeMenu() : openMenu();
+        });
+
+        function openMenu() {
+            mm.classList.add('open');
+            mt.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            mm.classList.remove('open');
+            mt.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeMenu();
+        });
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ===== REVEAL ON SCROLL =====
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+            obs.observe(el);
+        });
+
+        // ===== PROGRESS BAR ANIMATION =====
+        const barObs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting && !e.target.dataset.barred) {
+                    e.target.dataset.barred = 'true';
+                    e.target.style.width = e.target.dataset.width;
+                }
+            });
+        }, { threshold: 0.4 });
+        document.querySelectorAll('.fill[data-width]').forEach(el => barObs.observe(el));
+
+        // ===== COPY TO CLIPBOARD =====
+        function copyWx(text, btnEl) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('已复制微信号：' + text);
+                if (btnEl && btnEl.classList) {
+                    btnEl.classList.add('copied');
+                    btnEl.textContent = '已复制';
+                    setTimeout(() => {
+                        btnEl.classList.remove('copied');
+                        btnEl.textContent = '复制';
+                    }, 1500);
+                }
+                document.querySelectorAll('.cta-ci .badge').forEach(b => b.classList.remove('show'));
+                if (text === 'BMLC888999') {
+                    const b = document.getElementById('cb1');
+                    if (b) { b.classList.add('show');
+                        setTimeout(() => b.classList.remove('show'), 1800); }
+                }
+                if (text === 'y18889978468') {
+                    const b = document.getElementById('cb2');
+                    if (b) { b.classList.add('show');
+                        setTimeout(() => b.classList.remove('show'), 1800); }
+                }
+            }).catch(() => {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.cssText = 'position:fixed;opacity:0';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                showToast('已复制微信号：' + text);
+            });
+        }
+
+        let toastTimer;
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            document.getElementById('toastText').textContent = msg;
+            t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+        }
+
+        // ============================================================
+        // THEME SWITCHER
+        // ============================================================
+        const themeBtn = document.getElementById('themeToggleBtn');
+        const themeDropdown = document.getElementById('themeDropdown');
+        const themeDot = document.getElementById('themeDotIndicator');
+        const themeOpts = document.querySelectorAll('.theme-opt');
+        const mobThemeOpts = document.querySelectorAll('.mob-theme-opt');
+
+        let currentTheme = 'ya';
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            currentTheme = theme;
+
+            // 更新桌面下拉
+            themeOpts.forEach(el => {
+                el.classList.toggle('active', el.dataset.theme === theme);
+            });
+            // 更新移动端
+            mobThemeOpts.forEach(el => {
+                el.classList.toggle('active', el.dataset.theme === theme);
+            });
+            // 更新指示点
+            const swatch = document.querySelector(`.theme-opt[data-theme="${theme}"] .swatch`);
+            if (swatch) {
+                themeDot.style.background = window.getComputedStyle(swatch).background || swatch.style.background;
+            }
+
+            // 关闭下拉
+            themeDropdown.classList.remove('open');
+
+            // 保存偏好
+            try { localStorage.setItem('bmlc-theme', theme); } catch (e) {}
+        }
+
+        // 切换下拉
+        themeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            themeDropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', () => {
+            themeDropdown.classList.remove('open');
+        });
+
+        themeOpts.forEach(el => {
+            el.addEventListener('click', () => {
+                setTheme(el.dataset.theme);
+            });
+        });
+
+        mobThemeOpts.forEach(el => {
+            el.addEventListener('click', () => {
+                setTheme(el.dataset.theme);
+            });
+        });
+
+        // 恢复保存的主题
+        try {
+            const saved = localStorage.getItem('bmlc-theme');
+            if (saved && ['ya', 'feng', 'nuan', 'ran', 'lan', 'zi'].includes(saved)) {
+                setTheme(saved);
+            } else {
+                setTheme('ya');
+            }
+        } catch (e) {
+            setTheme('ya');
+        }
+
+        // ===== 点击外部关闭主题下拉 =====
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.theme-toggle-wrap')) {
+                themeDropdown.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>
