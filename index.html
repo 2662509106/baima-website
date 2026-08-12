@@ -1,0 +1,4379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <title>白马联创 | 6套商务UI方案</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@300;400;500&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* ============================================================
+                   BASE & RESET
+                   ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            font-weight: 400;
+            line-height: 1.8;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+            transition: background 0.6s cubic-bezier(.22, 1, .36, 1), color 0.6s cubic-bezier(.22, 1, .36, 1);
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: var(--badge-text);
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        strong {
+            font-weight: 700;
+        }
+
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-alt);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 2px;
+            transition: background 0.3s;
+        }
+
+        /* ============================================================
+                   六套主题 CSS 变量
+                   ============================================================ */
+
+        /* ---- 主题1：铂金·雅致 ---- */
+        :root,
+        [data-theme="style-1"] {
+            --bg: #f8f7f4;
+            --bg-alt: #efede6;
+            --card: #ffffff;
+            --text: #1a1a1a;
+            --text-sub: #4a4a4a;
+            --text-muted: #8a8a8a;
+            --gold: #c9a84c;
+            --gold-dark: #a88a35;
+            --gold-light: #e8d080;
+            --gold-bg: rgba(201, 168, 76, 0.06);
+            --gold-bg-hover: rgba(201, 168, 76, 0.14);
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.06), 0 16px 48px rgba(0, 0, 0, 0.06);
+            --border: rgba(0, 0, 0, 0.06);
+            --border-light: rgba(0, 0, 0, 0.04);
+            --nav-bg: rgba(248, 247, 244, 0.82);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --radius-xs: 6px;
+            --font-b: 'Inter', 'Noto Sans SC', sans-serif;
+            --font-d: 'Syne', sans-serif;
+            --font-m: 'DM Mono', monospace;
+            --btn-fill-bg: #1a1a1a;
+            --btn-fill-color: #fff;
+            --btn-line-border: rgba(0, 0, 0, 0.12);
+            --hero-bg-start: #f8f7f4;
+            --hero-bg-end: #efede6;
+            --section-alt-bg: #efede6;
+            --marquee-bg: #efede6;
+            --footer-border: rgba(0, 0, 0, 0.06);
+            --gradient-gold: linear-gradient(135deg, #c9a84c, #b8963a);
+            --badge-text: #1a1a1a;
+            --font-weight-hero: 800;
+            --letter-spacing-wide: 0.02em;
+            --card-border: rgba(0, 0, 0, 0.04);
+            --switcher-bg: rgba(255, 255, 255, 0.72);
+            --switcher-text: #1a1a1a;
+            --hero-accent: #c9a84c;
+            --tag-bg: rgba(201, 168, 76, 0.08);
+        }
+
+        /* ---- 主题2：暗夜·锋芒 ---- */
+        [data-theme="style-2"] {
+            --bg: #0b0e14;
+            --bg-alt: #11161f;
+            --card: #161c28;
+            --text: #f0ede8;
+            --text-sub: #b8b8b8;
+            --text-muted: #787878;
+            --gold: #d4af37;
+            --gold-dark: #c49a2e;
+            --gold-light: #e8d080;
+            --gold-bg: rgba(212, 175, 55, 0.10);
+            --gold-bg-hover: rgba(212, 175, 55, 0.20);
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.4), 0 16px 48px rgba(0, 0, 0, 0.4);
+            --border: rgba(255, 255, 255, 0.06);
+            --border-light: rgba(255, 255, 255, 0.04);
+            --nav-bg: rgba(11, 14, 20, 0.85);
+            --radius: 8px;
+            --radius-sm: 6px;
+            --radius-xs: 4px;
+            --font-b: 'Inter', 'Noto Sans SC', sans-serif;
+            --font-d: 'Syne', sans-serif;
+            --font-m: 'DM Mono', monospace;
+            --btn-fill-bg: #d4af37;
+            --btn-fill-color: #0b0e14;
+            --btn-line-border: rgba(255, 255, 255, 0.12);
+            --hero-bg-start: #0b0e14;
+            --hero-bg-end: #141a26;
+            --section-alt-bg: #11161f;
+            --marquee-bg: #11161f;
+            --footer-border: rgba(255, 255, 255, 0.06);
+            --gradient-gold: linear-gradient(135deg, #d4af37, #b8962e);
+            --badge-text: #0b0e14;
+            --font-weight-hero: 700;
+            --letter-spacing-wide: 0.04em;
+            --card-border: rgba(255, 255, 255, 0.04);
+            --switcher-bg: rgba(11, 14, 20, 0.85);
+            --switcher-text: #f0ede8;
+            --hero-accent: #d4af37;
+            --tag-bg: rgba(212, 175, 55, 0.12);
+        }
+
+        /* ---- 主题3：琥珀·暖意 ---- */
+        [data-theme="style-3"] {
+            --bg: #fcf8f0;
+            --bg-alt: #f5ede0;
+            --card: #ffffff;
+            --text: #2c2416;
+            --text-sub: #6a5a3a;
+            --text-muted: #a0907a;
+            --gold: #b8860b;
+            --gold-dark: #9a7208;
+            --gold-light: #d4a843;
+            --gold-bg: rgba(184, 134, 11, 0.08);
+            --gold-bg-hover: rgba(184, 134, 11, 0.18);
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.06), 0 16px 48px rgba(0, 0, 0, 0.06);
+            --border: rgba(0, 0, 0, 0.06);
+            --border-light: rgba(0, 0, 0, 0.04);
+            --nav-bg: rgba(252, 248, 240, 0.82);
+            --radius: 20px;
+            --radius-sm: 14px;
+            --radius-xs: 10px;
+            --font-b: 'Playfair Display', 'Noto Sans SC', serif;
+            --font-d: 'Syne', sans-serif;
+            --font-m: 'DM Mono', monospace;
+            --btn-fill-bg: #b8860b;
+            --btn-fill-color: #fff;
+            --btn-line-border: rgba(0, 0, 0, 0.10);
+            --hero-bg-start: #fcf8f0;
+            --hero-bg-end: #f5ede0;
+            --section-alt-bg: #f5ede0;
+            --marquee-bg: #f5ede0;
+            --footer-border: rgba(0, 0, 0, 0.06);
+            --gradient-gold: linear-gradient(135deg, #b8860b, #d4a843);
+            --badge-text: #2c2416;
+            --font-weight-hero: 700;
+            --letter-spacing-wide: 0.02em;
+            --card-border: rgba(0, 0, 0, 0.04);
+            --switcher-bg: rgba(252, 248, 240, 0.82);
+            --switcher-text: #2c2416;
+            --hero-accent: #b8860b;
+            --tag-bg: rgba(184, 134, 11, 0.10);
+        }
+
+        /* ---- 主题4：碧玉·自然 ---- */
+        [data-theme="style-4"] {
+            --bg: #f5f0e8;
+            --bg-alt: #ece4d8;
+            --card: #ffffff;
+            --text: #2d2a24;
+            --text-sub: #5a5548;
+            --text-muted: #8a8578;
+            --gold: #8a9a5a;
+            --gold-dark: #6a7a42;
+            --gold-light: #b0c08a;
+            --gold-bg: rgba(138, 154, 90, 0.08);
+            --gold-bg-hover: rgba(138, 154, 90, 0.18);
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.06), 0 16px 48px rgba(0, 0, 0, 0.06);
+            --border: rgba(0, 0, 0, 0.06);
+            --border-light: rgba(0, 0, 0, 0.04);
+            --nav-bg: rgba(245, 240, 232, 0.82);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-xs: 8px;
+            --font-b: 'Inter', 'Noto Sans SC', sans-serif;
+            --font-d: 'Syne', sans-serif;
+            --font-m: 'DM Mono', monospace;
+            --btn-fill-bg: #8a9a5a;
+            --btn-fill-color: #fff;
+            --btn-line-border: rgba(0, 0, 0, 0.10);
+            --hero-bg-start: #f5f0e8;
+            --hero-bg-end: #ece4d8;
+            --section-alt-bg: #ece4d8;
+            --marquee-bg: #ece4d8;
+            --footer-border: rgba(0, 0, 0, 0.06);
+            --gradient-gold: linear-gradient(135deg, #8a9a5a, #6a7a42);
+            --badge-text: #2d2a24;
+            --font-weight-hero: 700;
+            --letter-spacing-wide: 0.02em;
+            --card-border: rgba(0, 0, 0, 0.04);
+            --switcher-bg: rgba(245, 240, 232, 0.82);
+            --switcher-text: #2d2a24;
+            --hero-accent: #8a9a5a;
+            --tag-bg: rgba(138, 154, 90, 0.10);
+        }
+
+        /* ---- 主题5：钴蓝·现代 ---- */
+        [data-theme="style-5"] {
+            --bg: #f4f6f9;
+            --bg-alt: #e8ecf2;
+            --card: #ffffff;
+            --text: #0f1a2e;
+            --text-sub: #3a4a6a;
+            --text-muted: #7a8aaa;
+            --gold: #2a7de1;
+            --gold-dark: #1a5db0;
+            --gold-light: #6aa8f0;
+            --gold-bg: rgba(42, 125, 225, 0.06);
+            --gold-bg-hover: rgba(42, 125, 225, 0.14);
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.06), 0 16px 48px rgba(0, 0, 0, 0.06);
+            --border: rgba(0, 0, 0, 0.06);
+            --border-light: rgba(0, 0, 0, 0.04);
+            --nav-bg: rgba(244, 246, 249, 0.82);
+            --radius: 4px;
+            --radius-sm: 2px;
+            --radius-xs: 0px;
+            --font-b: 'Inter', 'Noto Sans SC', sans-serif;
+            --font-d: 'Syne', sans-serif;
+            --font-m: 'DM Mono', monospace;
+            --btn-fill-bg: #0f1a2e;
+            --btn-fill-color: #fff;
+            --btn-line-border: rgba(0, 0, 0, 0.12);
+            --hero-bg-start: #f4f6f9;
+            --hero-bg-end: #e8ecf2;
+            --section-alt-bg: #e8ecf2;
+            --marquee-bg: #e8ecf2;
+            --footer-border: rgba(0, 0, 0, 0.06);
+            --gradient-gold: linear-gradient(135deg, #2a7de1, #1a5db0);
+            --badge-text: #0f1a2e;
+            --font-weight-hero: 800;
+            --letter-spacing-wide: -0.02em;
+            --card-border: rgba(0, 0, 0, 0.04);
+            --switcher-bg: rgba(244, 246, 249, 0.82);
+            --switcher-text: #0f1a2e;
+            --hero-accent: #2a7de1;
+            --tag-bg: rgba(42, 125, 225, 0.08);
+        }
+
+        /* ---- 主题6：紫韵·奢雅 ---- */
+        [data-theme="style-6"] {
+            --bg: #f8f4fc;
+            --bg-alt: #f0e8f8;
+            --card: #ffffff;
+            --text: #1a0f2e;
+            --text-sub: #5a4a7a;
+            --text-muted: #9a8aaa;
+            --gold: #8b5cf6;
+            --gold-dark: #6d3bd0;
+            --gold-light: #b89af8;
+            --gold-bg: rgba(139, 92, 246, 0.08);
+            --gold-bg-hover: rgba(139, 92, 246, 0.18);
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.06), 0 16px 48px rgba(0, 0, 0, 0.06);
+            --border: rgba(0, 0, 0, 0.06);
+            --border-light: rgba(0, 0, 0, 0.04);
+            --nav-bg: rgba(248, 244, 252, 0.82);
+            --radius: 18px;
+            --radius-sm: 12px;
+            --radius-xs: 8px;
+            --font-b: 'Inter', 'Noto Sans SC', sans-serif;
+            --font-d: 'Syne', sans-serif;
+            --font-m: 'DM Mono', monospace;
+            --btn-fill-bg: #8b5cf6;
+            --btn-fill-color: #fff;
+            --btn-line-border: rgba(0, 0, 0, 0.10);
+            --hero-bg-start: #f8f4fc;
+            --hero-bg-end: #f0e8f8;
+            --section-alt-bg: #f0e8f8;
+            --marquee-bg: #f0e8f8;
+            --footer-border: rgba(0, 0, 0, 0.06);
+            --gradient-gold: linear-gradient(135deg, #8b5cf6, #6d3bd0);
+            --badge-text: #1a0f2e;
+            --font-weight-hero: 800;
+            --letter-spacing-wide: 0.02em;
+            --card-border: rgba(0, 0, 0, 0.04);
+            --switcher-bg: rgba(248, 244, 252, 0.82);
+            --switcher-text: #1a0f2e;
+            --hero-accent: #8b5cf6;
+            --tag-bg: rgba(139, 92, 246, 0.10);
+        }
+
+        /* ============================================================
+                   全局样式
+                   ============================================================ */
+        body {
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.6s cubic-bezier(.22, 1, .36, 1), color 0.6s cubic-bezier(.22, 1, .36, 1);
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-alt);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+        }
+
+        .btn-fill {
+            padding: 13px 34px;
+            background: var(--btn-fill-bg);
+            color: var(--btn-fill-color);
+            font-family: var(--font-b);
+            font-weight: 700;
+            font-size: .88rem;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            letter-spacing: var(--letter-spacing-wide);
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+        .btn-fill::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gold);
+            opacity: 0;
+            transition: opacity .4s cubic-bezier(.22, 1, .36, 1);
+            z-index: 0;
+            border-radius: 100px;
+        }
+        .btn-fill span {
+            position: relative;
+            z-index: 1;
+        }
+        .btn-fill:hover::after {
+            opacity: 1;
+        }
+        .btn-fill:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 36px rgba(201, 168, 76, .30);
+        }
+        .btn-fill:active {
+            transform: scale(.96);
+        }
+
+        .btn-line {
+            padding: 13px 34px;
+            background: transparent;
+            color: var(--text);
+            font-family: var(--font-b);
+            font-weight: 600;
+            font-size: .88rem;
+            border: 1.5px solid var(--btn-line-border);
+            border-radius: 100px;
+            cursor: pointer;
+            letter-spacing: var(--letter-spacing-wide);
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            position: relative;
+        }
+        .btn-line:hover {
+            border-color: var(--gold);
+            color: var(--gold-dark);
+            background: var(--gold-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(201, 168, 76, .10);
+        }
+        .btn-line:active {
+            transform: scale(.96);
+        }
+
+        .sec-label {
+            font-family: var(--font-m);
+            font-size: clamp(.6rem, 0.7vw, .7rem);
+            font-weight: 400;
+            color: var(--gold-dark);
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            margin-bottom: clamp(6px, 0.8vw, 8px);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.8;
+        }
+        .sec-label::before {
+            content: '';
+            width: 16px;
+            height: 1.5px;
+            background: var(--gold);
+            transition: width .4s ease;
+        }
+        .sec-label:hover::before {
+            width: 28px;
+        }
+        .sec-label.centered {
+            justify-content: center;
+        }
+
+        .sec-title {
+            font-family: var(--font-b);
+            font-size: clamp(1.3rem, 3vw, 2.4rem);
+            font-weight: var(--font-weight-hero);
+            line-height: 1.25;
+            letter-spacing: var(--letter-spacing-wide);
+            margin-bottom: clamp(8px, 1vw, 10px);
+            color: var(--text);
+        }
+        .sec-desc {
+            color: var(--text-sub);
+            font-size: clamp(.8rem, 1vw, 1rem);
+            font-weight: 400;
+            max-width: 600px;
+            line-height: 1.85;
+        }
+        .sec-center {
+            text-align: center;
+        }
+        .sec-center .sec-desc {
+            margin: 0 auto;
+        }
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            transition: background 0.5s;
+            margin: 0;
+        }
+
+        /* ---- Reveal Animations ---- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(48px) scale(.98);
+            transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-56px) scale(.97);
+            transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(56px) scale(.97);
+            transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(.88) rotate(-1deg);
+            transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1);
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+        .reveal-d1 {
+            transition-delay: .08s;
+        }
+        .reveal-d2 {
+            transition-delay: .16s;
+        }
+        .reveal-d3 {
+            transition-delay: .24s;
+        }
+        .reveal-d4 {
+            transition-delay: .32s;
+        }
+        .reveal-d5 {
+            transition-delay: .40s;
+        }
+
+        section {
+            position: relative;
+            padding: clamp(48px, 8vw, 80px) clamp(16px, 5vw, 64px);
+            overflow: hidden;
+            background: var(--bg);
+            transition: background 0.6s cubic-bezier(.22, 1, .36, 1);
+        }
+        section.alt-bg {
+            background: var(--bg-alt);
+        }
+
+        /* ============================================================
+                   主题切换器 (可折叠)
+                   ============================================================ */
+        .theme-switcher-wrapper {
+            position: fixed;
+            top: 80px;
+            right: 16px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 6px;
+        }
+
+        .theme-switcher-toggle {
+            background: var(--switcher-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--border-light);
+            border-radius: 30px;
+            padding: 6px 14px 6px 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: .7rem;
+            font-weight: 600;
+            color: var(--switcher-text);
+            transition: all 0.4s cubic-bezier(.22, 1, .36, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            font-family: var(--font-b);
+            letter-spacing: 0.02em;
+            user-select: none;
+            position: relative;
+        }
+        .theme-switcher-toggle:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+        .theme-switcher-toggle:active {
+            transform: scale(.94);
+        }
+        .theme-switcher-toggle .toggle-icon {
+            transition: transform 0.5s cubic-bezier(.22, 1, .36, 1);
+            display: inline-block;
+            font-size: .6rem;
+        }
+        .theme-switcher-toggle.open .toggle-icon {
+            transform: rotate(180deg);
+        }
+        .theme-switcher-toggle .dot-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: inline-block;
+            flex-shrink: 0;
+            transition: background 0.5s cubic-bezier(.22, 1, .36, 1), transform 0.3s;
+        }
+        .theme-switcher-toggle:hover .dot-indicator {
+            transform: scale(1.2);
+        }
+
+        .theme-switcher {
+            background: var(--switcher-bg);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 0 10px;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.10);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-12px) scale(.92) rotateX(-6deg);
+            transition: all 0.5s cubic-bezier(.22, 1, .36, 1);
+            width: 48px;
+            pointer-events: none;
+            transform-origin: top right;
+        }
+        .theme-switcher.open {
+            max-height: 420px;
+            opacity: 1;
+            transform: translateY(0) scale(1) rotateX(0);
+            pointer-events: auto;
+            padding: 10px 10px 8px 10px;
+        }
+
+        .theme-switcher .ts-label {
+            font-size: .45rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--switcher-text);
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border-light);
+            opacity: 0;
+            transition: opacity .4s ease;
+            height: 0;
+            overflow: hidden;
+        }
+        .theme-switcher.open .ts-label {
+            opacity: 0.6;
+            height: auto;
+            padding-bottom: 4px;
+        }
+
+        .theme-switcher .ts-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(.22, 1, .36, 1);
+            position: relative;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .4rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: .02em;
+            transform: scale(.85);
+            opacity: 0.6;
+        }
+        .theme-switcher.open .ts-btn {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .theme-switcher .ts-btn:hover {
+            transform: scale(1.18) !important;
+            opacity: 1;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+        .theme-switcher .ts-btn:active {
+            transform: scale(.92) !important;
+        }
+        .theme-switcher .ts-btn.active {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, .15);
+            transform: scale(1.08);
+            opacity: 1;
+        }
+        .theme-switcher .ts-btn .ts-badge {
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            background: var(--card);
+            color: var(--text);
+            font-size: .35rem;
+            font-weight: 800;
+            padding: 0 3px;
+            border-radius: 4px;
+            border: 1px solid var(--border-light);
+            line-height: 1.2;
+            transition: all .3s;
+        }
+        .theme-switcher .ts-btn.active .ts-badge {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--badge-text);
+        }
+
+        .ts-btn.style-1 {
+            background: linear-gradient(135deg, #f8f7f4, #d4d0c8);
+            border-color: #c9a84c;
+            color: #1a1a1a;
+        }
+        .ts-btn.style-2 {
+            background: linear-gradient(135deg, #0b0e14, #1a1f2e);
+            border-color: #d4af37;
+            color: #fff;
+        }
+        .ts-btn.style-3 {
+            background: linear-gradient(135deg, #fcf8f0, #f0e8d8);
+            border-color: #b8860b;
+            color: #2c2416;
+        }
+        .ts-btn.style-4 {
+            background: linear-gradient(135deg, #f5f0e8, #e0d8cc);
+            border-color: #8a9a5a;
+            color: #2d2a24;
+        }
+        .ts-btn.style-5 {
+            background: linear-gradient(135deg, #f4f6f9, #dce0e8);
+            border-color: #2a7de1;
+            color: #0f1a2e;
+        }
+        .ts-btn.style-6 {
+            background: linear-gradient(135deg, #f8f4fc, #e8d8f8);
+            border-color: #8b5cf6;
+            color: #1a0f2e;
+        }
+
+        @media(max-width:768px) {
+            .theme-switcher-wrapper {
+                top: auto;
+                bottom: 80px;
+                right: 12px;
+            }
+            .theme-switcher-toggle {
+                padding: 4px 12px 4px 14px;
+                font-size: .6rem;
+                border-radius: 20px;
+            }
+            .theme-switcher {
+                width: 40px;
+            }
+            .theme-switcher.open {
+                padding: 8px 6px;
+            }
+            .theme-switcher .ts-btn {
+                width: 24px;
+                height: 24px;
+                font-size: .35rem;
+            }
+            .theme-switcher .ts-btn .ts-badge {
+                font-size: .3rem;
+                top: -2px;
+                right: -2px;
+                padding: 0 2px;
+            }
+        }
+
+        /* ============================================================
+                   导航
+                   ============================================================ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 clamp(16px, 5vw, 64px);
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all .5s cubic-bezier(.22, 1, .36, 1);
+            background: transparent;
+        }
+        .nav.scrolled {
+            background: var(--nav-bg);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-bottom: 1px solid var(--border-light);
+            height: 56px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, .04);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .nav-logo {
+            font-size: clamp(.9rem, 1.2vw, 1rem);
+            font-weight: 900;
+            letter-spacing: var(--letter-spacing-wide);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+            cursor: pointer;
+            font-family: var(--font-d);
+            transition: color 0.3s;
+        }
+        .nav-logo:hover {
+            color: var(--gold-dark);
+        }
+        .nav-logo .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(201, 168, 76, .45);
+            animation: logoPulse 3s ease infinite;
+            transition: background 0.5s, box-shadow 0.5s;
+        }
+        @keyframes logoPulse {
+            0%,
+            100% {
+                box-shadow: 0 0 8px rgba(201, 168, 76, .45);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(201, 168, 76, .8);
+            }
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: clamp(16px, 3vw, 28px);
+            list-style: none;
+        }
+        .nav-center a {
+            color: var(--text-sub);
+            font-size: clamp(.78rem, 0.9vw, .84rem);
+            font-weight: 500;
+            transition: color .3s ease, transform .3s ease;
+            position: relative;
+            padding: 4px 0;
+        }
+        .nav-center a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width .4s cubic-bezier(.22, 1, .36, 1);
+            border-radius: 1px;
+        }
+        .nav-center a:hover {
+            color: var(--text);
+            transform: translateY(-1px);
+        }
+        .nav-center a:hover::after {
+            width: 100%;
+        }
+        .nav-center a:active {
+            transform: scale(.94);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .lang-toggle {
+            display: flex;
+            gap: 4px;
+            background: var(--bg-alt);
+            border-radius: 100px;
+            padding: 3px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+        .lang-toggle button {
+            background: transparent;
+            border: none;
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-size: .7rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(.22, 1, .36, 1);
+            font-family: var(--font-b);
+            letter-spacing: 0.02em;
+        }
+        .lang-toggle button.active {
+            background: var(--gold);
+            color: var(--badge-text);
+            box-shadow: 0 2px 12px rgba(201, 168, 76, .20);
+            transform: scale(1.02);
+        }
+        .lang-toggle button:hover:not(.active) {
+            color: var(--text);
+            transform: scale(1.04);
+        }
+        .lang-toggle button:active {
+            transform: scale(.92);
+        }
+
+        .nav-cta {
+            padding: 8px 22px;
+            background: var(--btn-fill-bg);
+            color: var(--btn-fill-color);
+            font-size: clamp(.72rem, 0.8vw, .78rem);
+            font-weight: 600;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            flex-shrink: 0;
+            letter-spacing: var(--letter-spacing-wide);
+            border: none;
+            font-family: var(--font-b);
+            position: relative;
+            overflow: hidden;
+        }
+        .nav-cta::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gold);
+            opacity: 0;
+            transition: opacity .4s cubic-bezier(.22, 1, .36, 1);
+            border-radius: 100px;
+        }
+        .nav-cta span {
+            position: relative;
+            z-index: 1;
+        }
+        .nav-cta:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 6px 24px rgba(201, 168, 76, .30);
+        }
+        .nav-cta:hover::after {
+            opacity: 1;
+        }
+        .nav-cta:active {
+            transform: scale(.94);
+        }
+
+        .back-home {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--text-sub);
+            font-size: .7rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(.22, 1, .36, 1);
+            padding: 4px 10px;
+            border-radius: 100px;
+            border: 1px solid transparent;
+            font-family: var(--font-b);
+            background: transparent;
+        }
+        .back-home:hover {
+            color: var(--gold);
+            border-color: var(--border-light);
+            background: var(--gold-bg);
+            transform: translateY(-1px);
+        }
+        .back-home:active {
+            transform: scale(.94);
+        }
+        .back-home .home-icon {
+            font-size: .9rem;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1002;
+            padding: 4px;
+            transition: transform .3s;
+        }
+        .mobile-toggle:hover {
+            transform: scale(1.06);
+        }
+        .mobile-toggle:active {
+            transform: scale(.88);
+        }
+        .mobile-toggle span {
+            width: 20px;
+            height: 1.5px;
+            background: var(--text);
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            transform-origin: center;
+            border-radius: 1px;
+        }
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(4.5px, 4.5px);
+        }
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(4.5px, -4.5px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(32px) saturate(180%);
+            -webkit-backdrop-filter: blur(32px) saturate(180%);
+            z-index: 1001;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .5s cubic-bezier(.22, 1, .36, 1), backdrop-filter .5s;
+        }
+        .mobile-menu.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .mobile-menu a {
+            font-size: clamp(1rem, 4vw, 1.05rem);
+            font-weight: 700;
+            color: var(--text-sub);
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            opacity: 0;
+            transform: translateY(20px) scale(.96);
+            position: relative;
+            padding: 4px 0;
+        }
+        .mobile-menu.open a {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: calc(var(--i, 0) * .05s);
+        }
+        .mobile-menu a:hover {
+            color: var(--gold);
+            transform: translateY(-2px) scale(1.04);
+        }
+        .mobile-menu a:active {
+            transform: scale(.92);
+        }
+        .mobile-menu .mob-cta {
+            margin-top: 8px;
+            padding: 11px 36px;
+            border-radius: 100px;
+            background: var(--btn-fill-bg);
+            color: var(--btn-fill-color);
+            font-weight: 700;
+            font-size: clamp(.82rem, 3vw, .86rem);
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .mobile-menu .mob-cta::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gold);
+            opacity: 0;
+            transition: opacity .4s;
+            border-radius: 100px;
+        }
+        .mobile-menu .mob-cta span {
+            position: relative;
+            z-index: 1;
+        }
+        .mobile-menu .mob-cta:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 28px rgba(201, 168, 76, .25);
+        }
+        .mobile-menu .mob-cta:hover::after {
+            opacity: 1;
+        }
+        .mobile-menu .mob-lang {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .mobile-menu .mob-lang button {
+            background: transparent;
+            border: 1px solid var(--border-light);
+            padding: 6px 18px;
+            border-radius: 100px;
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(.22, 1, .36, 1);
+            font-family: var(--font-b);
+        }
+        .mobile-menu .mob-lang button.active {
+            background: var(--gold);
+            color: var(--badge-text);
+            border-color: var(--gold);
+            transform: scale(1.02);
+        }
+        .mobile-menu .mob-lang button:hover:not(.active) {
+            color: var(--text);
+            transform: scale(1.04);
+        }
+
+        @media(max-width:768px) {
+            .nav-center {
+                display: none !important;
+            }
+            .nav-cta {
+                display: none;
+            }
+            .nav-right .back-home {
+                display: none;
+            }
+            .nav-right .lang-toggle {
+                display: none;
+            }
+            .mobile-toggle {
+                display: flex;
+            }
+            .mobile-menu {
+                display: flex;
+            }
+            .nav {
+                height: 54px;
+                padding: 0 16px;
+            }
+            .nav.scrolled {
+                height: 48px;
+            }
+            .nav-right {
+                gap: 8px;
+            }
+        }
+
+        /* ============================================================
+                   HERO — 已删除两个按钮
+                   ============================================================ */
+        .hero {
+            padding: clamp(90px, 14vh, 140px) clamp(16px, 5vw, 64px) clamp(40px, 6vw, 60px);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, var(--hero-bg-start) 0%, var(--hero-bg-end) 100%);
+            transition: background 0.6s cubic-bezier(.22, 1, .36, 1);
+        }
+        .hero-inner {
+            max-width: 860px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border: 1px solid var(--border-light);
+            border-radius: 100px;
+            font-family: var(--font-m);
+            font-size: clamp(.6rem, 0.7vw, .7rem);
+            font-weight: 400;
+            color: var(--gold-dark);
+            letter-spacing: .1em;
+            margin-bottom: clamp(16px, 2.5vw, 24px);
+            background: var(--gold-bg);
+            opacity: 0;
+            animation: fadeUp .8s cubic-bezier(.16, 1, .3, 1) .1s forwards;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .hero-badge:hover {
+            background: var(--gold-bg-hover);
+            border-color: var(--gold);
+            transform: translateY(-1px);
+        }
+        .hero-badge .bdot {
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: blink 2s ease infinite;
+        }
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .2;
+            }
+        }
+        .hero-brand {
+            font-size: clamp(2.2rem, 6vw, 4.2rem);
+            font-weight: var(--font-weight-hero);
+            line-height: 1.1;
+            letter-spacing: var(--letter-spacing-wide);
+            margin-bottom: clamp(8px, 1.2vw, 12px);
+            opacity: 0;
+            animation: fadeUp .8s cubic-bezier(.16, 1, .3, 1) .2s forwards;
+        }
+        .hero-brand .char {
+            display: inline-block;
+            animation: charUp .7s cubic-bezier(.16, 1, .3, 1) both;
+        }
+        @keyframes charUp {
+            from {
+                opacity: 0;
+                transform: translateY(32px) scale(.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .hero-subtitle {
+            font-size: clamp(.85rem, 1.3vw, 1.15rem);
+            font-weight: 400;
+            color: var(--text-sub);
+            margin-bottom: clamp(12px, 1.5vw, 16px);
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeUp .8s cubic-bezier(.16, 1, .3, 1) .35s forwards;
+        }
+        .hero-subtitle .hl {
+            color: var(--gold-dark);
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+        .hero-desc {
+            font-size: clamp(.8rem, 1vw, .98rem);
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.9;
+            max-width: 600px;
+            margin-bottom: clamp(20px, 2vw, 28px); /* 调整了间距，因为没有按钮了 */
+            opacity: 0;
+            animation: fadeUp .8s cubic-bezier(.16, 1, .3, 1) .45s forwards;
+        }
+        /* 已删除 .hero-actions */
+        .hero-stats {
+            display: flex;
+            gap: clamp(16px, 3.5vw, 48px);
+            margin-top: clamp(16px, 2vw, 28px); /* 调整了上边距，与描述更紧凑 */
+            opacity: 0;
+            animation: fadeUp .8s cubic-bezier(.16, 1, .3, 1) .55s forwards; /* 延迟提前 */
+            flex-wrap: wrap;
+        }
+        .hero-stat-item {
+            text-align: left;
+            transition: transform 0.3s;
+        }
+        .hero-stat-item:hover {
+            transform: translateY(-3px);
+        }
+        .hero-stat-item .hv {
+            font-family: var(--font-d);
+            font-size: clamp(1.1rem, 2vw, 1.7rem);
+            font-weight: 800;
+            color: var(--gold-dark);
+            letter-spacing: -.01em;
+            transition: color 0.3s;
+        }
+        .hero-stat-item .hl {
+            font-size: clamp(.65rem, 0.7vw, .72rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        @media(max-width:768px) {
+            .hero {
+                padding: 72px 16px 32px;
+            }
+            .hero-stats {
+                gap: 14px;
+            }
+            .hero-stat-item .hv {
+                font-size: 1.1rem;
+            }
+            .hero-desc {
+                margin-bottom: 24px;
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px) scale(.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ============================================================
+                   装饰元素
+                   ============================================================ */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(80px);
+            opacity: .05;
+            background: var(--gold);
+            transition: background 0.6s, opacity 0.6s;
+            animation: orbFloat 20s ease-in-out infinite alternate;
+        }
+        @keyframes orbFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(30px, -20px) scale(1.1);
+            }
+        }
+        .geo-ring {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+            border: 1px solid rgba(201, 168, 76, .06);
+            border-radius: 50%;
+            animation: geoSpin 30s linear infinite;
+            transition: border-color 0.5s;
+        }
+        .geo-ring::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 12px rgba(201, 168, 76, .25);
+            transition: background 0.5s, box-shadow 0.5s;
+        }
+        @keyframes geoSpin {
+            0% {
+                transform: rotate(0);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        .geo-ring.reverse {
+            animation-direction: reverse;
+            animation-duration: 24s;
+        }
+
+        /* ============================================================
+                   MARQUEE
+                   ============================================================ */
+        .marquee-section {
+            padding: clamp(32px, 5vw, 56px) 0;
+            overflow: hidden;
+            position: relative;
+            background: var(--marquee-bg);
+            transition: background 0.6s cubic-bezier(.22, 1, .36, 1);
+        }
+        .marquee-row {
+            display: flex;
+            width: max-content;
+            gap: clamp(12px, 2vw, 20px);
+            position: relative;
+            z-index: 1;
+            will-change: transform;
+        }
+        .marquee-row.row-1 {
+            animation: marqueeFwd 30s linear infinite;
+        }
+        .marquee-row.row-2 {
+            animation: marqueeRev 35s linear infinite;
+        }
+        @keyframes marqueeFwd {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        @keyframes marqueeRev {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        .marquee-track {
+            margin-bottom: 16px;
+        }
+        .marquee-track:last-child {
+            margin-bottom: 0;
+        }
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            gap: clamp(8px, 1vw, 12px);
+            padding: clamp(6px, 0.8vw, 10px) clamp(12px, 2vw, 20px) clamp(6px, 0.8vw, 10px) clamp(10px, 1.5vw, 14px);
+            border-radius: 100px;
+            background: var(--card);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow);
+            white-space: nowrap;
+            flex-shrink: 0;
+            cursor: default;
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+        }
+        .marquee-item:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(201, 168, 76, .20);
+            transform: scale(1.06) translateY(-3px);
+            background: var(--gold-bg);
+        }
+        .marquee-icon {
+            width: clamp(28px, 3.5vw, 36px);
+            height: clamp(28px, 3.5vw, 36px);
+            border-radius: var(--radius-sm);
+            background: var(--gold-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(.8rem, 1vw, 1rem);
+            flex-shrink: 0;
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+        }
+        .marquee-item:hover .marquee-icon {
+            background: var(--gold);
+            color: var(--badge-text);
+            transform: scale(1.12) rotate(-6deg);
+        }
+        .marquee-label {
+            font-size: clamp(.72rem, 0.9vw, .84rem);
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: .01em;
+            transition: color 0.3s;
+        }
+        .marquee-item:hover .marquee-label {
+            color: var(--gold-dark);
+        }
+        .marquee-track:hover .marquee-row {
+            animation-play-state: paused;
+        }
+        .marquee-section .fade-l,
+        .marquee-section .fade-r {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: clamp(40px, 8vw, 80px);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .marquee-section .fade-l {
+            left: 0;
+            background: linear-gradient(90deg, var(--marquee-bg) 0%, transparent 100%);
+        }
+        .marquee-section .fade-r {
+            right: 0;
+            background: linear-gradient(270deg, var(--marquee-bg) 0%, transparent 100%);
+        }
+
+        /* ============================================================
+                   内容模块 — 卡片交互增强
+                   ============================================================ */
+
+        /* About */
+        .about-center {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .about-kws {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .about-kw {
+            padding: clamp(5px, 0.6vw, 7px) clamp(12px, 1.5vw, 16px);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: clamp(.7rem, 0.8vw, .8rem);
+            font-weight: 500;
+            color: var(--text-sub);
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            cursor: default;
+            background: var(--card);
+        }
+        .about-kw:hover {
+            border-color: var(--gold);
+            color: var(--gold-dark);
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 4px 16px rgba(201, 168, 76, .12);
+        }
+
+        /* Industry */
+        .industry-hero {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(12px, 1.5vw, 20px);
+            max-width: 1000px;
+            margin: 0 auto 36px;
+        }
+        .industry-stat {
+            padding: clamp(18px, 2.5vw, 36px) clamp(14px, 2vw, 20px);
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--card-border);
+            text-align: center;
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .industry-stat::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .4s cubic-bezier(.22, 1, .36, 1);
+        }
+        .industry-stat:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-6px);
+        }
+        .industry-stat:hover::after {
+            transform: scaleX(1);
+        }
+        .industry-stat .num {
+            font-family: var(--font-d);
+            font-size: clamp(1.3rem, 2vw, 1.9rem);
+            font-weight: 800;
+            color: var(--gold-dark);
+            letter-spacing: -.02em;
+            line-height: 1.2;
+        }
+        .industry-stat .lab {
+            font-size: clamp(.7rem, 0.8vw, .78rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+        .industry-stat .desc {
+            font-size: clamp(.7rem, 0.75vw, .76rem);
+            font-weight: 400;
+            color: var(--text-sub);
+            margin-top: 10px;
+            line-height: 1.6;
+            border-top: 1px solid var(--border-light);
+            padding-top: 10px;
+        }
+        .industry-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(12px, 1.5vw, 20px);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .industry-card {
+            padding: var(--card-pad, 24px);
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--card-border);
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+        }
+        .industry-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+        .industry-card h4 {
+            font-size: clamp(.88rem, 1vw, .95rem);
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .industry-card h4 .ico {
+            width: 28px;
+            height: 28px;
+            border-radius: var(--radius-sm);
+            background: var(--gold-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .85rem;
+            flex-shrink: 0;
+            transition: all .4s;
+        }
+        .industry-card:hover h4 .ico {
+            background: var(--gold);
+            color: var(--badge-text);
+            transform: rotate(-6deg) scale(1.08);
+        }
+        .industry-card p {
+            font-size: clamp(.78rem, 0.85vw, .84rem);
+            font-weight: 400;
+            color: var(--text-sub);
+            line-height: 1.8;
+        }
+        .industry-card .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+        .industry-card .hl-tag {
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-size: clamp(.65rem, 0.7vw, .72rem);
+            font-weight: 500;
+            color: var(--gold-dark);
+            background: var(--tag-bg);
+            transition: all .3s;
+        }
+        .industry-card:hover .hl-tag {
+            background: var(--gold-bg-hover);
+            transform: translateY(-1px);
+        }
+        .industry-highlight-bar {
+            margin-top: 28px;
+            padding: clamp(16px, 2vw, 24px) clamp(18px, 2.5vw, 24px);
+            border-radius: var(--radius);
+            background: var(--gold-bg);
+            border: 1px solid rgba(201, 168, 76, .08);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            gap: clamp(12px, 1.5vw, 16px);
+            transition: all .4s;
+        }
+        .industry-highlight-bar:hover {
+            border-color: rgba(201, 168, 76, .20);
+            box-shadow: 0 4px 24px rgba(201, 168, 76, .06);
+            transform: translateY(-2px);
+        }
+        @media(max-width:768px) {
+            .industry-hero {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+            .industry-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+        }
+
+        /* Platform */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(12px, 1.5vw, 20px);
+            max-width: 1000px;
+            margin: 32px auto 0;
+        }
+        .platform-card {
+            padding: var(--card-pad, 24px);
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--card-border);
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .platform-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+        }
+        .platform-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+        .platform-card:hover::after {
+            transform: scaleX(1);
+        }
+        .platform-card h4 {
+            font-size: clamp(.88rem, 1vw, .95rem);
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .platform-card h4 .ico {
+            width: 28px;
+            height: 28px;
+            border-radius: var(--radius-sm);
+            background: var(--gold-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .85rem;
+            flex-shrink: 0;
+            transition: all .4s;
+        }
+        .platform-card:hover h4 .ico {
+            background: var(--gold);
+            color: var(--badge-text);
+            transform: rotate(-6deg) scale(1.08);
+        }
+        .platform-card p {
+            font-size: clamp(.78rem, 0.85vw, .84rem);
+            font-weight: 400;
+            color: var(--text-sub);
+            line-height: 1.8;
+        }
+        .platform-card .metric {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 4px;
+            margin-top: 10px;
+            padding: 6px 14px;
+            background: var(--bg-alt);
+            border-radius: 100px;
+            transition: all .4s;
+        }
+        .platform-card:hover .metric {
+            background: var(--gold-bg);
+            transform: scale(1.02);
+        }
+        .platform-card .metric .val {
+            font-family: var(--font-d);
+            font-size: clamp(1rem, 1.1vw, 1.1rem);
+            font-weight: 700;
+            color: var(--gold-dark);
+        }
+        .platform-card .metric .unit {
+            font-size: clamp(.65rem, 0.7vw, .72rem);
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+        @media(max-width:768px) {
+            .platform-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+        }
+
+        /* === 已删除 "商业模式" 模块 === */
+
+        /* Qianchuan */
+        .qianchuan-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(12px, 1.5vw, 20px);
+            margin-top: 32px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .qc-card {
+            padding: var(--card-pad, 24px);
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--card-border);
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .qc-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+        }
+        .qc-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+        .qc-card:hover::after {
+            transform: scaleX(1);
+        }
+        .qc-card .qc-icon {
+            width: clamp(38px, 4.5vw, 44px);
+            height: clamp(38px, 4.5vw, 44px);
+            border-radius: var(--radius-sm);
+            background: var(--gold-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1rem, 1.2vw, 1.25rem);
+            margin-bottom: 14px;
+            flex-shrink: 0;
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+        }
+        .qc-card:hover .qc-icon {
+            background: var(--gold);
+            color: var(--badge-text);
+            transform: rotate(-8deg) scale(1.12);
+        }
+        .qc-card h3 {
+            font-size: clamp(.95rem, 1.05vw, 1.05rem);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .qc-card .qc-tag {
+            font-family: var(--font-m);
+            font-size: clamp(.55rem, 0.6vw, .62rem);
+            font-weight: 400;
+            color: var(--gold-dark);
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .qc-card p {
+            font-size: clamp(.78rem, 0.85vw, .85rem);
+            font-weight: 400;
+            color: var(--text-sub);
+            line-height: 1.8;
+            flex: 1;
+        }
+        .qc-card .qc-points {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .qc-card .qc-points span {
+            font-size: clamp(.65rem, 0.7vw, .72rem);
+            font-weight: 500;
+            color: var(--gold-dark);
+            background: var(--tag-bg);
+            padding: 3px 10px;
+            border-radius: 100px;
+            transition: all .3s;
+        }
+        .qc-card:hover .qc-points span {
+            background: var(--gold-bg-hover);
+            transform: translateY(-1px);
+        }
+        .qc-card .qc-metric {
+            margin-top: 10px;
+            font-family: var(--font-d);
+            font-size: clamp(1rem, 1.1vw, 1.1rem);
+            font-weight: 700;
+            color: var(--gold-dark);
+            letter-spacing: -.01em;
+        }
+        .qc-card .qc-metric small {
+            font-family: var(--font-b);
+            font-size: clamp(.65rem, 0.7vw, .72rem);
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+        @media(max-width:1024px) {
+            .qianchuan-grid {
+                grid-template-columns: 1fr 1fr;
+                max-width: 600px;
+            }
+        }
+        @media(max-width:768px) {
+            .qianchuan-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+        }
+
+        /* Profit */
+        .profit-top {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+            align-items: center;
+            max-width: 960px;
+            margin: 0 auto 36px;
+        }
+        .profit-stat-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+        .profit-stat {
+            flex: 1;
+            min-width: clamp(100px, 15vw, 120px);
+            padding: clamp(16px, 2vw, 20px) clamp(12px, 1.5vw, 14px);
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--card-border);
+            text-align: center;
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+        }
+        .profit-stat:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+        .profit-stat .num {
+            font-family: var(--font-d);
+            font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+            font-weight: 700;
+            color: var(--gold-dark);
+            margin-bottom: 3px;
+            letter-spacing: -.01em;
+        }
+        .profit-stat .lab {
+            font-size: clamp(.7rem, 0.76vw, .76rem);
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+        .profit-visual {
+            text-align: center;
+        }
+        .profit-visual .big {
+            font-family: var(--font-d);
+            font-size: clamp(2.4rem, 4vw, 3.8rem);
+            font-weight: 800;
+            color: var(--gold-dark);
+            opacity: .12;
+            line-height: 1;
+            letter-spacing: -.03em;
+            transition: opacity 0.3s;
+        }
+        .profit-visual:hover .big {
+            opacity: .20;
+        }
+        .profit-visual .tag {
+            font-family: var(--font-m);
+            font-size: clamp(.6rem, 0.7vw, .68rem);
+            color: var(--text-muted);
+            letter-spacing: .12em;
+            margin-top: 6px;
+        }
+        .profit-path {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(12px, 1.5vw, 20px);
+            max-width: 860px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+        .profit-stage {
+            padding: clamp(16px, 2vw, 26px);
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--card-border);
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        .profit-stage::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gold);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+        }
+        .profit-stage:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+        .profit-stage:hover::before {
+            transform: scaleY(1);
+        }
+        .profit-stage .sn {
+            font-family: var(--font-m);
+            font-size: clamp(.58rem, 0.66vw, .66rem);
+            font-weight: 400;
+            color: var(--gold-dark);
+            letter-spacing: .15em;
+            margin-bottom: 8px;
+        }
+        .profit-stage h3 {
+            font-size: clamp(.88rem, 0.95vw, .95rem);
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+        .profit-stage .sd {
+            font-size: clamp(.74rem, 0.8vw, .8rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            flex: 1;
+        }
+        .profit-stage .sr {
+            font-family: var(--font-d);
+            font-size: clamp(1rem, 1.15vw, 1.15rem);
+            font-weight: 700;
+            color: var(--gold-dark);
+            letter-spacing: -.01em;
+        }
+        .profit-stage .sr span {
+            font-size: clamp(.68rem, 0.74vw, .74rem);
+            color: var(--text-muted);
+            font-weight: 400;
+            font-family: var(--font-b);
+        }
+        .profit-summary {
+            margin-top: 28px;
+            padding: clamp(16px, 2vw, 24px) clamp(18px, 2.5vw, 24px);
+            border-radius: var(--radius);
+            background: var(--gold-bg);
+            border: 1px solid rgba(201, 168, 76, .08);
+            text-align: center;
+            font-size: clamp(.82rem, 0.9vw, .9rem);
+            font-weight: 400;
+            color: var(--text-sub);
+            line-height: 1.8;
+            max-width: 860px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: all .4s;
+        }
+        .profit-summary:hover {
+            border-color: rgba(201, 168, 76, .20);
+            transform: translateY(-2px);
+        }
+        @media(max-width:768px) {
+            .profit-top {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .profit-stat-row {
+                flex-direction: column;
+            }
+            .profit-path {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                gap: 10px;
+            }
+        }
+
+        /* Strategies */
+        .strat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(12px, 1.5vw, 20px);
+            margin-top: 36px;
+            max-width: 1080px;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: stretch;
+        }
+        .strat-card {
+            padding: var(--card-pad, 24px);
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--card-border);
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .strat-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+        }
+        .strat-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+        .strat-card:hover::after {
+            transform: scaleX(1);
+        }
+        .strat-card .snum {
+            font-family: var(--font-d);
+            font-size: clamp(1.8rem, 2.2vw, 2.2rem);
+            font-weight: 800;
+            color: var(--text-muted);
+            opacity: .08;
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            line-height: 1;
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+        }
+        .strat-card:hover .snum {
+            opacity: .18;
+            transform: translateY(-4px) scale(1.04);
+        }
+        .strat-card h3 {
+            font-size: clamp(.95rem, 1.05vw, 1.05rem);
+            font-weight: 700;
+            margin-bottom: 8px;
+            padding-right: 36px;
+        }
+        .strat-card .stag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 100px;
+            font-family: var(--font-m);
+            font-size: clamp(.55rem, 0.63vw, .63rem);
+            font-weight: 400;
+            color: var(--gold-dark);
+            background: var(--tag-bg);
+            margin-bottom: 10px;
+            letter-spacing: .06em;
+            transition: all .3s;
+        }
+        .strat-card:hover .stag {
+            background: var(--gold-bg-hover);
+            transform: translateY(-1px);
+        }
+        .strat-card p {
+            font-size: clamp(.78rem, 0.84vw, .84rem);
+            font-weight: 400;
+            color: var(--text-sub);
+            line-height: 1.8;
+            flex: 1;
+        }
+        .strat-note {
+            margin-top: 20px;
+            padding: clamp(14px, 1.8vw, 24px) clamp(18px, 2.5vw, 24px);
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--card-border);
+            font-size: clamp(.8rem, 0.88vw, .88rem);
+            font-weight: 400;
+            color: var(--text-sub);
+            line-height: 1.8;
+            max-width: 1080px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: all .4s;
+        }
+        .strat-note:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+        @media(max-width:768px) {
+            .strat-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                gap: 10px;
+            }
+        }
+
+        /* Plans */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(12px, 1.5vw, 20px);
+            margin-top: 36px;
+            align-items: stretch;
+            max-width: 1160px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .plan-card {
+            padding: var(--card-pad, 24px) clamp(16px, 2vw, 26px);
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--card-border);
+            position: relative;
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .plan-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            opacity: 0;
+            transition: opacity .4s;
+        }
+        .plan-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-6px);
+        }
+        .plan-card:hover::after {
+            opacity: 1;
+        }
+        .plan-card.featured {
+            border-color: rgba(201, 168, 76, .25);
+            box-shadow: var(--shadow-hover);
+        }
+        .plan-card.featured::after {
+            opacity: 1;
+        }
+        .plan-card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(180deg, var(--gold-bg), transparent);
+            pointer-events: none;
+        }
+        .plan-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 100px;
+            font-family: var(--font-m);
+            font-size: clamp(.55rem, 0.6vw, .62rem);
+            font-weight: 400;
+            letter-spacing: .12em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .plan-badge.basic {
+            background: var(--bg-alt);
+            color: var(--text-muted);
+        }
+        .plan-badge.mid {
+            background: var(--gold-bg);
+            color: var(--gold-dark);
+        }
+        .plan-badge.pro {
+            background: var(--gold-bg);
+            color: var(--gold-dark);
+        }
+        .plan-name {
+            font-size: clamp(1.1rem, 1.25vw, 1.25rem);
+            font-weight: 900;
+            margin-bottom: 3px;
+        }
+        .plan-tagline {
+            font-size: clamp(.76rem, 0.82vw, .82rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-bottom: 3px;
+        }
+        .plan-pos {
+            font-family: var(--font-m);
+            font-size: clamp(.6rem, 0.7vw, .7rem);
+            font-weight: 400;
+            color: var(--gold-dark);
+            letter-spacing: .05em;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .plan-price {
+            margin-bottom: 16px;
+        }
+        .plan-price .amt {
+            font-family: var(--font-d);
+            font-size: clamp(1.3rem, 1.5vw, 1.7rem);
+            font-weight: 700;
+            letter-spacing: -.01em;
+        }
+        .plan-price .cur {
+            font-size: clamp(.7rem, 0.8vw, .82rem);
+            color: var(--text-muted);
+            font-weight: 400;
+            font-family: var(--font-b);
+        }
+        .plan-price .note {
+            font-size: clamp(.68rem, 0.75vw, .75rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+        .plan-feat {
+            list-style: none;
+            margin-bottom: 16px;
+        }
+        .plan-feat li {
+            padding: 7px 0;
+            font-size: clamp(.78rem, 0.84vw, .84rem);
+            font-weight: 400;
+            color: var(--text-sub);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            border-bottom: 1px solid var(--border-light);
+            line-height: 1.55;
+            transition: color 0.3s;
+        }
+        .plan-feat li:last-child {
+            border-bottom: none;
+        }
+        .plan-feat li::before {
+            content: '✦';
+            color: var(--gold);
+            font-size: .5rem;
+            margin-top: 5px;
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+        .plan-card:hover .plan-feat li::before {
+            transform: scale(1.2) rotate(6deg);
+        }
+        .plan-feat li.hl {
+            color: var(--text);
+            font-weight: 600;
+        }
+        .plan-feat li.profit-metric {
+            border-bottom: none;
+            padding-top: 10px;
+            font-size: clamp(.76rem, 0.82vw, .82rem);
+            color: var(--gold-dark);
+        }
+        .plan-highlight-box {
+            padding: 10px 14px;
+            border-radius: var(--radius-xs);
+            background: var(--gold-bg);
+            border-left: 3px solid var(--gold);
+            margin-bottom: 12px;
+            font-size: clamp(.74rem, 0.8vw, .8rem);
+            line-height: 1.7;
+            color: var(--text-sub);
+            transition: all .3s;
+        }
+        .plan-card:hover .plan-highlight-box {
+            background: var(--gold-bg-hover);
+        }
+        .plan-highlight-box strong {
+            color: var(--text);
+        }
+        .plan-highlight-box .big-number {
+            font-family: var(--font-d);
+            font-size: clamp(1rem, 1.1vw, 1.1rem);
+            font-weight: 700;
+            color: var(--gold-dark);
+        }
+        .plan-extra-features {
+            padding: 12px 14px;
+            border-radius: var(--radius-xs);
+            background: var(--gold-bg);
+            border: 1px solid rgba(201, 168, 76, .12);
+            margin-bottom: 12px;
+            transition: all .3s;
+        }
+        .plan-card:hover .plan-extra-features {
+            background: var(--gold-bg-hover);
+        }
+        .plan-extra-features .extra-title {
+            font-size: clamp(.62rem, 0.7vw, .7rem);
+            font-weight: 700;
+            color: var(--gold-dark);
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .plan-extra-features ul {
+            list-style: none;
+            font-size: clamp(.72rem, 0.78vw, .78rem);
+            color: var(--text-sub);
+            line-height: 1.7;
+        }
+        .plan-extra-features ul li {
+            padding: 2px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+        }
+        .plan-why {
+            padding: 12px 14px;
+            border-radius: var(--radius-xs);
+            background: var(--bg-alt);
+            margin-bottom: 12px;
+            transition: all .3s;
+        }
+        .plan-card:hover .plan-why {
+            background: var(--gold-bg);
+        }
+        .plan-why h4 {
+            font-size: clamp(.74rem, 0.8vw, .8rem);
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--gold-dark);
+        }
+        .plan-why p {
+            font-size: clamp(.74rem, 0.8vw, .8rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        .plan-note {
+            font-size: clamp(.68rem, 0.73vw, .73rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            padding: 9px 12px;
+            border-radius: var(--radius-xs);
+            border: 1px dashed var(--border);
+            line-height: 1.55;
+            margin-bottom: 12px;
+            transition: all .3s;
+        }
+        .plan-card:hover .plan-note {
+            border-color: rgba(201, 168, 76, .15);
+        }
+        .plan-btn {
+            display: block;
+            width: 100%;
+            padding: clamp(11px, 1.2vw, 13px);
+            border-radius: 100px;
+            border: none;
+            font-family: var(--font-b);
+            font-weight: 700;
+            font-size: clamp(.8rem, 0.86vw, .86rem);
+            cursor: pointer;
+            text-align: center;
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            letter-spacing: var(--letter-spacing-wide);
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .plan-btn.fill {
+            background: var(--btn-fill-bg);
+            color: var(--btn-fill-color);
+        }
+        .plan-btn.fill::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gold);
+            opacity: 0;
+            transition: opacity .4s;
+            border-radius: 100px;
+        }
+        .plan-btn.fill span {
+            position: relative;
+            z-index: 1;
+        }
+        .plan-btn.fill:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 32px rgba(201, 168, 76, .30);
+        }
+        .plan-btn.fill:hover::after {
+            opacity: 1;
+        }
+        .plan-btn.fill:active {
+            transform: scale(.94);
+        }
+        .plan-btn.out {
+            background: transparent;
+            border: 1.5px solid var(--btn-line-border);
+            color: var(--text);
+        }
+        .plan-btn.out:hover {
+            border-color: var(--gold);
+            color: var(--gold-dark);
+            background: var(--gold-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(201, 168, 76, .08);
+        }
+        .plan-btn.out:active {
+            transform: scale(.94);
+        }
+        @media(max-width:1024px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+        }
+        @media(max-width:768px) {
+            .plans-grid {
+                gap: 12px;
+            }
+            .plan-card {
+                padding: 18px;
+            }
+            .plan-name {
+                font-size: 1.1rem;
+            }
+            .plan-price .amt {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Team */
+        .team-leaders {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(12px, 1.5vw, 20px);
+            max-width: 960px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+        .team-card {
+            padding: var(--card-pad, 24px);
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--card-border);
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .team-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+        }
+        .team-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+        .team-card:hover::after {
+            transform: scaleX(1);
+        }
+        .team-card-hd {
+            display: flex;
+            align-items: center;
+            gap: clamp(12px, 1.5vw, 14px);
+            margin-bottom: 16px;
+        }
+        .team-av {
+            width: clamp(44px, 5vw, 54px);
+            height: clamp(44px, 5vw, 54px);
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(.9rem, 1vw, 1.05rem);
+            font-weight: 900;
+            color: var(--btn-fill-color);
+            flex-shrink: 0;
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            box-shadow: 0 4px 16px rgba(201, 168, 76, .20);
+        }
+        .team-card:hover .team-av {
+            transform: scale(1.12) rotate(-6deg);
+            box-shadow: 0 8px 28px rgba(201, 168, 76, .30);
+        }
+        .team-nm {
+            font-size: clamp(.95rem, 1.05vw, 1.05rem);
+            font-weight: 700;
+        }
+        .team-role {
+            font-family: var(--font-m);
+            font-size: clamp(.6rem, 0.7vw, .7rem);
+            font-weight: 400;
+            color: var(--gold-dark);
+            letter-spacing: .06em;
+            margin-top: 2px;
+        }
+        .team-wx {
+            font-size: clamp(.7rem, 0.75vw, .76rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: var(--radius-xs);
+            background: var(--gold-bg);
+            cursor: pointer;
+            transition: all .3s cubic-bezier(.22, 1, .36, 1);
+            font-size: .55rem;
+            color: var(--gold-dark);
+            border: none;
+            padding: 0;
+            font-family: var(--font-m);
+        }
+        .copy-btn:hover {
+            background: var(--gold);
+            color: var(--badge-text);
+            transform: scale(1.15);
+            box-shadow: 0 2px 12px rgba(201, 168, 76, .25);
+        }
+        .copy-btn:active {
+            transform: scale(.88);
+        }
+        .copy-btn.copied {
+            background: #4caf50;
+            color: #fff;
+        }
+        .team-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 14px;
+        }
+        .team-skill {
+            padding: 3px 10px;
+            border-radius: 100px;
+            font-size: clamp(.65rem, 0.7vw, .72rem);
+            font-weight: 500;
+            color: var(--text-sub);
+            background: var(--bg-alt);
+            border: 1px solid var(--border-light);
+            transition: all .3s;
+        }
+        .team-card:hover .team-skill {
+            border-color: rgba(201, 168, 76, .15);
+            background: var(--gold-bg);
+            transform: translateY(-1px);
+        }
+        .team-phil {
+            font-size: clamp(.8rem, 0.86vw, .86rem);
+            font-weight: 400;
+            color: var(--text-sub);
+            line-height: 1.8;
+            padding: 12px 16px;
+            background: var(--bg-alt);
+            border-radius: var(--radius-xs);
+            border-left: 2px solid rgba(201, 168, 76, .2);
+            font-style: italic;
+            margin-top: auto;
+            transition: all .3s;
+        }
+        .team-card:hover .team-phil {
+            background: var(--gold-bg);
+            border-left-color: var(--gold);
+        }
+        .team-banner {
+            margin-top: 28px;
+            padding: clamp(16px, 2vw, 28px);
+            border-radius: var(--radius);
+            background: var(--gold-bg);
+            border: 1px solid rgba(201, 168, 76, .1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: all .4s;
+        }
+        .team-banner:hover {
+            border-color: rgba(201, 168, 76, .20);
+            box-shadow: 0 4px 24px rgba(201, 168, 76, .06);
+            transform: translateY(-2px);
+        }
+        .team-banner p {
+            font-size: clamp(.84rem, 0.92vw, .92rem);
+            font-weight: 400;
+            color: var(--text-sub);
+            max-width: 520px;
+            line-height: 1.8;
+        }
+        .team-banner p strong {
+            color: var(--text);
+            font-weight: 700;
+        }
+        @media(max-width:768px) {
+            .team-leaders {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            .team-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .team-banner p {
+                max-width: 100%;
+            }
+            .team-banner .btn-fill {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Terms */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(12px, 1.5vw, 20px);
+            margin-top: 32px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: stretch;
+        }
+        .term-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: clamp(18px, 2vw, 22px) clamp(16px, 1.8vw, 20px);
+            border-radius: var(--radius-sm);
+            background: var(--card);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--card-border);
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+        }
+        .term-item:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+        .term-ico {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-sm);
+            background: var(--gold-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .9rem;
+            flex-shrink: 0;
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+        }
+        .term-item:hover .term-ico {
+            background: var(--gold);
+            color: var(--badge-text);
+            transform: rotate(-8deg) scale(1.1);
+        }
+        .term-text h4 {
+            font-size: clamp(.8rem, 0.86vw, .86rem);
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+        .term-text p {
+            font-size: clamp(.72rem, 0.78vw, .78rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        @media(max-width:768px) {
+            .terms-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+        }
+
+        /* Process */
+        .process-tl {
+            margin-top: 36px;
+            position: relative;
+            padding-left: clamp(26px, 4vw, 34px);
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .process-tl::before {
+            content: '';
+            position: absolute;
+            left: clamp(8px, 1.2vw, 11px);
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gold);
+            opacity: 0.25;
+            border-radius: 1px;
+            transition: opacity 0.3s;
+        }
+        .process-tl:hover::before {
+            opacity: 0.5;
+        }
+        .process-step {
+            position: relative;
+            padding: 0 0 clamp(22px, 3vw, 28px) clamp(20px, 3.5vw, 34px);
+            transition: transform 0.3s;
+        }
+        .process-step:last-child {
+            padding-bottom: 0;
+        }
+        .process-step .dot {
+            position: absolute;
+            left: clamp(-20px, -2.8vw, -24px);
+            top: 5px;
+            width: clamp(8px, 0.9vw, 9px);
+            height: clamp(8px, 0.9vw, 9px);
+            border-radius: 50%;
+            background: var(--bg);
+            border: 2px solid var(--gold);
+            z-index: 1;
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+        }
+        .process-step:hover .dot {
+            background: var(--gold);
+            box-shadow: 0 0 20px rgba(201, 168, 76, .45);
+            transform: scale(1.4);
+        }
+        .process-step .sl {
+            font-family: var(--font-m);
+            font-size: clamp(.58rem, 0.66vw, .66rem);
+            font-weight: 400;
+            color: var(--gold-dark);
+            letter-spacing: .12em;
+            margin-bottom: 3px;
+        }
+        .process-step h3 {
+            font-size: clamp(.92rem, 1vw, 1rem);
+            font-weight: 700;
+            margin-bottom: 4px;
+            transition: color 0.3s;
+        }
+        .process-step:hover h3 {
+            color: var(--gold-dark);
+        }
+        .process-step p {
+            font-size: clamp(.78rem, 0.84vw, .84rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 520px;
+        }
+
+        /* CTA */
+        .cta-inner {
+            max-width: 640px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .cta-inner h2 {
+            font-size: clamp(1.3rem, 3.2vw, 2.4rem);
+            font-weight: var(--font-weight-hero);
+            line-height: 1.25;
+            margin-bottom: 12px;
+            letter-spacing: var(--letter-spacing-wide);
+        }
+        .cta-inner h2 .g {
+            color: var(--gold-dark);
+        }
+        .cta-inner>p {
+            color: var(--text-sub);
+            font-size: clamp(.8rem, 1.1vw, .98rem);
+            font-weight: 400;
+            margin-bottom: 28px;
+            line-height: 1.85;
+        }
+        .cta-btns {
+            display: flex;
+            gap: clamp(8px, 1.2vw, 10px);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-btns .btn-fill,
+        .cta-btns .btn-line {
+            padding: clamp(10px, 1.2vw, 13px) clamp(20px, 3vw, 34px);
+            font-size: clamp(.78rem, 0.86vw, .88rem);
+        }
+        .cta-contacts {
+            margin-top: 24px;
+            display: flex;
+            justify-content: center;
+            gap: clamp(10px, 2vw, 24px);
+            flex-wrap: wrap;
+        }
+        .cta-ci {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: clamp(10px, 1.2vw, 14px) clamp(14px, 2vw, 24px);
+            border-radius: var(--radius-sm);
+            background: var(--card);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--card-border);
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+        }
+        .cta-ci:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+            border-color: rgba(201, 168, 76, .20);
+            background: var(--gold-bg);
+        }
+        .cta-ci:active {
+            transform: scale(.96);
+        }
+        .cta-ci .ico {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gold-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .8rem;
+            flex-shrink: 0;
+            transition: all .3s;
+        }
+        .cta-ci:hover .ico {
+            background: var(--gold);
+            color: var(--badge-text);
+            transform: scale(1.06) rotate(-4deg);
+        }
+        .cta-ci .inf .nm {
+            font-size: clamp(.76rem, 0.82vw, .82rem);
+            font-weight: 700;
+        }
+        .cta-ci .inf .wx {
+            font-family: var(--font-m);
+            font-size: clamp(.7rem, 0.76vw, .76rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .cta-ci .ci-cp {
+            font-size: .55rem;
+            color: var(--gold-dark);
+            opacity: .5;
+            transition: opacity .3s;
+        }
+        .cta-ci:hover .ci-cp {
+            opacity: 1;
+        }
+        .cta-ci .ci-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            padding: 2px 8px;
+            border-radius: var(--radius-xs);
+            background: var(--gold);
+            color: var(--badge-text);
+            font-size: .6rem;
+            font-weight: 600;
+            opacity: 0;
+            transform: scale(.6);
+            transition: all .4s cubic-bezier(.22, 1, .36, 1);
+            pointer-events: none;
+        }
+        .cta-ci .ci-badge.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+        @media(max-width:768px) {
+            .cta-btns .btn-fill,
+            .cta-btns .btn-line {
+                width: 100%;
+                justify-content: center;
+            }
+            .cta-contacts {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            .cta-ci {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            padding: clamp(16px, 2vw, 24px) clamp(16px, 5vw, 64px);
+            border-top: 1px solid var(--footer-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            max-width: 1200px;
+            margin: 0 auto;
+            transition: border-color 0.5s;
+        }
+        .footer-l {
+            font-family: var(--font-m);
+            font-size: clamp(.6rem, 0.7vw, .7rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            letter-spacing: .06em;
+        }
+        .footer-l .g {
+            color: var(--gold);
+        }
+        .footer-r {
+            font-size: clamp(.6rem, 0.7vw, .7rem);
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+        @media(max-width:768px) {
+            .footer {
+                flex-direction: column;
+                text-align: center;
+                padding: 16px;
+            }
+        }
+
+        /* ============================================================
+                   右下角 UI 修复：浮动联系 + 返回顶部
+                   ============================================================ */
+
+        /* ---- Back Top ---- */
+        .back-top {
+            position: fixed;
+            bottom: clamp(24px, 3vw, 32px);
+            right: clamp(20px, 2.5vw, 28px);
+            width: clamp(40px, 4.5vw, 48px);
+            height: clamp(40px, 4.5vw, 48px);
+            border-radius: 50%;
+            background: var(--card);
+            box-shadow: var(--shadow-hover);
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.5s cubic-bezier(.22, 1, .36, 1);
+            z-index: 100;
+            color: var(--text-muted);
+            font-size: clamp(1rem, 1.1vw, 1.2rem);
+            transform: translateY(16px) scale(.85);
+        }
+        .back-top.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+        .back-top:hover {
+            color: var(--gold-dark);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px) scale(1.06);
+            border-color: var(--gold);
+        }
+        .back-top:active {
+            transform: scale(.88);
+        }
+        .back-top svg {
+            position: absolute;
+            inset: -4px;
+            transform: rotate(-90deg);
+        }
+        .back-top svg circle {
+            fill: none;
+            stroke: var(--gold);
+            stroke-width: 2;
+            stroke-dasharray: 151;
+            stroke-dashoffset: 151;
+            transition: stroke-dashoffset 0.15s linear;
+        }
+
+        /* ---- Floating Contact ---- */
+        .float-contact {
+            position: fixed;
+            bottom: clamp(24px, 3vw, 32px);
+            right: clamp(84px, 10vw, 110px);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-end;
+        }
+
+        .float-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: clamp(10px, 1.2vw, 14px) clamp(18px, 2.2vw, 26px);
+            border-radius: 100px;
+            background: var(--btn-fill-bg);
+            color: var(--btn-fill-color);
+            font-size: clamp(.78rem, 0.85vw, .88rem);
+            font-weight: 600;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(.22, 1, .36, 1);
+            border: none;
+            font-family: var(--font-b);
+            opacity: 0;
+            transform: translateY(20px) scale(.92);
+            letter-spacing: var(--letter-spacing-wide);
+            position: relative;
+            overflow: hidden;
+        }
+        .float-btn.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .float-btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gold);
+            opacity: 0;
+            transition: opacity .4s;
+            border-radius: 100px;
+        }
+        .float-btn span {
+            position: relative;
+            z-index: 1;
+        }
+        .float-btn:hover {
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 8px 36px rgba(201, 168, 76, 0.35);
+        }
+        .float-btn:hover::after {
+            opacity: 1;
+        }
+        .float-btn:active {
+            transform: scale(.92);
+        }
+        .float-btn .fb-icon {
+            font-size: clamp(1rem, 1.1vw, 1.15rem);
+            line-height: 1;
+        }
+
+        .float-panel {
+            position: absolute;
+            bottom: calc(100% + 12px);
+            right: 0;
+            width: clamp(240px, 30vw, 280px);
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: 0 16px 64px rgba(0, 0, 0, 0.14);
+            border: 1px solid var(--border-light);
+            padding: clamp(14px, 1.8vw, 20px);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(16px) scale(.92) rotateX(-6deg);
+            transition: all 0.5s cubic-bezier(.22, 1, .36, 1);
+            transform-origin: bottom right;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .float-panel.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1) rotateX(0);
+        }
+        .float-panel::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 28px;
+            width: 14px;
+            height: 14px;
+            background: var(--card);
+            border-right: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            transform: rotate(45deg);
+            border-radius: 0 0 3px 0;
+            transition: background 0.3s;
+        }
+        .float-panel .fp-title {
+            font-size: clamp(.72rem, 0.78vw, .82rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+            letter-spacing: 0.02em;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .float-panel .fp-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            transition: all 0.3s cubic-bezier(.22, 1, .36, 1);
+            cursor: pointer;
+            margin-bottom: 4px;
+        }
+        .float-panel .fp-item:last-child {
+            margin-bottom: 0;
+        }
+        .float-panel .fp-item:hover {
+            background: var(--gold-bg);
+            transform: translateX(-3px);
+        }
+        .float-panel .fp-item:active {
+            transform: scale(.96);
+        }
+        .float-panel .fp-item .fp-av {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--btn-fill-color);
+            font-size: .75rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            transition: all .3s;
+        }
+        .float-panel .fp-item:hover .fp-av {
+            transform: scale(1.06) rotate(-4deg);
+        }
+        .float-panel .fp-item .fp-inf .fp-nm {
+            font-size: clamp(.72rem, 0.76vw, .8rem);
+            font-weight: 700;
+            color: var(--text);
+        }
+        .float-panel .fp-item .fp-inf .fp-wx {
+            font-family: var(--font-m);
+            font-size: clamp(.65rem, 0.68vw, .72rem);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .float-panel .fp-item .fp-cp {
+            margin-left: auto;
+            font-size: .6rem;
+            padding: 4px 12px;
+            border-radius: var(--radius-xs);
+            background: var(--gold-bg);
+            color: var(--gold-dark);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(.22, 1, .36, 1);
+            font-family: var(--font-m);
+            flex-shrink: 0;
+            letter-spacing: 0.03em;
+        }
+        .float-panel .fp-item .fp-cp:hover {
+            background: var(--gold);
+            color: var(--badge-text);
+            transform: scale(1.06);
+        }
+        .float-panel .fp-item .fp-cp:active {
+            transform: scale(.88);
+        }
+        .float-panel .fp-item .fp-cp.copied {
+            background: #4caf50;
+            color: #fff;
+        }
+
+        @media(max-width:768px) {
+            .float-contact {
+                bottom: 18px;
+                right: 16px;
+            }
+            .float-btn {
+                padding: 8px 16px;
+                font-size: .72rem;
+                gap: 6px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            }
+            .float-btn .fb-icon {
+                font-size: .9rem;
+            }
+            .float-panel {
+                width: 210px;
+                right: 0;
+                padding: 12px 14px;
+                bottom: calc(100% + 10px);
+            }
+            .float-panel::before {
+                right: 18px;
+                width: 12px;
+                height: 12px;
+                bottom: -7px;
+            }
+            .float-panel .fp-item {
+                padding: 8px 10px;
+                gap: 10px;
+            }
+            .float-panel .fp-item .fp-av {
+                width: 30px;
+                height: 30px;
+                font-size: .65rem;
+            }
+            .float-panel .fp-item .fp-cp {
+                padding: 2px 10px;
+                font-size: .55rem;
+            }
+            .back-top {
+                right: 16px;
+                bottom: 72px;
+                width: 36px;
+                height: 36px;
+                font-size: .9rem;
+            }
+            .theme-switcher-wrapper {
+                bottom: 130px;
+                right: 12px;
+                top: auto;
+            }
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(24px) scale(.92);
+            padding: 10px 28px;
+            border-radius: 100px;
+            background: var(--text);
+            color: var(--bg);
+            font-size: .82rem;
+            font-weight: 600;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, .18);
+            z-index: 9998;
+            opacity: 0;
+            transition: all .5s cubic-bezier(.22, 1, .36, 1);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(8px);
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0) scale(1);
+        }
+        .toast .t-icon {
+            color: var(--gold);
+            font-size: 1rem;
+        }
+
+        /* Scroll Progress */
+        .scroll-prog {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient-gold);
+            z-index: 1001;
+            width: 0;
+            box-shadow: 0 0 12px rgba(201, 168, 76, .30);
+            transition: width 0.08s linear, background 0.5s;
+            border-radius: 0 2px 2px 0;
+        }
+
+        /* Loader */
+        .loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity .6s cubic-bezier(.22, 1, .36, 1), visibility .6s cubic-bezier(.22, 1, .36, 1);
+        }
+        .loader.done {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .loader .l-brand {
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: .04em;
+            margin-bottom: 28px;
+            color: var(--text);
+            font-family: var(--font-d);
+            opacity: 0;
+            animation: fadeUp .6s ease .2s forwards;
+        }
+        .loader .l-bar {
+            width: 120px;
+            height: 2px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .loader .l-bar i {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: var(--gradient-gold);
+            border-radius: 2px;
+            animation: ldBar 1.2s cubic-bezier(.16, 1, .3, 1) .3s forwards;
+        }
+        @keyframes ldBar {
+            to {
+                width: 100%;
+            }
+        }
+
+        /* ============================================================
+                   双语切换
+                   ============================================================ */
+        .lang-zh {
+            display: none;
+        }
+        .lang-en {
+            display: none;
+        }
+        [data-lang="zh"] .lang-zh {
+            display: inline;
+        }
+        [data-lang="zh"] .lang-en {
+            display: none;
+        }
+        [data-lang="en"] .lang-en {
+            display: inline;
+        }
+        [data-lang="en"] .lang-zh {
+            display: none;
+        }
+
+        [data-lang="zh"] .lang-block-zh {
+            display: block;
+        }
+        [data-lang="zh"] .lang-block-en {
+            display: none;
+        }
+        [data-lang="en"] .lang-block-en {
+            display: block;
+        }
+        [data-lang="en"] .lang-block-zh {
+            display: none;
+        }
+
+        [data-lang="zh"] .lang-flex-zh {
+            display: flex;
+        }
+        [data-lang="zh"] .lang-flex-en {
+            display: none;
+        }
+        [data-lang="en"] .lang-flex-en {
+            display: flex;
+        }
+        [data-lang="en"] .lang-flex-zh {
+            display: none;
+        }
+
+        [data-lang="zh"] .lang-inline-zh {
+            display: inline-flex;
+        }
+        [data-lang="zh"] .lang-inline-en {
+            display: none;
+        }
+        [data-lang="en"] .lang-inline-en {
+            display: inline-flex;
+        }
+        [data-lang="en"] .lang-inline-zh {
+            display: none;
+        }
+    </style>
+</head>
+<body data-lang="zh">
+
+    <!-- ============================================================
+    主题切换器 (可折叠)
+    ============================================================ -->
+    <div class="theme-switcher-wrapper">
+        <div class="theme-switcher-toggle" id="themeToggle">
+            <span class="dot-indicator"></span>
+            <span class="lang-zh">主题</span>
+            <span class="lang-en">Theme</span>
+            <span class="toggle-icon">▾</span>
+        </div>
+        <div class="theme-switcher" id="themeSwitcher">
+            <div class="ts-label">Style</div>
+            <button class="ts-btn style-1 active" data-theme="style-1" title="铂金·雅致">1<span class="ts-badge">雅</span></button>
+            <button class="ts-btn style-2" data-theme="style-2" title="暗夜·锋芒">2<span class="ts-badge">锋</span></button>
+            <button class="ts-btn style-3" data-theme="style-3" title="琥珀·暖意">3<span class="ts-badge">暖</span></button>
+            <button class="ts-btn style-4" data-theme="style-4" title="碧玉·自然">4<span class="ts-badge">然</span></button>
+            <button class="ts-btn style-5" data-theme="style-5" title="钴蓝·现代">5<span class="ts-badge">蓝</span></button>
+            <button class="ts-btn style-6" data-theme="style-6" title="紫韵·奢雅">6<span class="ts-badge">紫</span></button>
+        </div>
+    </div>
+
+    <!-- ===== LOADER ===== -->
+    <div class="loader" id="loader">
+        <div class="l-brand">白马联创</div>
+        <div class="l-bar"><i></i></div>
+    </div>
+
+    <!-- ===== SCROLL PROGRESS ===== -->
+    <div class="scroll-prog" id="scrollProg"></div>
+
+    <!-- ===== TOAST ===== -->
+    <div class="toast" id="toast"><span class="t-icon">✓</span><span id="toastText">已复制</span></div>
+
+    <!-- ===== FLOATING CONTACT (右下角) ===== -->
+    <div class="float-contact" id="floatContact">
+        <div class="float-panel" id="floatPanel">
+            <div class="fp-title lang-zh">一键复制微信联系</div>
+            <div class="fp-title lang-en">Copy WeChat</div>
+            <div class="fp-item" onclick="copyWx('BMLC888999')">
+                <div class="fp-av">白</div>
+                <div class="fp-inf">
+                    <div class="fp-nm lang-zh">白马 · 项目总负责人</div>
+                    <div class="fp-nm lang-en">Baima · Lead</div>
+                    <div class="fp-wx">BMLC888999</div>
+                </div>
+                <button class="fp-cp" onclick="event.stopPropagation();copyWx('BMLC888999')">复制</button>
+            </div>
+            <div class="fp-item" onclick="copyWx('y18889978468')">
+                <div class="fp-av">冠</div>
+                <div class="fp-inf">
+                    <div class="fp-nm lang-zh">冠宇 · 项目合伙人</div>
+                    <div class="fp-nm lang-en">Guanyu · Partner</div>
+                    <div class="fp-wx">y18889978468</div>
+                </div>
+                <button class="fp-cp" onclick="event.stopPropagation();copyWx('y18889978468')">复制</button>
+            </div>
+        </div>
+        <button class="float-btn" id="floatBtn"><span class="fb-icon">💬</span><span class="lang-zh">联系我们</span><span class="lang-en">Contact</span></button>
+    </div>
+
+    <!-- ============================================================
+    NAV
+    ============================================================ -->
+    <nav class="nav" id="nav">
+        <div class="nav-left">
+            <a class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})"><span class="dot"></span>白马联创</a>
+        </div>
+
+        <ul class="nav-center">
+            <li><a href="#about" onclick="closeMenu()"><span class="lang-zh">关于</span><span class="lang-en">About</span></a></li>
+            <li><a href="#industry" onclick="closeMenu()"><span class="lang-zh">行业</span><span class="lang-en">Industry</span></a></li>
+            <li><a href="#qianchuan" onclick="closeMenu()"><span class="lang-zh">千川</span><span class="lang-en">Qianchuan</span></a></li>
+            <li><a href="#profit" onclick="closeMenu()"><span class="lang-zh">收益</span><span class="lang-en">Profit</span></a></li>
+            <li><a href="#plans" onclick="closeMenu()"><span class="lang-zh">方案</span><span class="lang-en">Plans</span></a></li>
+            <li><a href="#process" onclick="closeMenu()"><span class="lang-zh">流程</span><span class="lang-en">Process</span></a></li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="lang-toggle">
+                <button class="active" data-lang="zh" onclick="setLang('zh')">中</button>
+                <button data-lang="en" onclick="setLang('en')">EN</button>
+            </div>
+            <button class="back-home" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                <span class="home-icon">⌂</span>
+                <span class="lang-zh">首页</span>
+                <span class="lang-en">Home</span>
+            </button>
+            <a href="#contact" class="nav-cta"><span class="lang-zh">立即咨询</span><span class="lang-en">Consult</span></a>
+            <div class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" style="--i:0" onclick="closeMenu()"><span class="lang-zh">关于白马联创</span><span class="lang-en">About BMLC</span></a>
+        <a href="#industry" style="--i:1" onclick="closeMenu()"><span class="lang-zh">行业趋势</span><span class="lang-en">Industry</span></a>
+        <a href="#qianchuan" style="--i:2" onclick="closeMenu()"><span class="lang-zh">千川玩法</span><span class="lang-en">Qianchuan</span></a>
+        <a href="#profit" style="--i:3" onclick="closeMenu()"><span class="lang-zh">盈利预期</span><span class="lang-en">Profit</span></a>
+        <a href="#plans" style="--i:4" onclick="closeMenu()"><span class="lang-zh">合作方案</span><span class="lang-en">Plans</span></a>
+        <a href="#process" style="--i:5" onclick="closeMenu()"><span class="lang-zh">合作流程</span><span class="lang-en">Process</span></a>
+        <div class="mob-lang">
+            <button class="active" data-lang="zh" onclick="setLang('zh')">中文</button>
+            <button data-lang="en" onclick="setLang('en')">English</button>
+        </div>
+        <a href="#contact" class="mob-cta" style="--i:6" onclick="closeMenu()"><span class="lang-zh">立即咨询</span><span class="lang-en">Consult</span></a>
+    </div>
+
+    <!-- ============================================================
+    HERO — 已删除两个按钮
+    ============================================================ -->
+    <section class="hero" id="hero">
+        <div class="orb" style="width:300px;height:300px;top:-80px;right:-60px;"></div>
+        <div class="geo-ring" style="width:200px;height:200px;top:20%;right:5%"></div>
+        <div class="hero-inner">
+            <div class="hero-badge"><span class="bdot"></span><span class="lang-zh">🔥 限量招募 · 仅剩 17 席</span><span class="lang-en">🔥 Limited · 17 spots left</span></div>
+            <h1 class="hero-brand" id="heroBrand">白马联创</h1>
+            <p class="hero-subtitle"><span class="lang-zh">互联网私域商业 <span class="hl">核心合伙人圈层</span></span><span class="lang-en">Private Domain <span class="hl">Core Partner Network</span></span></p>
+            <p class="hero-desc lang-zh">以"稀缺、突破、共赢"为核心理念，汇聚行业顶尖投流技术团队与千万级流量操盘手，致力于培养具备独立商业操盘能力的私域领军人物，持续输出可复制的私域变现解决方案。</p>
+            <p class="hero-desc lang-en">Built on "Scarcity, Breakthrough, Win-Win", we bring together top-tier ad-tech teams and 10M+ traffic operators to cultivate independent private-domain leaders with replicable monetization systems.</p>
+            <!-- 已删除 .hero-actions 按钮组 -->
+            <div class="hero-stats">
+                <div class="hero-stat-item"><div class="hv" data-count="20" data-suffix="%">20%</div><div class="hl">GMV 增速</div></div>
+                <div class="hero-stat-item"><div class="hv" data-count="88" data-suffix="%+">88%+</div><div class="hl">千川投放占比</div></div>
+                <div class="hero-stat-item"><div class="hv" data-count="320" data-suffix="亿+">320亿+</div><div class="hl">平台年度节省</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MARQUEE ===== -->
+    <div class="marquee-section">
+        <div class="fade-l"></div><div class="fade-r"></div>
+        <div class="marquee-track row-1-track">
+            <div class="marquee-row row-1">
+                <div class="marquee-item"><div class="marquee-icon">🔥</div><span class="marquee-label">投流技术</span></div>
+                <div class="marquee-item"><div class="marquee-icon">📊</div><span class="marquee-label">数据选品</span></div>
+                <div class="marquee-item"><div class="marquee-icon">🏪</div><span class="marquee-label">店群矩阵</span></div>
+                <div class="marquee-item"><div class="marquee-icon">💎</div><span class="marquee-label">私域变现</span></div>
+                <div class="marquee-item"><div class="marquee-icon">🎯</div><span class="marquee-label">精准运营</span></div>
+                <div class="marquee-item"><div class="marquee-icon">📢</div><span class="marquee-label">千川投放</span></div>
+                <div class="marquee-item"><div class="marquee-icon">🤝</div><span class="marquee-label">合伙人孵化</span></div>
+                <div class="marquee-item"><div class="marquee-icon">🚀</div><span class="marquee-label">规模扩张</span></div>
+                <div class="marquee-item"><div class="marquee-icon">🔥</div><span class="marquee-label">投流技术</span></div>
+                <div class="marquee-item"><div class="marquee-icon">📊</div><span class="marquee-label">数据选品</span></div>
+                <div class="marquee-item"><div class="marquee-icon">🏪</div><span class="marquee-label">店群矩阵</span></div>
+                <div class="marquee-item"><div class="marquee-icon">💎</div><span class="marquee-label">私域变现</span></div>
+                <div class="marquee-item"><div class="marquee-icon">🎯</div><span class="marquee-label">精准运营</span></div>
+                <div class="marquee-item"><div class="marquee-icon">📢</div><span class="marquee-label">千川投放</span></div>
+                <div class="marquee-item"><div class="marquee-icon">🤝</div><span class="marquee-label">合伙人孵化</span></div>
+                <div class="marquee-item"><div class="marquee-icon">🚀</div><span class="marquee-label">规模扩张</span></div>
+            </div>
+        </div>
+        <div class="marquee-track row-2-track">
+            <div class="marquee-row row-2">
+                <div class="marquee-item"><div class="marquee-icon">📄</div><span class="marquee-label">合同保障</span></div>
+                <div class="marquee-item"><div class="marquee-icon">📋</div><span class="marquee-label">运营SOP</span></div>
+                <div class="marquee-item"><div class="marquee-icon">🎓</div><span class="marquee-label">系统培训</span></div>
+                <div class="marquee-item"><div class="marquee-icon">♟️</div><span class="marquee-label">商业策略</span></div>
+                <div class="marquee-item"><div class="marquee-icon">🔄</div><span class="marquee-label">持续迭代</span></div>
+                <div class="marquee-item"><div class="marquee-icon">🎁</div><span class="marquee-label">全链交付</span></div>
+                <div class="marquee-item"><div class="marquee-icon">⚡</div><span class="marquee-label">快速启动</span></div>
+                <div class="marquee-item"><div class="marquee-icon">♾️</div><span class="marquee-label">终身权益</span></div>
+                <div class="marquee-item"><div class="marquee-icon">📄</div><span class="marquee-label">合同保障</span></div>
+                <div class="marquee-item"><div class="marquee-icon">📋</div><span class="marquee-label">运营SOP</span></div>
+                <div class="marquee-item"><div class="marquee-icon">🎓</div><span class="marquee-label">系统培训</span></div>
+                <div class="marquee-item"><div class="marquee-icon">♟️</div><span class="marquee-label">商业策略</span></div>
+                <div class="marquee-item"><div class="marquee-icon">🔄</div><span class="marquee-label">持续迭代</span></div>
+                <div class="marquee-item"><div class="marquee-icon">🎁</div><span class="marquee-label">全链交付</span></div>
+                <div class="marquee-item"><div class="marquee-icon">⚡</div><span class="marquee-label">快速启动</span></div>
+                <div class="marquee-item"><div class="marquee-icon">♾️</div><span class="marquee-label">终身权益</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    ABOUT
+    ============================================================ -->
+    <section id="about">
+        <div class="about-center reveal">
+            <div class="sec-label centered">ABOUT BMLC</div>
+            <div class="sec-title lang-zh">关于白马联创</div>
+            <div class="sec-title lang-en">About BMLC</div>
+            <p class="sec-desc lang-zh" style="margin:0 auto 20px;">白马联创致力于培养具备独立商业操盘能力的私域领军人物，持续输出可复制的私域变现解决方案。</p>
+            <p class="sec-desc lang-en" style="margin:0 auto 20px;">BMLC is dedicated to cultivating independent private-domain leaders with replicable monetization systems.</p>
+            <div class="about-kws">
+                <span class="about-kw">稀缺</span>
+                <span class="about-kw">突破</span>
+                <span class="about-kw">共赢</span>
+                <span class="about-kw">可复制</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    INDUSTRY
+    ============================================================ -->
+    <section id="industry" class="alt-bg">
+        <div class="sec-center reveal">
+            <div class="sec-label centered">INDUSTRY TREND</div>
+            <div class="sec-title lang-zh">抖音电商持续增长，赛道红利明确</div>
+            <div class="sec-title lang-en">Douyin E-commerce Growth Continues</div>
+            <p class="sec-desc lang-zh">2026年上半年抖音电商GMV增速接近20%，中小玩家正迎来前所未有的增长窗口</p>
+            <p class="sec-desc lang-en">H1 2026 Douyin GMV grew nearly 20%, SMEs are entering an unprecedented growth window</p>
+        </div>
+        <div class="industry-hero">
+            <div class="industry-stat reveal reveal-left reveal-d1">
+                <div class="num" data-count="20" data-suffix="%">20%</div>
+                <div class="lab">GMV 增速（2026H1）</div>
+                <div class="desc">持续优于行业大盘，抖音电商已成为增长最快的电商平台之一</div>
+            </div>
+            <div class="industry-stat reveal reveal-scale reveal-d2">
+                <div class="num" data-count="88" data-suffix="%+">88%+</div>
+                <div class="lab">千川投放占比</div>
+                <div class="desc">巨量千川占据绝对主导地位，是抖音电商商家不可回避的核心投放工具</div>
+            </div>
+            <div class="industry-stat reveal reveal-right reveal-d3">
+                <div class="num" data-count="80" data-suffix="%+">80%+</div>
+                <div class="lab">中小达人贡献成交额</div>
+                <div class="desc">粉丝量100万以下的中小达人贡献了超过80%的达人带货成交额</div>
+            </div>
+        </div>
+        <div class="industry-grid">
+            <div class="industry-card reveal reveal-left reveal-d1">
+                <h4><span class="ico">📊</span>618 期间爆发增长</h4>
+                <p>2026年618期间，抖音电商GMV同比增长约19%，超过12万商家直播成交额同比翻倍，超57万带货达人成交额翻倍增长。</p>
+                <div class="highlights"><span class="hl-tag">12万+商家翻倍</span><span class="hl-tag">57万达人翻倍</span></div>
+            </div>
+            <div class="industry-card reveal reveal-right reveal-d2">
+                <h4><span class="ico">🎬</span>短视频带货核心引擎</h4>
+                <p>"挂车短视频+千川投放"是中小商家抢曝光、促转化的核心路径。近90天相关广告视频数超1.1万条，预估总曝光超1.44亿。</p>
+                <div class="highlights"><span class="hl-tag">视频数增长96%</span><span class="hl-tag">曝光增长52%</span></div>
+            </div>
+        </div>
+        <div class="industry-highlight-bar" style="margin-top:28px;padding:clamp(16px,2vw,24px) clamp(18px,2.5vw,24px);border-radius:var(--radius);background:var(--gold-bg);border:1px solid rgba(201,168,76,.08);max-width:1000px;margin-left:auto;margin-right:auto;display:flex;align-items:center;gap:clamp(12px,1.5vw,16px);">
+            <div style="font-size:clamp(1.2rem,1.5vw,1.4rem);flex-shrink:0;">💡</div>
+            <p style="font-size:clamp(.8rem,0.9vw,.88rem);font-weight:400;color:var(--text-sub);line-height:1.7;"><strong style="color:var(--text);font-weight:700;">经营逻辑已转变：</strong>从"拼流量、拼技巧"转向"拼产品、拼内容、拼服务"——短视频种草激发兴趣，直播带货高效转化，货架电商保证复购，投放扩大规模。</p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    PLATFORM
+    ============================================================ -->
+    <section id="platform">
+        <div class="sec-center reveal">
+            <div class="sec-label centered">PLATFORM SUPPORT</div>
+            <div class="sec-title lang-zh">平台持续降本，商家经营门槛降低</div>
+            <div class="sec-title lang-en">Platform Cost Reduction</div>
+            <p class="sec-desc lang-zh">2026年抖音电商全面升级"九大商家扶持政策"，过去一年累计为商家节省成本超过320亿元</p>
+            <p class="sec-desc lang-en">2026 Douyin e-commerce upgraded 9 major merchant support policies, saving over 32B yuan in the past year</p>
+        </div>
+        <div class="platform-grid">
+            <div class="platform-card reveal reveal-left reveal-d1">
+                <h4><span class="ico">🎯</span>免佣政策全面升级</h4>
+                <p>技术服务费减免至0.6%，免佣范围扩展至全类目，适用场景由货架场商品卡进一步覆盖至内容场。</p>
+                <div class="metric"><span class="val">0.6%</span><span class="unit">技术服务费</span></div>
+            </div>
+            <div class="platform-card reveal reveal-right reveal-d2">
+                <h4><span class="ico">💰</span>保证金大幅降低</h4>
+                <p>34个类目保证金下调，超半数类目降幅高于50%，最高达85%，粮油米面、零食等类目保证金降至仅500元。</p>
+                <div class="metric"><span class="val">50%</span><span class="unit">+ 超半数类目降幅</span></div>
+            </div>
+            <div class="platform-card reveal reveal-left reveal-d3">
+                <h4><span class="ico">🔓</span>大批量开放"0元入驻"</h4>
+                <p>首次开放1345个子类目"0元入驻"，进一步降低创业门槛，让更多中小商家零成本进入抖音电商赛道。</p>
+                <div class="metric"><span class="val" data-count="1345" data-format="comma">1,345</span><span class="unit">个子类目0元入驻</span></div>
+            </div>
+            <div class="platform-card reveal reveal-right reveal-d4">
+                <h4><span class="ico">📈</span>推广费返还政策升级</h4>
+                <p>通过"净成交出价"产品，降低秒退订单等无效投放带来的成本损耗，促进结算GMV增长。</p>
+                <div class="metric"><span class="val" data-count="320" data-suffix="亿+">320亿+</span><span class="unit">年度累计节省</span></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    已删除 "商业模式" 模块
+    ============================================================ -->
+
+    <!-- ============================================================
+    QIANCHUAN
+    ============================================================ -->
+    <section id="qianchuan">
+        <div class="sec-center reveal">
+            <div class="sec-label centered">QIANCHUAN PLAYBOOK</div>
+            <div class="sec-title lang-zh">千川投流核心玩法</div>
+            <div class="sec-title lang-en">Qianchuan Core Playbook</div>
+            <p class="sec-desc lang-zh">从素材制作到数据优化，跑通千川投放的完整闭环，让每一分钱都花在刀刃上</p>
+            <p class="sec-desc lang-en">From creative production to data optimization — a complete Qianchuan loop for maximum ROI</p>
+        </div>
+        <div class="qianchuan-grid">
+            <div class="qc-card reveal reveal-left reveal-d1">
+                <div class="qc-icon">🧠</div>
+                <div class="qc-tag">底层逻辑</div>
+                <h3>付费撬动自然流量</h3>
+                <p>千川投放的本质是"付费流量放大器"——用精准的付费投放撬动自然推荐流量，形成"付费测品 → 自然爆发 → 付费放大"的正循环。</p>
+                <div class="qc-points"><span>付费测品</span><span>自然爆发</span><span>付费放大</span></div>
+            </div>
+            <div class="qc-card reveal reveal-scale reveal-d2">
+                <div class="qc-icon">🎬</div>
+                <div class="qc-tag">素材制作</div>
+                <h3>爆款素材黄金公式</h3>
+                <p><strong>3秒抓眼球</strong>（黄金开头）+ <strong>场景化表达</strong>（用户共情）+ <strong>强转化钩子</strong>（促单行动）。"场景触发型"素材仅占15%数量，ROI可达1.8-3.0+。</p>
+                <div class="qc-points"><span>3秒开头</span><span>场景共情</span><span>转化钩子</span></div>
+                <div class="qc-metric">ROI 1.8~3.0 <small>场景触发型素材</small></div>
+            </div>
+            <div class="qc-card reveal reveal-scale reveal-d3">
+                <div class="qc-icon">📦</div>
+                <div class="qc-tag">选品策略</div>
+                <h3>数据驱动 · 蓝海选品</h3>
+                <p>聚焦<strong>高转化、高毛利、低竞争</strong>的蓝海品类。通过抖音电商罗盘数据筛选潜力爆品，小成本测品验证，跑通后快速复制放量。</p>
+                <div class="qc-points"><span>高转化</span><span>高毛利</span><span>低竞争</span></div>
+                <div class="qc-metric">测品成本 <small>¥500~2000/品</small></div>
+            </div>
+            <div class="qc-card reveal reveal-right reveal-d4">
+                <div class="qc-icon">📈</div>
+                <div class="qc-tag">数据优化闭环</div>
+                <h3>监控 → 迭代 → 放大</h3>
+                <p>紧盯 <strong>ROI、素材点击率、转化率、完播率</strong> 四大核心指标。跑不动及时关停替换，跑量好增加预算放大，形成持续优化的数据闭环。</p>
+                <div class="qc-points"><span>ROI监控</span><span>素材迭代</span><span>预算放大</span></div>
+                <div class="qc-metric">4大核心指标 <small>驱动优化决策</small></div>
+            </div>
+        </div>
+        <div class="industry-highlight-bar" style="margin-top:32px;max-width:1100px;margin-left:auto;margin-right:auto;padding:clamp(16px,2vw,24px) clamp(18px,2.5vw,24px);border-radius:var(--radius);background:var(--gold-bg);border:1px solid rgba(201,168,76,.08);display:flex;align-items:center;gap:clamp(12px,1.5vw,16px);">
+            <div style="font-size:clamp(1.2rem,1.5vw,1.4rem);flex-shrink:0;">⚡</div>
+            <p style="font-size:clamp(.8rem,0.9vw,.88rem);font-weight:400;color:var(--text-sub);line-height:1.7;"><strong style="color:var(--text);font-weight:700;">千川投放核心心法：</strong>素材是灵魂，数据是眼睛，迭代是生命。每天发布1-2条带货视频，保持素材新鲜度，用数据指导每一次预算分配。</p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    PROFIT
+    ============================================================ -->
+    <section id="profit" class="alt-bg">
+        <div class="profit-top">
+            <div class="reveal reveal-left">
+                <div class="sec-label">PROFIT MODEL</div>
+                <div class="sec-title lang-zh">项目盈利预期</div>
+                <div class="sec-title lang-en">Profit Projection</div>
+                <p class="sec-desc" style="margin-bottom:16px;"><span class="lang-zh">真实数据 · 可复制的盈利模型。核心模式：<strong>店群矩阵是该项目最核心的盈利引擎</strong></span><span class="lang-en">Real data · Replicable profit model. Core: <strong>Shop matrix is the key profit engine</strong></span></p>
+                <div class="profit-stat-row">
+                    <div class="profit-stat"><div class="num">¥1,000+</div><div class="lab">单店月盈利</div></div>
+                    <div class="profit-stat"><div class="num">¥6,000+</div><div class="lab">单店基础投入</div></div>
+                    <div class="profit-stat"><div class="num">∞</div><div class="lab">规模上不封顶</div></div>
+                </div>
+            </div>
+            <div class="reveal reveal-right">
+                <div class="profit-visual"><div class="big">N×∞</div><div class="tag">店群矩阵 · 规模不设限</div></div>
+            </div>
+        </div>
+        <div class="profit-path-lb reveal" style="text-align:center;margin-bottom:20px;">
+            <div class="sec-label centered">PROGRESSION</div>
+            <div class="sec-title" style="font-size:clamp(1.1rem,1.3vw,1.3rem);"><span class="lang-zh">盈利进阶路径</span><span class="lang-en">Profit Growth Path</span></div>
+        </div>
+        <div class="profit-path">
+            <div class="profit-stage reveal reveal-d1"><div class="sn">PHASE 01</div><h3>新手期 · 单店试水</h3><div class="sd">熟悉完整运营流程，跑通单店模型</div><div class="sr">¥1,000+ <span>/月</span></div></div>
+            <div class="profit-stage reveal reveal-d2"><div class="sn">PHASE 02</div><h3>成长期 · 3 店矩阵</h3><div class="sd">熟悉操作后，多店联动收益倍增</div><div class="sr">~¥8,000 <span>/月</span></div></div>
+            <div class="profit-stage reveal reveal-d3"><div class="sn">PHASE 03</div><h3>成熟期 · 10 店矩阵</h3><div class="sd">10 店同跑，叠加额外分成，规模上不封顶</div><div class="sr">持续攀升 <span>→ 无上限</span></div></div>
+        </div>
+        <div class="profit-summary reveal">
+            <span class="lang-zh"><strong>一句话总结：</strong>单店是起点，店群是核心。前期用 1 个店跑通模型，后期用 <em>N 个店</em> 放大收益——这套项目的核心不是开一个店，而是用店群抢占赛道红利。</span>
+            <span class="lang-en"><strong>In short:</strong> One shop is the start, the shop matrix is the core. Use 1 shop to validate, then scale with <em>N shops</em> to capture market share.</span>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    STRATEGIES
+    ============================================================ -->
+    <section id="strategies">
+        <div class="sec-center reveal">
+            <div class="sec-label centered">STRATEGIES</div>
+            <div class="sec-title lang-zh">三种商业策略</div>
+            <div class="sec-title lang-en">Three Business Strategies</div>
+            <p class="sec-desc lang-zh">给你不同起点，也给你随时弯道超车的机会——商业节奏由你掌控。</p>
+            <p class="sec-desc lang-en">Different entry points, and the flexibility to pivot — you control the pace.</p>
+        </div>
+        <div class="strat-grid">
+            <div class="strat-card reveal reveal-left reveal-d1"><div class="snum">01</div><span class="stag">STEP BY STEP</span><h3>阶梯进化策略</h3><p>从独立合伙人起步，轻资产入局验证跑通后，进阶平台合伙人锁定店群红利，最终进化至生态合伙人建立自有商业生态。</p></div>
+            <div class="strat-card reveal reveal-scale reveal-d2"><div class="snum">02</div><span class="stag">ALL IN</span><h3>跨越式一步到位</h3><p>直接签约生态合伙人，省去中间积累环节，直接享受不限量店铺、自主招商收益或全链路技术交付。</p></div>
+            <div class="strat-card reveal reveal-right reveal-d3"><div class="snum">03</div><span class="stag">DUAL TRACK</span><h3>叠加式并行策略</h3><p>独立或平台合伙人做到一定规模后，直接签约生态合伙人——原方案权益不受影响，双线并行，收益翻倍。</p></div>
+        </div>
+        <div class="strat-note reveal">
+            💡 <span class="lang-zh">三套方案独立运营、不支持补差价升级，但你可以随时直接签约更高级别。<strong>商业节奏由你掌控。</strong></span>
+            <span class="lang-en">The three plans are independent with no upgrade path, but you can directly sign up for a higher tier at any time. <strong>You control the pace.</strong></span>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    PLANS
+    ============================================================ -->
+    <section class="alt-bg" id="plans">
+        <div class="sec-center reveal">
+            <div class="sec-label centered">PARTNERSHIP PLANS</div>
+            <div class="sec-title lang-zh">三种合作方案，任你选择</div>
+            <div class="sec-title lang-en">Choose Your Partnership Plan</div>
+            <p class="sec-desc lang-zh">从轻资产入局到建立自有商业生态，白马联创给你不同起点，也给你随时弯道超车的机会。</p>
+            <p class="sec-desc lang-en">From light-asset entry to building your own ecosystem — BMLC gives you the flexibility to grow at your own pace.</p>
+        </div>
+        <div class="plans-grid">
+            <!-- 方案一 -->
+            <div class="plan-card reveal reveal-left reveal-d1">
+                <span class="plan-badge basic">STARTER</span>
+                <div class="plan-name">独立合伙人</div>
+                <div class="plan-tagline">以独立姿态入局，轻资产起步</div>
+                <div class="plan-pos">个体创业者的最佳起点</div>
+                <div class="plan-price">
+                    <div class="amt"><span class="cur">¥</span>500<span class="cur"> /店</span></div>
+                    <div class="note">技术服务费，每个店铺首次开通时收取</div>
+                </div>
+                <ul class="plan-feat">
+                    <li class="hl">利润分配 <strong>65%</strong> 归你 / <strong>35%</strong> 归平台</li>
+                    <li>📖 全流程开店指导</li>
+                    <li>⚙️ 千川计划开通运营</li>
+                    <li>📚 店铺起店运营教学</li>
+                    <li>👨‍🏫 1对1专属运营顾问</li>
+                    <li class="profit-metric">📈 单店月盈利 <strong>1,000+</strong> 元</li>
+                </ul>
+                <div class="plan-why"><h4>💎 为什么选择独立合伙人？</h4><p>以独立姿态入局，用执行力换资源。每个店铺仅首次开通时收取500元技术服务费，后续不再重复收取。跑通模型后即可验证自己是否适合这个赛道。</p></div>
+                <a href="#contact" class="plan-btn out"><span class="lang-zh">了解详情</span><span class="lang-en">Learn More</span></a>
+                <div class="plan-note">⚠ <span class="lang-zh">本方案为独立专属合作，不支持补差价升级。</span><span class="lang-en">This plan is independent and does not support upgrades.</span></div>
+            </div>
+            <!-- 方案二 -->
+            <div class="plan-card reveal reveal-scale reveal-d2">
+                <span class="plan-badge mid">GROWTH</span>
+                <div class="plan-name">平台合伙人</div>
+                <div class="plan-tagline">背靠平台资源，规模化扩张</div>
+                <div class="plan-pos">团队化、批量化、规模化的商业操盘手</div>
+                <div class="plan-price">
+                    <div class="amt"><span class="cur">¥</span>12,980</div>
+                    <div class="note">一次性投资，终身商业权益</div>
+                </div>
+                <ul class="plan-feat">
+                    <li class="hl">利润分配 <strong>80%</strong> 归你 / <strong>20%</strong> 归平台</li>
+                    <li>📖 全流程开店指导</li>
+                    <li>⚙️ 千川计划开通运营</li>
+                    <li>📚 店铺起店运营教学</li>
+                    <li>👨‍🏫 1对1专属运营顾问</li>
+                    <li>🏪 <strong>30店</strong> 矩阵开通，团队化操盘</li>
+                    <li class="profit-metric">📈 单店月盈利 <strong>1,000+</strong> 元</li>
+                </ul>
+                <div class="plan-highlight-box"><strong>扩容机制：</strong>超出30店部分，每新增1店仅收取 <span class="big-number">500元</span> 开通费，灵活扩容。</div>
+                <div class="plan-why"><h4>💎 为什么选择平台合伙人？</h4><p>单店是加法，店群是乘法。一次投入锁定平台级长期复利——30店矩阵批量起盘。按单店月盈利2,000元、30家店计算：<strong>30×2,000×80% = 48,000元/月</strong>。</p></div>
+                <a href="#contact" class="plan-btn out"><span class="lang-zh">了解详情</span><span class="lang-en">Learn More</span></a>
+                <div class="plan-note">⚠ <span class="lang-zh">本方案为独立专属合作，不支持补差价升级。</span><span class="lang-en">This plan is independent and does not support upgrades.</span></div>
+            </div>
+            <!-- 方案三 -->
+            <div class="plan-card featured reveal reveal-right reveal-d3">
+                <span class="plan-badge pro">ELITE</span>
+                <div class="plan-name">生态合伙人</div>
+                <div class="plan-tagline">自建商业生态，全链自主运营</div>
+                <div class="plan-pos">平台级操盘手，建立自有商业生态系统</div>
+                <div class="plan-price">
+                    <div class="amt" style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
+                        <span><span class="cur">¥</span>36,980</span>
+                        <span style="font-size:clamp(.7rem,0.8vw,.9rem);font-weight:400;color:var(--text-muted);font-family:var(--font-b);">/ 平台版</span>
+                        <span style="font-size:clamp(.7rem,0.8vw,.9rem);font-weight:400;color:var(--text-muted);font-family:var(--font-b);">·</span>
+                        <span><span class="cur">¥</span>69,880</span>
+                        <span style="font-size:clamp(.7rem,0.8vw,.9rem);font-weight:400;color:var(--text-muted);font-family:var(--font-b);">/ 招商版</span>
+                    </div>
+                    <div class="note">一次性投资，终身商业权益</div>
+                </div>
+                <ul class="plan-feat">
+                    <li class="hl">利润分配 <strong>100%</strong> 归你 / <strong>0%</strong> 归平台</li>
+                    <li>📖 全流程开店指导</li>
+                    <li>⚙️ 千川计划开通运营</li>
+                    <li>📚 店铺起店运营教学</li>
+                    <li>👨‍🏫 1对1专属运营顾问</li>
+                    <li>🏢 团队搭建与管理培训</li>
+                    <li>📈 店铺开通数量 <strong>不设上限</strong></li>
+                    <li>🏷️ 自主招商权限开通，收益全归自己</li>
+                    <li class="hl">🆓 永久免除技术服务费与运营管理费</li>
+                    <li class="profit-metric">📈 单店月盈利 <strong>1,000+</strong> 元</li>
+                </ul>
+                <div class="plan-extra-features">
+                    <div class="extra-title">招商版额外叠加 · 全链交付</div>
+                    <ul>
+                        <li>🎯 项目核心技术方法论（完整商业闭环认知与可复制体系）</li>
+                        <li>🎬 千川短视频全链路（素材采集→制作→上传）</li>
+                        <li>🛒 商品运营全流程SOP（选品→测品→上架）</li>
+                        <li>📣 招商系统方案与成交话术</li>
+                        <li>🏪 线上线下工作室发展模式</li>
+                        <li>🔐 独立千川管理主账户（自主审核绑定店铺素材账户）</li>
+                        <li>📡 千川代理商端口对接群</li>
+                        <li>📋 配套商业权益持续更新</li>
+                    </ul>
+                </div>
+                <div class="plan-why"><h4>💎 为什么选择生态合伙人？</h4><p>你不是在找项目，你是在建生态。白马联创给你平台、给你技术、给你自主权——店铺数量不设上限，100%收益归自己，自己定义商业天花板。</p></div>
+                <a href="#contact" class="plan-btn fill"><span class="lang-zh">立即签约</span><span class="lang-en">Sign Up</span></a>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    TEAM
+    ============================================================ -->
+    <section id="team">
+        <div class="team-header-center reveal" style="text-align:center;max-width:720px;margin:0 auto 36px;">
+            <div class="sec-label centered">CORE TEAM</div>
+            <div class="sec-title lang-zh">核心团队</div>
+            <div class="sec-title lang-en">Core Team</div>
+            <p class="sec-desc lang-zh" style="margin:0 auto;">千万级流量操盘手带队，你不需要很厉害才能加入，但加入后你会变得很厉害。</p>
+            <p class="sec-desc lang-en" style="margin:0 auto;">Led by 10M+ traffic operators. You don't need to be great to join — but you will become great.</p>
+        </div>
+        <div class="team-leaders">
+            <div class="team-card reveal reveal-left reveal-d1">
+                <div class="team-card-hd">
+                    <div class="team-av">白</div>
+                    <div><div class="team-nm">白马</div><div class="team-role">项目总负责人</div><div class="team-wx">微信：BMLC888999 <button class="copy-btn" onclick="copyWx('BMLC888999',this)">复制</button></div></div>
+                </div>
+                <div class="team-skills"><span class="team-skill">招商转化</span><span class="team-skill">方案匹配</span><span class="team-skill">合伙人孵化</span><span class="team-skill">权益落地</span></div>
+                <div class="team-phil">"从实战中来，到实战中去。所有方法论均经过团队反复验证，可复制、可落地。"</div>
+            </div>
+            <div class="team-card reveal reveal-right reveal-d2">
+                <div class="team-card-hd">
+                    <div class="team-av">冠</div>
+                    <div><div class="team-nm">冠宇</div><div class="team-role">项目合伙人</div><div class="team-wx">微信：y18889978468 <button class="copy-btn" onclick="copyWx('y18889978468',this)">复制</button></div></div>
+                </div>
+                <div class="team-skills"><span class="team-skill">战略规划</span><span class="team-skill">投流技术</span><span class="team-skill">团队搭建</span><span class="team-skill">项目交付</span></div>
+                <div class="team-phil">"精准匹配、透明沟通、长期陪跑，让每一位合伙人找到最适合自己的入局方式。"</div>
+            </div>
+        </div>
+        <div class="team-banner reveal">
+            <p><span class="lang-zh"><strong>开放招募中</strong> —— 白马联创核心团队，以实战验证的方法论，带你跑通私域商业模型。</span><span class="lang-en"><strong>Now Recruiting</strong> — Join BMLC's core team and master the private-domain business model with battle-tested methodologies.</span></p>
+            <a href="#contact" class="btn-fill" style="flex-shrink:0;"><span class="lang-zh">加入团队</span><span class="lang-en">Join Team</span></a>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    TERMS
+    ============================================================ -->
+    <section id="terms" class="alt-bg">
+        <div class="sec-center reveal">
+            <div class="sec-label centered">COOPERATION TERMS</div>
+            <div class="sec-title lang-zh">统一合作说明</div>
+            <div class="sec-title lang-en">Cooperation Terms</div>
+            <p class="sec-desc lang-zh">透明、规范、有保障的合作机制</p>
+            <p class="sec-desc lang-en">Transparent, standardized, and secured partnership</p>
+        </div>
+        <div class="terms-grid">
+            <div class="term-item reveal reveal-d1"><div class="term-ico">💳</div><div class="term-text"><h4>技术服务费</h4><p>独立/平台合伙人收取 5%；生态合伙人永久免除</p></div></div>
+            <div class="term-item reveal reveal-d2"><div class="term-ico">👥</div><div class="term-text"><h4>运营管理支持</h4><p>如需团队协助收取 3%～5% 服务费；生态合伙人永久免除</p></div></div>
+            <div class="term-item reveal reveal-d3"><div class="term-ico">🔒</div><div class="term-text"><h4>费用透明</h4><p>签约前确认所有明细，合作中无隐藏追加</p></div></div>
+            <div class="term-item reveal reveal-d1"><div class="term-ico">⏳</div><div class="term-text"><h4>权益终身制</h4><p>一次性付费，长期享受，无需年费或续约</p></div></div>
+            <div class="term-item reveal reveal-d2"><div class="term-ico">🔄</div><div class="term-text"><h4>技术实时更新</h4><p>投流玩法、选品策略、运营 SOP 随平台规则同步迭代</p></div></div>
+            <div class="term-item reveal reveal-d3"><div class="term-ico">🤝</div><div class="term-text"><h4>专属运营对接</h4><p>每套方案配备专属运营顾问，全程陪跑</p></div></div>
+            <div class="term-item reveal reveal-d1"><div class="term-ico">🚫</div><div class="term-text"><h4>方案升级说明</h4><p>均为独立专属方案，不支持补差价升级，可直接签约更高级别</p></div></div>
+            <div class="term-item reveal reveal-d2"><div class="term-ico">💰</div><div class="term-text"><h4>退出保障</h4><p>合作终止时押金类费用按约定退还，无隐性扣款</p></div></div>
+            <div class="term-item reveal reveal-d3"><div class="term-ico">📄</div><div class="term-text"><h4>合同保障</h4><p>签署正式商业合作协议，明确双方权责</p></div></div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    PROCESS
+    ============================================================ -->
+    <section id="process">
+        <div class="sec-center reveal">
+            <div class="sec-label centered">PROCESS</div>
+            <div class="sec-title lang-zh">招商合作流程</div>
+            <div class="sec-title lang-en">Partnership Process</div>
+            <p class="sec-desc lang-zh">六步走，从咨询到持续赋能，全程陪跑。</p>
+            <p class="sec-desc lang-en">Six steps — from consultation to continuous empowerment, with full support.</p>
+        </div>
+        <div class="process-tl">
+            <div class="process-step reveal"><div class="dot"></div><div class="sl">STEP 01</div><h3>商业咨询</h3><p>意向合伙人通过官方渠道提交合作意向，招商顾问 1对1 了解诉求，精准推荐匹配方案。</p></div>
+            <div class="process-step reveal reveal-d1"><div class="sl">STEP 02</div><h3>方案定制</h3><p>根据合伙人实际情况，定制化解读方案权益细则、费用结构及收益测算模型。</p></div>
+            <div class="process-step reveal reveal-d2"><div class="sl">STEP 03</div><h3>签约付款</h3><p>签署正式《商业合伙人合作协议》，明确权责、分成比例、结算周期及退出条款。</p></div>
+            <div class="process-step reveal reveal-d3"><div class="sl">STEP 04</div><h3>权益开通</h3><p>1-3 个工作日内开通全部商业权益：店铺绑定、SOP 交付、运营顾问对接。</p></div>
+            <div class="process-step reveal reveal-d4"><div class="sl">STEP 05</div><h3>系统培训</h3><p>系统性商业培训（开店指导、选品数据、投流技术、店群管理），全程陪跑。</p></div>
+            <div class="process-step reveal"><div class="sl">STEP 06</div><h3>持续赋能</h3><p>技术玩法持续更新、平台规则同步迭代、新权益动态交付——长期陪跑。</p></div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+    CTA
+    ============================================================ -->
+    <section class="alt-bg" id="contact" style="padding:clamp(48px,10vw,100px) clamp(16px,5vw,64px);text-align:center;position:relative;overflow:hidden;">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse 55% 45% at 50% 55%,rgba(201,168,76,.04),transparent 70%);"></div>
+        <div class="cta-inner" style="position:relative;z-index:2;">
+            <div class="sec-label centered">CONTACT US</div>
+            <h2><span class="lang-zh">加入<span class="g">白马联创</span><br />核心圈层</span><span class="lang-en">Join <span class="g">BMLC</span><br />Core Circle</span></h2>
+            <p><span class="lang-zh">成为真正的掌局者。给你平台、给你技术、给你自主权——<br />赚多赚少，取决于你的商业野心。</span><span class="lang-en">Become a true decision-maker. Platform, tech, autonomy — <br />your earnings are defined by your ambition.</span></p>
+            <div class="cta-btns">
+                <a class="btn-fill" onclick="copyWx('BMLC888999')"><span class="lang-zh">微信咨询</span><span class="lang-en">WeChat</span></a>
+                <a href="#plans" class="btn-line"><span class="lang-zh">查看合作方案</span><span class="lang-en">View Plans</span></a>
+            </div>
+            <div class="cta-contacts">
+                <div class="cta-ci" onclick="copyWx('BMLC888999')">
+                    <div class="ico">👤</div>
+                    <div class="inf"><div class="nm">白马 · 项目总负责人</div><div class="wx">BMLC888999 <span class="ci-cp">[复制]</span></div></div>
+                    <span class="ci-badge" id="cb1">已复制</span>
+                </div>
+                <div class="cta-ci" onclick="copyWx('y18889978468')">
+                    <div class="ico">👤</div>
+                    <div class="inf"><div class="nm">冠宇 · 项目合伙人</div><div class="wx">y18889978468 <span class="ci-cp">[复制]</span></div></div>
+                    <span class="ci-badge" id="cb2">已复制</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="footer-l"><span class="g">●</span>&nbsp; 白马联创 · BMLC</div>
+        <div class="footer-r">&copy; 2025 白马联创. All rights reserved.</div>
+    </footer>
+
+    <!-- ============================================================
+    BACK TOP (右下角)
+    ============================================================ -->
+    <div class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        ↑
+        <svg width="50" height="50"><circle cx="25" cy="25" r="20" /></svg>
+    </div>
+
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
+    <script>
+        // ---- Loader ----
+        window.addEventListener('load', () => setTimeout(() => {
+            const loader = document.getElementById('loader');
+            if (loader) loader.classList.add('done');
+        }, 1200));
+
+        // ---- Theme Switcher (6套) ----
+        const themeBtns = document.querySelectorAll('.ts-btn');
+        const html = document.documentElement;
+
+        function setTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            themeBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.theme === theme);
+            });
+            const dot = document.querySelector('.theme-switcher-toggle .dot-indicator');
+            if (dot) {
+                const computed = getComputedStyle(html);
+                dot.style.background = computed.getPropertyValue('--gold').trim();
+                dot.style.transform = 'scale(1.2)';
+                setTimeout(() => { dot.style.transform = 'scale(1)'; }, 300);
+            }
+        }
+
+        themeBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const theme = this.dataset.theme;
+                setTheme(theme);
+                document.getElementById('themeSwitcher').classList.remove('open');
+                document.getElementById('themeToggle').classList.remove('open');
+            });
+        });
+
+        // ---- 主题切换器折叠 ----
+        const toggleBtn = document.getElementById('themeToggle');
+        const switcher = document.getElementById('themeSwitcher');
+
+        toggleBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            switcher.classList.toggle('open');
+            this.classList.toggle('open');
+        });
+
+        document.addEventListener('click', function(e) {
+            const wrapper = document.querySelector('.theme-switcher-wrapper');
+            if (wrapper && !wrapper.contains(e.target)) {
+                switcher.classList.remove('open');
+                toggleBtn.classList.remove('open');
+            }
+        });
+
+        // ---- 双语切换 ----
+        function setLang(lang) {
+            document.body.setAttribute('data-lang', lang);
+            document.querySelectorAll('.lang-toggle button, .mob-lang button').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+
+        document.querySelectorAll('.lang-toggle button, .mob-lang button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                setLang(this.dataset.lang);
+            });
+        });
+
+        // ---- 默认激活主题1 ----
+        setTheme('style-1');
+
+        // ---- Scroll Progress ----
+        const sp = document.getElementById('scrollProg');
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement.scrollHeight - window.innerHeight;
+            sp.style.width = (window.scrollY / h * 100) + '%';
+        }, { passive: true });
+
+        // ---- Reveal - 优化触发 ----
+        const revealObserver = new IntersectionObserver(es => {
+            es.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    revealObserver.unobserve(e.target);
+                }
+            })
+        }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+        document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // ---- Nav Scroll ----
+        window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+
+        // ---- Back Top ----
+        const bt = document.getElementById('backTop'),
+            bc = bt.querySelector('circle');
+        window.addEventListener('scroll', () => {
+            const sY = window.scrollY;
+            bt.classList.toggle('show', sY > 400);
+            const h = document.documentElement.scrollHeight - window.innerHeight;
+            bc.style.strokeDashoffset = 151 - (151 * (sY / h));
+        }, { passive: true });
+
+        // ---- Mobile Menu ----
+        const mt = document.getElementById('mobileToggle'),
+            mm = document.getElementById('mobileMenu');
+
+        function openMenu() { mm.classList.add('open');
+            mt.classList.add('active');
+            document.body.style.overflow = 'hidden'; }
+
+        function closeMenu() { mm.classList.remove('open');
+            mt.classList.remove('active');
+            document.body.style.overflow = ''; }
+        mt.addEventListener('click', () => { mm.classList.contains('open') ? closeMenu() : openMenu(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+        // ---- Smooth Scroll ----
+        document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
+            const h = this.getAttribute('href');
+            if (h === '#') return;
+            const t = document.querySelector(h);
+            if (t) { e.preventDefault();
+                window.scrollTo({ top: t.offsetTop - 62, behavior: 'smooth' }); }
+        }));
+
+        // ---- Hero Char Animation ----
+        (function() {
+            const el = document.getElementById('heroBrand');
+            if (!el) return;
+            const t = el.textContent;
+            el.innerHTML = '';
+            t.split('').forEach((c, i) => {
+                const s = document.createElement('span');
+                s.className = 'char';
+                s.textContent = c;
+                s.style.animationDelay = (.35 + i * .08) + 's';
+                el.appendChild(s);
+            });
+        })();
+
+        // ---- Floating Contact ----
+        const fb = document.getElementById('floatBtn'),
+            fp = document.getElementById('floatPanel');
+        let fpOpen = false;
+        fb.addEventListener('click', () => { fpOpen = !fpOpen;
+            fp.classList.toggle('open', fpOpen); });
+        document.addEventListener('click', e => { if (!document.getElementById('floatContact').contains(e.target)) { fpOpen =
+                false;
+                fp.classList.remove('open'); } });
+        window.addEventListener('scroll', () => fb.classList.toggle('show', window.scrollY > 300), { passive: true });
+
+        // ---- Copy ----
+        function copyWx(text, btnEl) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('已复制微信号：' + text);
+                if (btnEl && btnEl.classList) { btnEl.classList.add('copied');
+                    btnEl.textContent = '已复制';
+                    setTimeout(() => { btnEl.classList.remove('copied');
+                        btnEl.textContent = '复制'; }, 1500); }
+                document.querySelectorAll('.ci-badge').forEach(b => b.classList.remove('show'));
+                if (text === 'BMLC888999') { const b = document.getElementById('cb1'); if (b) { b.classList.add('show');
+                        setTimeout(() => b.classList.remove('show'), 1800); } }
+                if (text === 'y18889978468') { const b = document.getElementById('cb2'); if (b) { b.classList.add('show');
+                        setTimeout(() => b.classList.remove('show'), 1800); } }
+                document.querySelectorAll('.fp-cp').forEach(b => {
+                    if (b.closest('.fp-item').querySelector('.fp-wx').textContent.includes(text)) {
+                        b.classList.add('copied');
+                        b.textContent = '已复制';
+                        setTimeout(() => { b.classList.remove('copied');
+                            b.textContent = '复制'; }, 1500);
+                    }
+                });
+            }).catch(() => {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.cssText = 'position:fixed;opacity:0';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                showToast('已复制微信号：' + text);
+            });
+        }
+
+        let toastTimer;
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            document.getElementById('toastText').textContent = msg;
+            t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+        }
+
+        // ---- Counter ----
+        const cObs = new IntersectionObserver(es => {
+            es.forEach(e => {
+                if (e.isIntersecting && !e.target.dataset.counted) {
+                    e.target.dataset.counted = 'true';
+                    runCount(e.target);
+                }
+            })
+        }, { threshold: 0.4 });
+        document.querySelectorAll('[data-count]').forEach(el => cObs.observe(el));
+
+        function runCount(el) {
+            const target = parseInt(el.dataset.count),
+                suffix = el.dataset.suffix || '',
+                fmt = el.dataset.format,
+                dur = 1200,
+                start = performance.now();
+
+            function up(now) {
+                const p = Math.min((now - start) / dur, 1);
+                const ease = 1 - Math.pow(1 - p, 3);
+                const v = Math.floor(target * ease);
+                el.textContent = (fmt === 'comma' ? v.toLocaleString() : v) + suffix;
+                if (p < 1) requestAnimationFrame(up);
+                else el.textContent = (fmt === 'comma' ? target.toLocaleString() : target) + suffix;
+            }
+            requestAnimationFrame(up);
+        }
+
+        // ---- Button Ripple ----
+        document.querySelectorAll('.btn-fill').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const r = document.createElement('span');
+                r.style.cssText =
+                    'position:absolute;border-radius:50%;background:rgba(201,168,76,.15);transform:scale(0);animation:ripple .6s ease-out forwards;pointer-events:none';
+                const rc = this.getBoundingClientRect(),
+                    sz = Math.max(rc.width, rc.height);
+                r.style.width = r.style.height = sz + 'px';
+                r.style.left = (e.clientX - rc.left - sz / 2) + 'px';
+                r.style.top = (e.clientY - rc.top - sz / 2) + 'px';
+                this.appendChild(r);
+                setTimeout(() => r.remove(), 700);
+            })
+        });
+        const ripStyle = document.createElement('style');
+        ripStyle.textContent = '@keyframes ripple{to{transform:scale(4);opacity:0}}';
+        document.head.appendChild(ripStyle);
+
+        // ---- 卡片进入动画增强 ----
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    setTimeout(() => { el.classList.add('visible'); }, 100);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
